@@ -15,3 +15,5 @@ The client project has been split into two phases, with the development team foc
  * Phase Two: Generate revenue from online purchases/subscriptions of content
  
  test commit from Clayton.
+
+more tests from Jared
