@@ -18,6 +18,10 @@ The client project has been split into two phases, with the development team foc
 
 more tests from Jared
 
+<<<<<< contributor-test
+even more tests from Jared
+
 ## Challenges
 
 - Github is displaying the incorrect number of contributors after Clayton made his first commit, carried out tests to rectify the number.
+>>>>>> master
