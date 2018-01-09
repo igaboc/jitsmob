@@ -13,15 +13,7 @@ It currently has a social media presence on Instagram (@JitsMob), [YouTube](http
 The client project has been split into two phases, with the development team focusing on delivering phase one.
  * Phase One: Increase online presence and followers with the assistance of a website for the company
  * Phase Two: Generate revenue from online purchases/subscriptions of content
- 
- test commit from Clayton.
-
-more tests from Jared
-
-<<<<<< contributor-test
-even more tests from Jared
 
 ## Challenges
 
-- Github is displaying the incorrect number of contributors after Clayton made his first commit, carried out tests to rectify the number.
->>>>>> master
+- Github is displaying the incorrect number of contributors after Clayton made his first commit, carried out tests to rectify the number. Problem was resolved, either github was slow to update or the tests we carried out had some kind of effect.
