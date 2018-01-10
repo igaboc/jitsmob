@@ -13,7 +13,7 @@ server.use(bodyParser.json()) // Allows me to have JSON uploads (POST/PUT/PATCH)
 // Routes
 server.use([
   require('./routes/content'),
-  // require('./routes/auth'),
+  require('./routes/auth')
   // require('./routes/wishlist'),
 ])
 

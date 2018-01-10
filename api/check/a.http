@@ -2,4 +2,12 @@
 GET http://localhost:7000/contents
 
 ###
-GET http://localhost:7000/…
+POST http://localhost:7000/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@mail.com",
+  "firstName": "TestFN",
+  "lastName": "TestFN",
+  "password": "password123"
+}
