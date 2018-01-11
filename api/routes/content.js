@@ -48,13 +48,13 @@ router.put('/contents/:id', authMiddleware.requireJWT, (req, res) => {
 // Remove product from wishlist
 router.delete('/contents/:id', authMiddleware.requireJWT, (req, res) => {
   const { id } = req.params
-  const removedContent = Content.destroy(id)
-  if (removedContent) {
-    res.json(removedContent)
-  }
-  else {
-    res.status(404).json({ error: `Content with id '${id}' was not found` })
-  }
+  Content.findByIdAndRemove(id)
+    .then((content) => {
+      res.json(content)
+    })
+    .catch((error) => {
+      res.status(404).json({error: `Content with id, '${ id}' was not found` } )
+    })
 })
 
 module.exports = router
