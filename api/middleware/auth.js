@@ -65,7 +65,7 @@ passport.use(new PassportJwt.Strategy(
 
 function signJWTForAdmin(req, res) {
   // Get the user (either just signed in or signed up)
-  const admin = req.admin
+  const admin = req.user
   // Create a signed token
   const token = JWT.sign(
     // Payload
