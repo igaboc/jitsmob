@@ -19,6 +19,7 @@ Content-Type: application/json
   "password": "password123",
   "email": "test@mail.com"
 }
+<<<<<<< HEAD
 ### Create Content
 POST http://localhost:7000/contents
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE1MTU2MzQ1NjIsImV4cCI6MTUxNjIzOTM2Miwic3ViIjoiNWE1NTlmOTI4NTg3MGUwN2I0MjhmZTVmIn0.EendFFhK794DxlSObZbbZVSeZh9x9QTEPWhej6BVH14
@@ -46,3 +47,25 @@ DELETE http://localhost:7000/contents/5a56c08bd6cece1368823525
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE1MTU2MzQ1NjIsImV4cCI6MTUxNjIzOTM2Miwic3ViIjoiNWE1NTlmOTI4NTg3MGUwN2I0MjhmZTVmIn0.EendFFhK794DxlSObZbbZVSeZh9x9QTEPWhej6BVH14
 
 
+=======
+
+### POST Subscriber email
+POST http://localhost:7000/subscribers
+Content-Type: application/json
+
+{
+  "email": "subscribertest2@mail.com"
+}
+### POST No Subscriber email
+POST http://localhost:7000/subscribers
+Content-Type: application/json
+
+{
+  "email": ""
+}
+### GET Subscribers List
+GET http://localhost:7000/subscribers
+
+### DELETE Subscriber
+DELETE http://localhost:7000/subscribers/5a56db71cba7f15514f63758
+>>>>>>> ade3e535f738c92efcee705f3ad525b33974c93f

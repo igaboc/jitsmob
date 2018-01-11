@@ -13,7 +13,8 @@ server.use(authMiddleware.initialize) // Kick passport off
 // Routes
 server.use([
   require('./routes/content'),
-  require('./routes/auth')
+  require('./routes/auth'),
+  require('./routes/subscriber')
   // require('./routes/wishlist'),
 ])
 
