@@ -19,3 +19,23 @@ Content-Type: application/json
   "password": "password123",
   "email": "test@mail.com"
 }
+
+### POST Subscriber email
+POST http://localhost:7000/subscribers
+Content-Type: application/json
+
+{
+  "email": "subscribertest2@mail.com"
+}
+### POST No Subscriber email
+POST http://localhost:7000/subscribers
+Content-Type: application/json
+
+{
+  "email": ""
+}
+### GET Subscribers List
+GET http://localhost:7000/subscribers
+
+### DELETE Subscriber
+DELETE http://localhost:7000/subscribers/5a56db71cba7f15514f63758
