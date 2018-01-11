@@ -11,7 +11,7 @@ Content-Type: application/json
   "lastName": "TestFN",
   "password": "password123"
 }
-###
+### Sign in
 POST http://localhost:7000/auth
 Content-Type: application/json
 
@@ -19,3 +19,15 @@ Content-Type: application/json
   "password": "password123",
   "email": "test@mail.com"
 }
+### Create Content
+POST http://localhost:7000/contents
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE1MTU2MzQ1NjIsImV4cCI6MTUxNjIzOTM2Miwic3ViIjoiNWE1NTlmOTI4NTg3MGUwN2I0MjhmZTVmIn0.EendFFhK794DxlSObZbbZVSeZh9x9QTEPWhej6BVH14
+Content-Type: application/json
+
+{
+  "title": "testTitle",
+  "subtitle": "testSubtitle",
+  "youtubeURL": "pornhub.com",
+  "description": "navy top secret questions" 
+  }
+
