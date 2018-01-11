@@ -1,3 +1,16 @@
 .App {
   text-align: center;
 }
+
+/* wrappers */
+.landing-section-wrapper1{
+  background-color: #F2EEE9;
+}
+
+.landing-section-wrapper2{
+  background-color: #4D4A5E;
+}
+
+.landing-section-wrapper3{
+  background-color: #E4BD5D;
+}
