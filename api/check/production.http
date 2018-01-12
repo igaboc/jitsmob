@@ -1,0 +1,50 @@
+@host = https://jitsmob-api-nxcpzaqzfi.now.sh
+
+###
+GET {{host}}/contents
+
+###
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{
+  "email": "bbb@mail.com",
+  "firstName": "TestFN",
+  "lastName": "TestFN",
+  "password": "password123"
+}
+### Sign in
+POST {{host}}/auth
+Content-Type: application/json
+
+{
+  "password": "password123",
+  "email": "bbb@mail.com"
+}
+### Create Content
+POST {{host}}/contents
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJiYkBtYWlsLmNvbSIsImlhdCI6MTUxNTcxOTA2NiwiZXhwIjoxNTE2MzIzODY2LCJzdWIiOiI1YTU4MDk4YTM3Njk2ZjAwOWY3ZTc0MWQifQ.R4TQb9Tw6IItL5Gaxc-xdurzc6aJ8Q3TmzjxU4y68cU
+Content-Type: application/json
+
+{
+  "title": "testTitle",
+  "subtitle": "testSubtitle",
+  "youtubeURL": "Clayton",
+  "description": "navy top secret questions" 
+}
+
+### Update Content
+
+PUT {{host}}/contents/5a5809d737696f009f7e741f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJiYkBtYWlsLmNvbSIsImlhdCI6MTUxNTcxOTA2NiwiZXhwIjoxNTE2MzIzODY2LCJzdWIiOiI1YTU4MDk4YTM3Njk2ZjAwOWY3ZTc0MWQifQ.R4TQb9Tw6IItL5Gaxc-xdurzc6aJ8Q3TmzjxU4y68cU
+Content-Type: application/json
+
+{
+  "youtubeURL": "clayton knows"
+}
+
+### Delete Content
+DELETE {{host}}/contents/5a5809d737696f009f7e741f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJiYkBtYWlsLmNvbSIsImlhdCI6MTUxNTcxOTA2NiwiZXhwIjoxNTE2MzIzODY2LCJzdWIiOiI1YTU4MDk4YTM3Njk2ZjAwOWY3ZTc0MWQifQ.R4TQb9Tw6IItL5Gaxc-xdurzc6aJ8Q3TmzjxU4y68cU
+
+

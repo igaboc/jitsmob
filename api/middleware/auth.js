@@ -3,7 +3,7 @@ const JWT = require('jsonwebtoken')
 const PassportJwt = require('passport-jwt')
 const Admin = require('../models/Admin')
 
-const jwtSecret = '.]y#rg9C43evhEsy'
+const jwtSecret = process.env.JWT_SECRET
 const jwtAlgorithm = 'HS256'
 const jwtExpiresIn = '7 days'
 

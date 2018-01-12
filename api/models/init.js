@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
 mongoose.connect(
-  'mongodb://localhost/jitsmob',
+  process.env.MONGO_URI,
   { useMongoClient: true }
 )
   .then(() => {
