@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import LandingPage from './components/LandingPage';
 
@@ -7,11 +6,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Header/Navbar</h1>
+        <Fragment>
+          <td>Header/Navbar</td>
+          <td>Jitsmob</td>
+        </Fragment>
 
-        {/* <LandingPage /> */}
+        <LandingPage />
 
-        <h2>Footer (Subcribe component, fixed scrolling)</h2>
+        <Fragment>
+          <div>
+            <h2>Footer (Subcribe component, fixed scrolling)</h2>
+          </div>
+        </Fragment>
 
       </div >
     );
