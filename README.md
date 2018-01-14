@@ -17,3 +17,4 @@ The client project has been split into two phases, with the development team foc
 ## Challenges
 
 - Github is displaying the incorrect number of contributors after Clayton made his first commit, carried out tests to rectify the number. Problem was resolved, either github was slow to update or the tests we carried out had some kind of effect.
+- Dillemma of abiding by our clients needs and expectations, versus our desire to make our portfolio look good for potential employers.
