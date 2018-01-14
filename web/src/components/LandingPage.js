@@ -39,7 +39,7 @@ function LandingPage({
         <p>Social media icons</p>
 
         <div class='row mt-4 justify-content-center'>
-          <div>
+          <Fragment>
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
@@ -55,7 +55,7 @@ function LandingPage({
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-          </div>
+          </Fragment>
         </div>
       </div>
     </div>
