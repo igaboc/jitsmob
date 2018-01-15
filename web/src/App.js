@@ -1,18 +1,78 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SignInForm from './components/SignInForm'
+import Dashboard from './components/Dashboard'
+import AddContentForm from './components/AddContentForm'
+import MyContent from './components/MyContent'
 
 class App extends Component {
+  /*
+  // Event handlers for signing in and out
+  onSignIn = ({ email, password }) => {
+    signIn({ email, password })
+      .then((decodedToken) => {
+        this.setState({ decodedToken })
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
+  }
+
+  onSignOut = () => {
+    signOutNow()
+    this.setState({ decodedToken: null })
+  }
+  */
+
+  // Event handlers for Dashboard
+  onAddContent = () => {
+    console.log('Add Content button clicked')
+  }
+  onViewEditContent = () => {
+    console.log('ViewEditContent button clicked')
+  }
+  onEmailSubscribers = () => {
+    console.log('EmailSubscribers button clicked')
+  }
+  onBlogArticle = () => {
+    console.log('BlogArticle button clicked')
+  }
+
+  // Event handlers for Add Content Screen
+  onPreview = () => {
+    console.log('Preview button clicked')
+  }
+  onSave = () => {
+    console.log('Save button clicked')
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <SignInForm
+          screenName={'Admin Sign In'}
+          onSignIn={this.onSignIn}
+        />
+
+        <Dashboard
+          screenName={'Dashboard'}
+          subscriberCount={'0'}
+          onAddContent={this.onAddContent}
+          onViewEditContent={this.onViewEditContent}
+          onEmailSubscribers={this.onEmailSubscribers}
+          onBlogArticle={this.onBlogArticle}
+        />
+
+        <AddContentForm
+          screenName={'Add Content'}
+          onPreview={this.onPreview}
+          onSave={this.onSave}
+        />
+
+        <MyContent
+          screenName={'My Content'}
+        />
       </div>
     );
   }
