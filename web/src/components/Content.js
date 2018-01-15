@@ -1,5 +1,5 @@
 import React from 'react'
-import { Player } from 'video-react'
+//import { Player } from 'video-react'
 
 function Content({
   title,
@@ -26,13 +26,11 @@ function Content({
       <div>Date added placeholder</div>
       <div>{ youtubeURL }</div>
       
-      <video src="tsksr_demo_budokan2009.webm"/>
-      
       <h2>{ subtitle }</h2>
       <div>{ description }</div>
 
       <div className="container">
-        <iframe className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameborder="0"/>
+        <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameborder="0"/>
       </div>
 
     </div>
