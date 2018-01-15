@@ -15,7 +15,7 @@ function MyContent({
       <Content
         title={ 'category' }
         subtitle={ 'bodypart' }
-        youtubeURL={ 'youtubeLink' }
+        youtubeURL={ 'https://www.youtube.com/watch?v=gMwvC6533vQ' }
         description={ 'body' }
       />
     </div>
