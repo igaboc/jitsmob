@@ -383,6 +383,10 @@ dot-prop@^4.1.0:
   dependencies:
     is-obj "^1.0.0"
 
+dotenv@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
+
 duplexer3@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
@@ -1137,7 +1141,7 @@ mongodb@2.2.34:
     mongodb-core "2.1.18"
     readable-stream "2.2.7"
 
-mongoose@^4.13.6:
+mongoose@^4.13.9:
   version "4.13.9"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.13.9.tgz#ca4d99aed6e36e87854c2295387e7ea17966cfe3"
   dependencies:
@@ -1208,7 +1212,7 @@ node-pre-gyp@^0.6.39:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
-nodemon@^1.12.5:
+nodemon@^1.14.10:
   version "1.14.10"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.14.10.tgz#836d33ff0f89ad111b8d49e5e3b3cb872e36304e"
   dependencies:
@@ -1240,6 +1244,10 @@ normalize-path@^2.0.0, normalize-path@^2.0.1:
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9"
   dependencies:
     remove-trailing-separator "^1.0.1"
+
+now@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/now/-/now-9.0.1.tgz#6489ba61e6fe6bbe18bc301b35212b827465dd7b"
 
 npm-run-path@^2.0.0:
   version "2.0.2"
