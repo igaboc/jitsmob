@@ -1,11 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
-import SignInForm from './components/SignInForm'
-import Dashboard from './components/Dashboard'
-import AddContentForm from './components/AddContentForm'
-import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
 import Footer from './components/Footer';
+import FindOutMoreButton from './components/FindOutMoreButton';
 import 'bootstrap/dist/css/bootstrap.css'
 
 class App extends Component {
@@ -51,45 +48,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-
-        <SignInForm
-          screenName={'Admin Sign In'}
-          onSignIn={this.onSignIn}
-        />
-
-        <Dashboard
-          screenName={'Dashboard'}
-          subscriberCount={'0'}
-          onAddContent={this.onAddContent}
-          onViewEditContent={this.onViewEditContent}
-          onEmailSubscribers={this.onEmailSubscribers}
-          onBlogArticle={this.onBlogArticle}
-        />
-
-        <AddContentForm
-          screenName={'Add Content'}
-          onPreview={this.onPreview}
-          onSave={this.onSave}
-        />
-
-        <MyContent
-          screenName={'My Content'}
-        />
-
-        <Fragment>
-          <td>Header/Navbar</td>
-          <td>Jitsmob</td>
-        </Fragment>
-
-        <LandingPage
-
-        />
-
-        <Footer
-
-        />
-
+      <div className="App Site">
+        <div className="Site-content">
+          <div className='temp-header'>
+            <h1>Header</h1>
+          </div>
+          <div className="main">
+            <LandingPage />
+          </div>
+        </div>
+        <Footer />
       </div >
     );
   }

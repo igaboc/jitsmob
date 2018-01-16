@@ -4,9 +4,11 @@ function Footer({
 
 }) {
   return (
-    <footer className='footer'>
-      <button>Subscribe</button>
-    </footer>
+    <div className='footer'>
+      <footer>
+        <button>Subscribe</button>
+      </footer>
+    </div>
   )
 }
 

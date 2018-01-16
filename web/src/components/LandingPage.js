@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Footer from './Footer'
+import FindOutMoreButton from './FindOutMoreButton'
 
 function LandingPage({
 
@@ -13,6 +13,8 @@ function LandingPage({
         <p>Boost Your</p>
         <p>Jiu-Jitsu Performance</p>
         <p>Thousands of Jiu-Jitsu athletes worldwide incorporate JitsMob into their daily workout routine</p>
+        <FindOutMoreButton />
+        <br />
       </Fragment>
 
       <div className='landing-section-wrapper1'>
