@@ -5,8 +5,14 @@ import Dashboard from './components/Dashboard'
 import AddContentForm from './components/AddContentForm'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
+import PrimaryNav from './components/PrimaryNav'
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 class App extends Component {
+  state = {
+    showMenu: false,
+  }
   /*
   // Event handlers for signing in and out
   onSignIn = ({ email, password }) => {
@@ -24,7 +30,11 @@ class App extends Component {
     this.setState({ decodedToken: null })
   }
   */
-
+  // Event handler for menu toggle
+  onMenuToggle = () => {
+    const showMenu = this.state.showMenu
+    this.setState({ showMenu: !showMenu })
+  }
   // Event handlers for Dashboard
   onAddContent = () => {
     console.log('Add Content button clicked')
@@ -48,40 +58,35 @@ class App extends Component {
   }
 
   render() {
+    const { showMenu } = this.state
+
     return (
       <div className="App">
-<<<<<<< HEAD
-
-    <SignInForm
-      screenName={'Admin Sign In'}
-      onSignIn={this.onSignIn}
-    />
-
-      <Dashboard
-        screenName={'Dashboard'}
-        subscriberCount={'0'}
-        onAddContent={this.onAddContent}
-        onViewEditContent={this.onViewEditContent}
-        onEmailSubscribers={this.onEmailSubscribers}
-        onBlogArticle={this.onBlogArticle}
-      />
-
-      <AddContentForm
+        <PrimaryNav 
+          className="" 
+          menuClassWidth={ showMenu ? 'w-100' : 'null' }
+          onMenuClick= { this.onMenuToggle }
+        />
+        <SignInForm
+          screenName={'Admin Sign In'}
+          onSignIn={this.onSignIn}
+        />
+        <Dashboard
+          screenName={'Dashboard'}
+          subscriberCount={'0'}
+          onAddContent={this.onAddContent}
+          onViewEditContent={this.onViewEditContent}
+          onEmailSubscribers={this.onEmailSubscribers}
+          onBlogArticle={this.onBlogArticle}
+        />
+        <AddContentForm
         screenName={'Add Content'}
         onPreview={this.onPreview}
         onSave={this.onSave}
-      />
-
-      <MyContent
-        screenName={'My Content'}
-      />
-      </div >
-=======
-        <Fragment>
-          <td>Header/Navbar</td>
-          <td>Jitsmob</td>
-        </Fragment>
-
+        />
+        <MyContent
+          screenName={'My Content'}
+        />
         <LandingPage />
 
         <Fragment>
@@ -90,8 +95,8 @@ class App extends Component {
           </div>
         </Fragment>
 
-      </div >
->>>>>>> landing-page
+
+      </div>
     );
   }
 }
