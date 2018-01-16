@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import jitsmobLogo from '../Grouplogo.svg';
-
+import './PrimaryNav.css';
 
 
 function PrimaryNav({
