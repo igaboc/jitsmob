@@ -13,4 +13,6 @@ mongoose.connect(
     console.log('Error connecting to MongoDB database', error)
   })
 
+console.log('Mongo URI', process.env.MONGO_URI)
+
 module.exports = mongoose

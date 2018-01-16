@@ -5,14 +5,21 @@ import Dashboard from './components/Dashboard'
 import AddContentForm from './components/AddContentForm'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
+import { signIn, signUp, signOutNow } from './api/auth'
+import { getDecodedToken } from './api/token'
 
 class App extends Component {
-  /*
+  state = {
+    //error: null,
+    decodedToken: getDecodedToken(), // Restore the previous signed in data
+  }
+  
   // Event handlers for signing in and out
   onSignIn = ({ email, password }) => {
     signIn({ email, password })
       .then((decodedToken) => {
         this.setState({ decodedToken })
+        console.log('Decoded token: ', decodedToken)
       })
       .catch((error) => {
         this.setState({ error })
@@ -23,7 +30,7 @@ class App extends Component {
     signOutNow()
     this.setState({ decodedToken: null })
   }
-  */
+  
 
   // Event handlers for Dashboard
   onAddContent = () => {
@@ -50,33 +57,38 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-<<<<<<< HEAD
 
-    <SignInForm
-      screenName={'Admin Sign In'}
-      onSignIn={this.onSignIn}
-    />
+        <Fragment>
+          <td>Header/Navbar</td>
+          <td>Jitsmob</td>
+        </Fragment>
 
-      <Dashboard
-        screenName={'Dashboard'}
-        subscriberCount={'0'}
-        onAddContent={this.onAddContent}
-        onViewEditContent={this.onViewEditContent}
-        onEmailSubscribers={this.onEmailSubscribers}
-        onBlogArticle={this.onBlogArticle}
-      />
+        <LandingPage />
 
-      <AddContentForm
-        screenName={'Add Content'}
-        onPreview={this.onPreview}
-        onSave={this.onSave}
-      />
+        <SignInForm
+          screenName={'Admin Sign In'}
+          onSignIn={this.onSignIn}
+        />
 
-      <MyContent
-        screenName={'My Content'}
-      />
-      </div >
-=======
+        <Dashboard
+          screenName={'Dashboard'}
+          subscriberCount={'0'}
+          onAddContent={this.onAddContent}
+          onViewEditContent={this.onViewEditContent}
+          onEmailSubscribers={this.onEmailSubscribers}
+          onBlogArticle={this.onBlogArticle}
+        />
+
+        <AddContentForm
+          screenName={'Add Content'}
+          onPreview={this.onPreview}
+          onSave={this.onSave}
+        />
+
+        <MyContent
+          screenName={'My Content'}
+        />
+      
         <Fragment>
           <td>Header/Navbar</td>
           <td>Jitsmob</td>
@@ -91,7 +103,6 @@ class App extends Component {
         </Fragment>
 
       </div >
->>>>>>> landing-page
     );
   }
 }
