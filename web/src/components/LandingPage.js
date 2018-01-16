@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import Footer from './Footer'
 
 function LandingPage({
 

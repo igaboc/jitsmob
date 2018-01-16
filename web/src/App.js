@@ -5,6 +5,8 @@ import Dashboard from './components/Dashboard'
 import AddContentForm from './components/AddContentForm'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
+import Footer from './components/Footer';
+import 'bootstrap/dist/css/bootstrap.css'
 
 class App extends Component {
   /*
@@ -50,48 +52,45 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-<<<<<<< HEAD
 
-    <SignInForm
-      screenName={'Admin Sign In'}
-      onSignIn={this.onSignIn}
-    />
+        <SignInForm
+          screenName={'Admin Sign In'}
+          onSignIn={this.onSignIn}
+        />
 
-      <Dashboard
-        screenName={'Dashboard'}
-        subscriberCount={'0'}
-        onAddContent={this.onAddContent}
-        onViewEditContent={this.onViewEditContent}
-        onEmailSubscribers={this.onEmailSubscribers}
-        onBlogArticle={this.onBlogArticle}
-      />
+        <Dashboard
+          screenName={'Dashboard'}
+          subscriberCount={'0'}
+          onAddContent={this.onAddContent}
+          onViewEditContent={this.onViewEditContent}
+          onEmailSubscribers={this.onEmailSubscribers}
+          onBlogArticle={this.onBlogArticle}
+        />
 
-      <AddContentForm
-        screenName={'Add Content'}
-        onPreview={this.onPreview}
-        onSave={this.onSave}
-      />
+        <AddContentForm
+          screenName={'Add Content'}
+          onPreview={this.onPreview}
+          onSave={this.onSave}
+        />
 
-      <MyContent
-        screenName={'My Content'}
-      />
-      </div >
-=======
+        <MyContent
+          screenName={'My Content'}
+        />
+
         <Fragment>
           <td>Header/Navbar</td>
           <td>Jitsmob</td>
         </Fragment>
 
-        <LandingPage />
+        <LandingPage
 
-        <Fragment>
-          <div>
-            <h2>Footer (Subcribe component, fixed scrolling)</h2>
-          </div>
-        </Fragment>
+        />
+
+        <Footer
+
+        />
 
       </div >
->>>>>>> landing-page
     );
   }
 }

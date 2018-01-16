@@ -1,3 +1,31 @@
+/* Sticky Footer */
+*{
+  margin: 0;
+}
+html, body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 142px; 
+}
+.site-footer {
+  background: orange;
+}
+
+
+
 .App {
   text-align: center;
 }
@@ -6,11 +34,32 @@
 .landing-section-wrapper1{
   background-color: #F2EEE9;
 }
-
 .landing-section-wrapper2{
   background-color: #4D4A5E;
 }
-
 .landing-section-wrapper3{
   background-color: #E4BD5D;
+}
+
+/* footer */
+.footer{
+  background-color:#4D4A5E;
+  padding: 10px 0px 10px 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.container {
+  width: 80%;
+  height: 0;
+  padding-bottom: 56.25%; /*16 x 9*/
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container > .player {
+  width: 100%;
+  height: 360px;
 }
