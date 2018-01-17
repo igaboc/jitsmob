@@ -6,8 +6,21 @@
   bottom: 25%;
   margin: auto;
   background-color:#4D4A5E;
-  color: white;
-  z-index: 2; 
+  text-align:center;
+  z-index: 2;
+  color: #ffffff;
+}
+
+.popup-text{
+  margin: 50px 0px 0px 0px;
+}
+
+.exit-cursor{
+  position: relative;
+  top: -50px;
+  left: 250px;
+  font-size: 30px;
+  color:red;
 }
 
 .overlay {

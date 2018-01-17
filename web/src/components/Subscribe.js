@@ -1,6 +1,6 @@
 import React from 'react';
 import SubscribePopUp from './SubscribePopUp'
-import './Footer.css';
+import './Subscribe.css';
 
 function Footer({
   onClickSubscribe

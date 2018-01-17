@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
 import LandingPage from './components/LandingPage';
-import Footer from './components/Footer';
+import Subscribe from './components/Subscribe';
 import SubscribePopUp from './components/SubscribePopUp';
 import FindOutMoreButton from './components/FindOutMoreButton';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -59,10 +59,10 @@ class App extends Component {
             <LandingPage />
           </div>
         </div>
-        <Footer
+        <Subscribe
           onClickSubscribe={this.onSubscribeToggle}
         />
-        i
+
 
         <SubscribePopUp
           popupClassWidth={showSubscribeBox ? ('w-100') : null}
