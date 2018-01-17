@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
 import AddContentForm from './components/AddContentForm'
@@ -74,34 +75,47 @@ class App extends Component {
           menuClassWidth={showMenu ? 'w-100' : 'null'}
           onMenuClick={this.onMenuToggle}
         />
+        <Router>
+        <Switch>
+          <Route path='/' exact render={ () => (
+            <LandingPage />
+          ) } />
 
-        <LandingPage />
+          <Route path='/admin' exact render={ () => (
+            <Fragment>
+              <Dashboard
+                screenName={'Dashboard'}
+                subscriberCount={'0'}
+                onAddContent={this.onAddContent}
+                onViewEditContent={this.onViewEditContent}
+                onEmailSubscribers={this.onEmailSubscribers}
+                onBlogArticle={this.onBlogArticle}
+              />
+    
+              <AddContentForm
+                screenName={'Add Content'}
+                onPreview={this.onPreview}
+                onSave={this.onSave}
+              />
+            </Fragment>
+          ) } />
 
-        <SignInForm
-          screenName={'Admin Sign In'}
-          onSignIn={this.onSignIn}
-        />
-        <Dashboard
-          screenName={'Dashboard'}
-          subscriberCount={'0'}
-          onAddContent={this.onAddContent}
-          onViewEditContent={this.onViewEditContent}
-          onEmailSubscribers={this.onEmailSubscribers}
-          onBlogArticle={this.onBlogArticle}
-        />
-
-        <AddContentForm
-          screenName={'Add Content'}
-          onPreview={this.onPreview}
-          onSave={this.onSave}
-        />
-
-        <MyContent
-          screenName={'My Content'}
-        // contents={listContents()/*contents ? contents : []*/}
-        />
-
-      </div >
+          <Route path='/signin' exact render={ () => (
+            <SignInForm
+              screenName={'Admin Sign In'}
+              onSignIn={this.onSignIn}
+            />
+          ) } />
+        
+          <Route path='/excercises' exact render={ () => (
+            <MyContent
+              screenName={'My Content'}
+            // contents={listContents()/*contents ? contents : []*/}
+            />
+          ) } />
+        </Switch>
+        </Router>
+      </div>
     );
   }
 
