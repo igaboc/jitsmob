@@ -1,5 +1,4 @@
 import decodeJWT from 'jwt-decode'
-
 const key = 'adminToken'
 
 export function rememberToken(token) {
