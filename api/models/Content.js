@@ -5,7 +5,10 @@ const Content = mongoose.model('Content', {
     type: String, 
     required: [true, 'Title is required']
   },
-  subtitle: {
+  category: {
+    type: String
+  },
+  bodyPart: {
     type: String
   },
   youtubeURL: {
