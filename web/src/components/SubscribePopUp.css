@@ -1,36 +1,25 @@
-.popup {
-  display: none;
-  position: fixed;
-  padding: 10px;
-  width: 280px;
-  left: 50%;
-  margin-left: -150px;
-  height: 180px;
-  top: 50%;
-  margin-top: -100px;
-  background: #FFF;
-  z-index: 20;
-}
-
-#popupjs:after {
-  position: fixed;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-	border: solid;
-  background: rgb(255, 255, 255, 0.8);
-  z-index: -2;
-}
-
-#popupjs:before {
+.popup-box{
   position: absolute;
-  content: "";
-  top: 0;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  background-color:#4D4A5E;
+  color: white;
+  z-index: 2; 
+}
+
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
   left: 0;
-  bottom: 0;
-  right: 0;
-  background: #4D4A5E;
-  z-index: -1;
+  top: 0;
+  background-color: #1D1C1B;; /* Black fallback color */
+  background-color: rgba(29,28,27, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }

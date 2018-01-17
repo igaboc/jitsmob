@@ -10,10 +10,10 @@ function AddContentForm({
 }) {
   return (
     <form
-      onPreview={ (event) => {
+      onPreview={(event) => {
         // Prevent old-school form submission
         event.preventDefault()
-        
+
         const form = event.target
         const elements = form.elements // Allows looking up fields using their 'name' attributes
         // Get entered values from fields
@@ -24,12 +24,12 @@ function AddContentForm({
 
         // Pass this information along to the parent component
         onPreview({ bodypart, category, youtubeLink, body })
-      } }
+      }}
 
-      onSave={ (event) => {
+      onSave={(event) => {
         // Prevent old-school form submission
         event.preventDefault()
-        
+
         const form = event.target
         const elements = form.elements // Allows looking up fields using their 'name' attributes
         // Get entered values from fields
@@ -40,17 +40,17 @@ function AddContentForm({
 
         // Pass this information along to the parent component
         onSave({ bodypart, category, youtubeLink, body })
-      } }
+      }}
     >
-      <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/>
-      <h1>{ screenName }</h1>
-      
+      <TopBar image={JitsmobLogo} alt={'Jitsmob logo'} />
+      <h1>{screenName}</h1>
+
       <h1>Preview:</h1>
       <Content
-        title={ 'title' }
-        subtitle={ 'category' }
-        youtubeURL={ 'youtubeLink' }
-        description={ 'body' }
+        title={'title'}
+        subtitle={'category'}
+        youtubeURL={'youtubeLink'}
+        description={'body'}
       />
 
       <h1>Editor:</h1>
@@ -59,7 +59,7 @@ function AddContentForm({
         type='textfield'
         name='bodypart'
       />
-      
+
       <select name='category'>
         <option value='injury prevention'>INJURY PREVENTION</option>
         <option value='maximizing performance'>MAXIMIZING PERFORMANCE</option>
@@ -70,13 +70,13 @@ function AddContentForm({
         type='textfield'
         name='youtubeLink'
       />
-      
+
       <textarea
         name='body'
       />
 
       <button
-        onClick={ 
+        onClick={
           (event) => {  // Event listener
             // Call function 'onPreview'
             // when button 'Preview' is clicked
@@ -84,11 +84,11 @@ function AddContentForm({
           }
         }
       >
-        Preview 
+        Preview
       </button>
 
       <button
-        onClick={ 
+        onClick={
           (event) => {  // Event listener
             // Call function 'onSave'
             // when button 'Save' is clicked
@@ -96,7 +96,7 @@ function AddContentForm({
           }
         }
       >
-        Save 
+        Save
       </button>
     </form>
   )

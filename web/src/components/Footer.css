@@ -4,6 +4,7 @@
   bottom: 0;
   width: 100%;
   background-color: #4D4A5E;
-  color: white;
+  color: white !important;
   text-align: center;
+  text-decoration: none !important;
 }

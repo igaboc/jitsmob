@@ -2,38 +2,27 @@ import React, { Component, Fragment } from 'react';
 import './App.css';
 import LandingPage from './components/LandingPage';
 import Footer from './components/Footer';
+import SubscribePopUp from './components/SubscribePopUp';
 import FindOutMoreButton from './components/FindOutMoreButton';
 import 'bootstrap/dist/css/bootstrap.css'
 
 class App extends Component {
   state = {
     showMenu: false,
+    showSubscribeBox: false,
     // error: null,
     // decodedToken: getDecodedToken(), // Restore the previous signed in data
     // contents: null
   }
-  /*
-  // Event handlers for signing in and out
-  onSignIn = ({ email, password }) => {
-    signIn({ email, password })
-      .then((decodedToken) => {
-        this.setState({ decodedToken })
-        console.log('Decoded token: ', decodedToken)
-      })
-      .catch((error) => {
-        this.setState({ error })
-      })
-  }
-
-  onSignOut = () => {
-    signOutNow()
-    this.setState({ decodedToken: null })
-  }
-  */
   // Event handler for menu toggle
   onMenuToggle = () => {
     const showMenu = this.state.showMenu
     this.setState({ showMenu: !showMenu })
+  }
+  onSubscribeToggle = () => {
+    console.log('this worked')
+    const { showSubscribeBox } = this.state
+    this.setState({ showSubscribeBox: !showSubscribeBox })
   }
   // Event handlers for Dashboard
   onAddContent = () => {
@@ -58,7 +47,7 @@ class App extends Component {
   }
 
   render() {
-    const { showMenu, error, decodedToken, contents } = this.state
+    const { showMenu, error, decodedToken, contents, showSubscribeBox } = this.state
     const signedIn = !!decodedToken
     return (
       <div className="App Site">
@@ -70,7 +59,15 @@ class App extends Component {
             <LandingPage />
           </div>
         </div>
-        <Footer />
+        <Footer
+          onClickSubscribe={this.onSubscribeToggle}
+        />
+        i
+
+        <SubscribePopUp
+          popupClassWidth={showSubscribeBox ? ('w-100') : null}
+          onClickSubscribe={this.onSubscribeToggle}
+        />
       </div >
     );
   }

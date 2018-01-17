@@ -1,13 +1,17 @@
 import React from 'react';
+import SubscribePopUp from './SubscribePopUp'
 import './Footer.css';
 
 function Footer({
-
+  onClickSubscribe
 }) {
   return (
     <div className='footer'>
       <footer>
-        <button>Subscribe</button>
+        <a href="#" onClick={(event) => {
+          console.log('clicked')
+          onClickSubscribe()
+        }}>Subscribe</a>
       </footer>
     </div>
   )

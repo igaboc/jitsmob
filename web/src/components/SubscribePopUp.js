@@ -2,21 +2,23 @@ import React from 'react';
 import './SubscribePopUp.css';
 
 function SubscribePopUp({
-
+  popupClassWidth,
+  onClickSubscribe
 }) {
   return (
-    <div className='popup' id='popupjs'>
-      <h2>Subscribe</h2>
+    <div className={`overlay ${popupClassWidth}`}>
+      <div className="popup-box" id='popupjs'>
+        <h2>Subscribe</h2>
+        <p>Receive updates when new content is added</p>
+        <form>
+          Email: <input className="form-display" type="email" name="_replyto" placeholder="your_email@something.com" />
+        </form>
 
+        <a href="#" onClick={(event) => { onClickSubscribe() }}>Hide</a>
 
-      <a href="#" onclick="show('popup2')">Show popup (:before & :after)</a>
-
-      <p>This is a popup!</p>
-      <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
-      <p>(This one does block elements on the background)</p>
-      <a href="#" onclick="hide('popup2')">Ok!</a>
-
+      </div >
     </div>
+
   )
 }
 
