@@ -9,18 +9,18 @@ import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
 import PrimaryNav from './components/PrimaryNav'
 import 'bootstrap/dist/css/bootstrap.css';
-// import { signIn, signUp, signOutNow } from './api/auth'
-// import { getDecodedToken } from './api/token'
-// import { listContents } from './api/contents'
+import { signIn, signUp, signOutNow } from './api/auth'
+import { getDecodedToken } from './api/token'
+import { listContents } from './api/contents'
 
 class App extends Component {
   state = {
     showMenu: false,
-    // error: null,
-    // decodedToken: getDecodedToken(), // Restore the previous signed in data
-    // contents: null
+    error: null,
+    decodedToken: getDecodedToken(), // Restore the previous signed in data
+    contents: null
   }
-  /*
+  
   // Event handlers for signing in and out
   onSignIn = ({ email, password }) => {
     signIn({ email, password })
@@ -37,7 +37,7 @@ class App extends Component {
     signOutNow()
     this.setState({ decodedToken: null })
   }
-  */
+  
   // Event handler for menu toggle
   onMenuToggle = () => {
     const showMenu = this.state.showMenu
@@ -68,6 +68,7 @@ class App extends Component {
   render() {
     const { showMenu, error, decodedToken, contents } = this.state
     const signedIn = !!decodedToken
+        
     return (
       <div className="App">
         <PrimaryNav
@@ -109,10 +110,14 @@ class App extends Component {
             ) } />
           
             <Route path='/excercises' exact render={ () => (
-              <MyContent
-                screenName={'My Content'}
-              // contents={listContents()/*contents ? contents : []*/}
-              />
+              <Fragment>
+                { contents &&
+                  <MyContent
+                    screenName={'My Content'}
+                    contents={ contents }
+                  />
+                }
+              </Fragment>
             ) } />
           </Switch>
         </Router>
@@ -125,13 +130,12 @@ class App extends Component {
       this.setState({ error })
     }
 
-    // Load for everyone
-    // listContents()
-    //   .then((contents) => {
-    //     this.setState({ contents })
-    //     console.log(contents)
-    //   })
-    //   .catch(saveError)
+    //Load for everyone
+    listContents()
+      .then((contents) => {
+        this.setState({ contents })
+      })
+      .catch(saveError)
 
     const { decodedToken } = this.state
     const signedIn = !!decodedToken
