@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signUp, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
 import { listContents } from './api/contents'
+import { logPageView } from './utils/analytics'
 
 class App extends Component {
   state = {
@@ -83,7 +84,7 @@ class App extends Component {
               <LandingPage />
             ) } />
 
-            <Route path='/admin' exact render={ () => (
+            <Route onUpdate={logPageView} path='/admin' exact render={ () => (
               <Fragment>
                 <Dashboard
                   screenName={'Dashboard'}
