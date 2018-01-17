@@ -1,5 +1,4 @@
 import React from 'react'
-import { Player } from 'video-react'
 
 function Content({
   title,
@@ -8,10 +7,14 @@ function Content({
   description
 }) {
 
-  var video= "5hqYwZgNbDs"// TSKSR Budokan 2009 demo //"mYFaghHyMKc" // music video: Family of the Year - Hero [Boyhood] (Official)
-  var autoplay="0"
-  var rel="0"
-  var modest="1"
+  var youtubeLink = youtubeURL // Get copy of youtubeURL
+  var words = youtubeLink.split('=') // Split youtubeLink by '=' signs
+  var x = words[1] // Extract part of youtubeLink after '='
+
+  var video = x // video to to get copy of youtubeURL after '='
+  var autoplay = "0"
+  var rel = "0"
+  var modest = "1"
 
   var videoSrc = "https://www.youtube.com/embed/" + 
       video + "?autoplay=" + 
@@ -26,15 +29,12 @@ function Content({
       <div>Date added placeholder</div>
       <div>{ youtubeURL }</div>
       
-      <video src="tsksr_demo_budokan2009.webm"/>
-      
       <h2>{ subtitle }</h2>
       <div>{ description }</div>
 
       <div className="container">
-        <iframe className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameborder="0"/>
+        <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameborder="0"/>
       </div>
-
     </div>
   )
 }

@@ -12,3 +12,35 @@
 .landing-section-wrapper3{
   background-color: #E4BD5D;
 }
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  height: 0;
+  padding-bottom: 56.25%; /*16 x 9*/
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container > .player {
+  width: 100%;
+  height: 360px;
+}

@@ -4,20 +4,27 @@ import TopBar from './TopBar'
 import Content from './Content'
 
 function MyContent({
-  screenName
-  
+  screenName,
+  contents
 }) {
   return (
     <div>
-      <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/>
-      <h1>{ screenName }</h1>
-      
-      <Content
-        title={ 'category' }
-        subtitle={ 'bodypart' }
-        youtubeURL={ 'youtubeLink' }
-        description={ 'body' }
-      />
+      <TopBar image={JitsmobLogo} alt={'Jitsmob logo'} />
+      <h1>{screenName}</h1>
+
+      {/* {
+         contents.map((content) => {
+          return (
+           <Content
+            {...contents}
+            title={ content.title }
+            subtitle={ content.subtitle }
+            youtubeURL={content.youtubeURL }
+            description={ content.description }
+          /> 
+          )
+        }) 
+      } */}
     </div>
   )
 }

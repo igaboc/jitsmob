@@ -10,7 +10,9 @@
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
     "video-react": "^0.9.4",
-    "reactstrap": "^5.0.0-alpha.4"
+    "reactstrap": "^5.0.0-alpha.4",
+    "axios": "^0.17.1",
+    "jwt-decode": "^2.2.0"
   },
   "scripts": {
     "dev": "react-scripts start",
