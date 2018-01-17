@@ -1,22 +1,26 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
 import AddContentForm from './components/AddContentForm'
 import Content from './components/Content'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
-import { signIn, signUp, signOutNow } from './api/auth'
-import { getDecodedToken } from './api/token'
-import { listContents } from './api/contents'
+import PrimaryNav from './components/PrimaryNav'
+import 'bootstrap/dist/css/bootstrap.css';
+// import { signIn, signUp, signOutNow } from './api/auth'
+// import { getDecodedToken } from './api/token'
+// import { listContents } from './api/contents'
 
 class App extends Component {
   state = {
-    error: null,
-    decodedToken: getDecodedToken(), // Restore the previous signed in data
-    contents: null
+    showMenu: false,
+    // error: null,
+    // decodedToken: getDecodedToken(), // Restore the previous signed in data
+    // contents: null
   }
-  
+  /*
   // Event handlers for signing in and out
   onSignIn = ({ email, password }) => {
     signIn({ email, password })
@@ -33,7 +37,12 @@ class App extends Component {
     signOutNow()
     this.setState({ decodedToken: null })
   }
-
+  */
+  // Event handler for menu toggle
+  onMenuToggle = () => {
+    const showMenu = this.state.showMenu
+    this.setState({ showMenu: !showMenu })
+  }
   // Event handlers for Dashboard
   onAddContent = () => {
     console.log('Add Content button clicked')
@@ -57,58 +66,57 @@ class App extends Component {
   }
 
   render() {
-    const { error, decodedToken, contents } = this.state
+    const { showMenu, error, decodedToken, contents } = this.state
     const signedIn = !!decodedToken
-    
     return (
       <div className="App">
-
-        <Fragment>
-          <td>Header/Navbar</td>
-          <td>Jitsmob</td>
-        </Fragment>
-
-        <LandingPage />
-
-        <SignInForm
-          screenName={'Admin Sign In'}
-          onSignIn={this.onSignIn}
+        <PrimaryNav
+          className=""
+          menuClassWidth={showMenu ? 'w-100' : 'null'}
+          onMenuClick={this.onMenuToggle}
         />
 
-        <Dashboard
-          screenName={'Dashboard'}
-          subscriberCount={'0'}
-          onAddContent={this.onAddContent}
-          onViewEditContent={this.onViewEditContent}
-          onEmailSubscribers={this.onEmailSubscribers}
-          onBlogArticle={this.onBlogArticle}
-        />
+        <Router>
+          <Switch>
+            <Route path='/' exact render={ () => (
+              <LandingPage />
+            ) } />
 
-        <AddContentForm
-          screenName={'Add Content'}
-          onPreview={this.onPreview}
-          onSave={this.onSave}
-        />
-
-        <MyContent
-          screenName={'My Content'}
-          contents={ contents/*contents ? contents : []*/ }
-        />
+            <Route path='/admin' exact render={ () => (
+              <Fragment>
+                <Dashboard
+                  screenName={'Dashboard'}
+                  subscriberCount={'0'}
+                  onAddContent={this.onAddContent}
+                  onViewEditContent={this.onViewEditContent}
+                  onEmailSubscribers={this.onEmailSubscribers}
+                  onBlogArticle={this.onBlogArticle}
+                />
       
-        <Fragment>
-          <td>Header/Navbar</td>
-          <td>Jitsmob</td>
-        </Fragment>
+                <AddContentForm
+                  screenName={'Add Content'}
+                  onPreview={this.onPreview}
+                  onSave={this.onSave}
+                />
+              </Fragment>
+            ) } />
 
-        <LandingPage />
-
-        <Fragment>
-          <div>
-            <h2>Footer (Subcribe component, fixed scrolling)</h2>
-          </div>
-        </Fragment>
-
-      </div >
+            <Route path='/signin' exact render={ () => (
+              <SignInForm
+                screenName={'Admin Sign In'}
+                onSignIn={this.onSignIn}
+              />
+            ) } />
+          
+            <Route path='/excercises' exact render={ () => (
+              <MyContent
+                screenName={'My Content'}
+              // contents={listContents()/*contents ? contents : []*/}
+              />
+            ) } />
+          </Switch>
+        </Router>
+      </div>
     );
   }
 
@@ -118,17 +126,17 @@ class App extends Component {
     }
 
     // Load for everyone
-    listContents()
-      .then((contents) => {
-        this.setState({ contents })
-        console.log(contents)
-      })
-      .catch(saveError)
+    // listContents()
+    //   .then((contents) => {
+    //     this.setState({ contents })
+    //     console.log(contents)
+    //   })
+    //   .catch(saveError)
 
     const { decodedToken } = this.state
     const signedIn = !!decodedToken
   }
-  
+
   // When this App first appears on screen
   componentDidMount() {
     this.load()

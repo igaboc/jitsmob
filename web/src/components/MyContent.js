@@ -9,10 +9,10 @@ function MyContent({
 }) {
   return (
     <div>
-      <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/>
-      <h1>{ screenName }</h1>
-      
-      {
+      <TopBar image={JitsmobLogo} alt={'Jitsmob logo'} />
+      <h1>{screenName}</h1>
+
+      {/* {
          contents.map((content) => {
           return (
            <Content
@@ -24,7 +24,7 @@ function MyContent({
           /> 
           )
         }) 
-      }
+      } */}
     </div>
   )
 }
