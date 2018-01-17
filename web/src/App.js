@@ -6,12 +6,19 @@ import FindOutMoreButton from './components/FindOutMoreButton';
 import 'bootstrap/dist/css/bootstrap.css'
 
 class App extends Component {
+  state = {
+    showMenu: false,
+    // error: null,
+    // decodedToken: getDecodedToken(), // Restore the previous signed in data
+    // contents: null
+  }
   /*
   // Event handlers for signing in and out
   onSignIn = ({ email, password }) => {
     signIn({ email, password })
       .then((decodedToken) => {
         this.setState({ decodedToken })
+        console.log('Decoded token: ', decodedToken)
       })
       .catch((error) => {
         this.setState({ error })
@@ -23,7 +30,11 @@ class App extends Component {
     this.setState({ decodedToken: null })
   }
   */
-
+  // Event handler for menu toggle
+  onMenuToggle = () => {
+    const showMenu = this.state.showMenu
+    this.setState({ showMenu: !showMenu })
+  }
   // Event handlers for Dashboard
   onAddContent = () => {
     console.log('Add Content button clicked')
@@ -47,6 +58,8 @@ class App extends Component {
   }
 
   render() {
+    const { showMenu, error, decodedToken, contents } = this.state
+    const signedIn = !!decodedToken
     return (
       <div className="App Site">
         <div className="Site-content">

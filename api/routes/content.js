@@ -45,7 +45,7 @@ router.put('/contents/:id', authMiddleware.requireJWT, (req, res) => {
     })
 })
 
-// Remove product from wishlist
+// Remove content from collection
 router.delete('/contents/:id', authMiddleware.requireJWT, (req, res) => {
   const { id } = req.params
   Content.findByIdAndRemove(id)
