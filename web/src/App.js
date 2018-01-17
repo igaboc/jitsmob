@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signUp, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
 import { listContents } from './api/contents'
-import { logPageView } from './utils/analytics'
+import { initGA, logPageView } from './utils/analytics'
 
 class App extends Component {
   state = {
@@ -145,6 +145,8 @@ class App extends Component {
   // When this App first appears on screen
   componentDidMount() {
     this.load()
+    initGA()
+    logPageView()
   }
 
   // When state changes
