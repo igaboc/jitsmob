@@ -1,27 +1,14 @@
+.App {
+  text-align: center;
+}
+
 .temp-header{
   background-color: yellow;
   padding: 50px 0px 50px 0px;
 }
 
-/* Sticky Footer */
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: red;
-  color: white;
-  text-align: center;
-}
-
-
-
-.App {
-  text-align: center;
-}
-
 /* wrappers */
-.landing-section-wrapper1{
+/* .landing-section-wrapper1{
   background-color: #F2EEE9;
 }
 .landing-section-wrapper2{
@@ -29,7 +16,7 @@
 }
 .landing-section-wrapper3{
   background-color: #E4BD5D;
-}
+} */
 
 /* header
 .header{

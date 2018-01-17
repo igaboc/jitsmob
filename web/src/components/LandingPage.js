@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react'
-import FindOutMoreButton from './FindOutMoreButton'
+import React, { Fragment } from 'react';
+import FindOutMoreButton from './FindOutMoreButton';
+import './LandingPage.css';
 
 function LandingPage({
 
