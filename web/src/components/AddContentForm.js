@@ -47,9 +47,9 @@ function AddContentForm({
       
       <h1>Preview:</h1>
       <Content
-        title={ 'category' }
-        subtitle={ 'tskar' }
-        youtubeURL={ 'https://www.youtube.com/watch?v=5hqYwZgNbDs' }
+        title={ 'title' }
+        subtitle={ 'category' }
+        youtubeURL={ 'youtubeLink' }
         description={ 'body' }
       />
 

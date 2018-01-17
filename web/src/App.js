@@ -3,15 +3,18 @@ import './App.css';
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
 import AddContentForm from './components/AddContentForm'
+import Content from './components/Content'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
 import { signIn, signUp, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
+import { listContents } from './api/contents'
 
 class App extends Component {
   state = {
-    //error: null,
+    error: null,
     decodedToken: getDecodedToken(), // Restore the previous signed in data
+    contents: null
   }
   
   // Event handlers for signing in and out
@@ -30,7 +33,6 @@ class App extends Component {
     signOutNow()
     this.setState({ decodedToken: null })
   }
-  
 
   // Event handlers for Dashboard
   onAddContent = () => {
@@ -55,6 +57,9 @@ class App extends Component {
   }
 
   render() {
+    const { error, decodedToken, contents } = this.state
+    const signedIn = !!decodedToken
+    
     return (
       <div className="App">
 
@@ -87,6 +92,7 @@ class App extends Component {
 
         <MyContent
           screenName={'My Content'}
+          contents={ listContents()/*contents ? contents : []*/ }
         />
       
         <Fragment>
@@ -104,6 +110,28 @@ class App extends Component {
 
       </div >
     );
+  }
+
+  load() {
+    const saveError = (error) => {
+      this.setState({ error })
+    }
+
+    // Load for everyone
+    listContents()
+      .then((contents) => {
+        this.setState({ contents })
+        console.log(contents)
+      })
+      .catch(saveError)
+
+    const { decodedToken } = this.state
+    const signedIn = !!decodedToken
+  }
+  
+  // When this App first appears on screen
+  componentDidMount() {
+    this.load()
   }
 }
 
