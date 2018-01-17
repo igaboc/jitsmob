@@ -92,7 +92,7 @@ class App extends Component {
 
         <MyContent
           screenName={'My Content'}
-          contents={ listContents()/*contents ? contents : []*/ }
+          contents={ contents/*contents ? contents : []*/ }
         />
       
         <Fragment>
@@ -132,6 +132,15 @@ class App extends Component {
   // When this App first appears on screen
   componentDidMount() {
     this.load()
+  }
+
+  // When state changes
+  componentDidUpdate(prevProps, prevState) {
+    // If just signed in, signed up, or signed out,
+    // then the token will have changed
+    if (this.state.decodedToken !== prevState.decodedToken) {
+      this.load()
+    }
   }
 }
 
