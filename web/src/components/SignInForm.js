@@ -1,5 +1,4 @@
 import React from 'react'
-import JitsmobLogo from '../images/JitsmobLogo.svg'
 import './SignInForm.css';
 
 function SignInForm({

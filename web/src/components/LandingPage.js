@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react'
 
-function LandingPage({
-
-}) {
+function LandingPage() {
   return (
     <div>
       <p>Jitsmob logo</p>

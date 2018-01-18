@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
-import Content from './components/Content'
+// import Content from './components/Content'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
 import PrimaryNav from './components/PrimaryNav'
@@ -39,11 +39,6 @@ class App extends Component {
      })
   }
   // renders specific component in dashboard
-  setActiveTab = (word) => () => {
-    console.log(word, 'outside')
-    const { activeAdminTab } = this.state
-    this.setState({ activeAdminTab: word })
-  }
 
   // Event handler for menu toggle
   onMenuToggle = () => {
@@ -89,11 +84,12 @@ class App extends Component {
               <LandingPage />
             ) } />
 
-            <Route path='/admin' exact render={ () => (
+            <Route path='/admin' render={ ({match}) => (
               
                adminSignedIn ? (
                 <Fragment>
                   <Dashboard
+                    url={match.url}
                     screenName={'Dashboard'}
                     subscriberCount={'0'}
                     onSignOut={ this.onSignOut }
@@ -101,7 +97,6 @@ class App extends Component {
                     onViewEditContent={this.onViewEditContent}
                     onEmailSubscribers={this.onEmailSubscribers}
                     onBlogArticle={this.onBlogArticle}
-                    onTabClick={ this.setActiveTab } 
                   />
         
                 </Fragment>

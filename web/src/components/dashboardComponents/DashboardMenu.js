@@ -1,43 +1,43 @@
-import React from 'react'
-import purpleLogo from '../../images/purplelogo.svg'
+import React from 'react';
+import purpleLogo from '../../images/purplelogo.svg';
 import './DashboardMenu.css';
-
+import { NavLink, Link, activeClassName } from 'react-router-dom'
 
 function DashboardMenu({
   activeTab,
   setActiveTab,
-  signOut
+  signOut,
 }) {
-  return ( 
+  return (
     <div className="row py-4 background-purple side-menu text-center">
       <h3 className="col-s-6 col-md-12 white-heading">Admin Dashboard</h3>
       <div className="overflow text-center mb-4">
         <img className="logo col-s-6 col-md-12 w-75" src={ purpleLogo } />
       </div>
       <div className="col-6 col-md-12 p-0 mb-2">
-        <a href="javascript:void(0);" onClick={ (event) => { setActiveTab('asda') } } className="sidemenu-button">
+        <NavLink exact to="/admin" className="sidemenu-button" activeClassName="admin-active" >
           Home
-        </a>
+        </NavLink>
       </div>
       <div className="col-6 col-md-12 p-0 mb-2">
-        <a href="javascript:void(0);" onClick="" className="sidemenu-button">
+        <NavLink to="/admin/newcontent" className="sidemenu-button" activeClassName="admin-active">
           Upload New Content
-        </a>
+        </NavLink>
       </div>
       <div className="col-6 col-md-12 p-0 mb-2">
-        <a href="javascript:void(0);" onClick="" className="sidemenu-button">
+        <NavLink to="/admin/mycontent" activeClassName="admin-active" className="sidemenu-button">
           View/Edit Content
-        </a>
+        </NavLink>
       </div>
       <div className="col-6 col-md-12 p-0 mb-2">
-        <a href="javascript:void(0);" onClick="" className="sidemenu-button">
+        <NavLink to="/admin/contactsubscribers" activeClassName="admin-active" className="sidemenu-button">
           Email Subscribers
-        </a>
+        </NavLink>
       </div>
       <div className="col-6 col-md-12 p-0 mb-2">
-        <a href="javascript:void(0);" onClick={ (event) => { signOut() } } className="sidemenu-button">
+        <span onClick={ (event) => { signOut() } } className="sidemenu-button">
           Logout
-        </a>
+        </span>
       </div>
 
     </div>

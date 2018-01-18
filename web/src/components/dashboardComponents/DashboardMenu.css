@@ -18,6 +18,11 @@
   font-family: 'Fjalla One', sans-serif;
 }
 
+.admin-active {
+  background-color: #E4BD5D;
+  color: #1D1C1B;
+}
+
 .sidemenu-button:hover {
   background-color: #E4BD5D;
   color: #1D1C1B;
