@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
-import AddContentForm from './components/AddContentForm'
-import Content from './components/Content'
+// import Content from './components/Content'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
 import PrimaryNav from './components/PrimaryNav'
@@ -16,12 +15,12 @@ import { listContents } from './api/contents'
 class App extends Component {
   state = {
     showMenu: false,
-    error: null,
+    // error: null,
     decodedToken: getDecodedToken(), // Restore the previous signed in data
-    contents: null
+    // contents: null
   }
   
-  // Event handlers for signing in and out
+  //Event handlers for signing in and out
   onSignIn = ({ email, password }) => {
     signIn({ email, password })
       .then((decodedToken) => {
@@ -35,9 +34,11 @@ class App extends Component {
 
   onSignOut = () => {
     signOutNow()
-    this.setState({ decodedToken: null })
+    this.setState({ 
+      decodedToken: null,
+     })
   }
-  
+
   // Event handler for menu toggle
   onMenuToggle = () => {
     const showMenu = this.state.showMenu
@@ -67,14 +68,14 @@ class App extends Component {
 
   render() {
     const { showMenu, error, decodedToken, contents } = this.state
-    const signedIn = !!decodedToken
-        
+    const adminSignedIn = !!decodedToken
+
     return (
       <div className="App">
         <PrimaryNav
           className=""
           menuClassWidth={showMenu ? 'w-100' : 'null'}
-          onMenuClick={this.onMenuToggle}
+          onMenuClick={ this.onMenuToggle }
         />
 
         <Router>
@@ -83,23 +84,29 @@ class App extends Component {
               <LandingPage />
             ) } />
 
-            <Route path='/admin' exact render={ () => (
-              <Fragment>
-                <Dashboard
-                  screenName={'Dashboard'}
-                  subscriberCount={'0'}
-                  onAddContent={this.onAddContent}
-                  onViewEditContent={this.onViewEditContent}
-                  onEmailSubscribers={this.onEmailSubscribers}
-                  onBlogArticle={this.onBlogArticle}
+            <Route path='/admin' render={ ({match}) => (
+              
+               adminSignedIn ? (
+                <Fragment>
+                  <Dashboard
+                    url={match.url}
+                    screenName={'Dashboard'}
+                    subscriberCount={'0'}
+                    onSignOut={ this.onSignOut }
+                    onAddContent={this.onAddContent}
+                    onViewEditContent={this.onViewEditContent}
+                    onEmailSubscribers={this.onEmailSubscribers}
+                    onBlogArticle={this.onBlogArticle}
+                  />
+        
+                </Fragment>
+              ) : (
+                <SignInForm
+                  onSignIn={this.onSignIn}
+                  admin ={ true }
                 />
-      
-                <AddContentForm
-                  screenName={'Add Content'}
-                  onPreview={this.onPreview}
-                  onSave={this.onSave}
-                />
-              </Fragment>
+              )
+              
             ) } />
 
             <Route path='/signin' exact render={ () => (
@@ -139,6 +146,7 @@ class App extends Component {
 
     const { decodedToken } = this.state
     const signedIn = !!decodedToken
+    console.log( decodedToken, 'hello' )
   }
 
   // When this App first appears on screen

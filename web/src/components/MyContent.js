@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import JitsmobLogo from '../images/JitsmobLogo.svg'
-import TopBar from './TopBar'
 import Content from './Content'
 
 function MyContent({
@@ -12,7 +11,6 @@ function MyContent({
   
   return (
     <div>
-      <TopBar image={JitsmobLogo} alt={'Jitsmob logo'} />
       <h1>{screenName}</h1>
       
       { 

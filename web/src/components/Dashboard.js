@@ -1,73 +1,56 @@
-import React from 'react'
-import JitsmobLogo from '../images/JitsmobLogo.svg'
-import TopBar from './TopBar'
-import GoogleAnalytics from './GoogleAnalytics'
+import React, { Fragment } from 'react'
+import GoogleAnalytics from './dashboardComponents/GoogleAnalytics'
+import DashboardMenu from './dashboardComponents/DashboardMenu'
+import './Dashboard.css';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
-function Dashboard({
-  screenName,
+function Dashboard ({
   subscriberCount,
   onAddContent,
   onViewEditContent,
   onEmailSubscribers,
-  onBlogArticle
+  onBlogArticle,
+  onSignOut,
+  onTabClick,
+  url
 }) {
   return (
-    <div>
-      <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/>
-      <h1>{ screenName }</h1>
+    <div className="row">
 
-      <div>{ subscriberCount }</div>
-      <div>Subscribers</div>
-      
-      <button
-        onClick={ 
-          (event) => {  // Event listener
-            // Call function 'onAddContent'
-            // when button 'Add Content' is clicked
-            onAddContent()
-          }
-        }
-      >
-        Add Content  
-      </button>
-      
-      <button
-        onClick={ 
-          (event) => {  // Event listener
-            // Call function 'onViewEditContent'
-            // when button 'View Edit Content' is clicked
-            onViewEditContent()
-          }
-        }
-      >
-        View Edit Content
-      </button>
-      
-      <button
-        onClick={ 
-          (event) => {  // Event listener
-            // Call function 'onEmailSubscribers'
-            // when button 'Email Subscribers' is clicked
-            onEmailSubscribers()
-          }
-        }
-      >
-        Email Subscribers
-      </button>
+      <div className="col-md-3 col-lg-3 col-12">
+        <DashboardMenu 
+          signOut={ (event) => { onSignOut() } }
+        />
+      </div>
+      <div className="col-md-9 col-lg-9 col-12 background-white">
+        
+          <Switch>
+            <Route path={url} exact render={ () => (
+              <Fragment>
+                hello world
+                <div>{ subscriberCount }</div>
+                <div>Subscribers</div>
+                <GoogleAnalytics title={ 'Google Analytics Placeholder' }/>
+              </Fragment>
+            ) } />
+            <Route path={url + '/newcontent'} render={ () => (
+              <Fragment>
+                <h1>New Content</h1>
+              </Fragment>
+            ) } />
+            <Route path={url + '/mycontent'} render={ () => (
+              <Fragment>
+                <h1>Edit Content</h1>
+              </Fragment>
+            ) } />
+            <Route path={url + '/contactsubscribers'} render={ () => (
+              <Fragment>
+                <h1>Email your subscribers</h1>
+              </Fragment>
+            ) } />
+          </Switch>
 
-      <button
-        onClick={ 
-          (event) => {  // Event listener
-            // Call function 'onBlogArticle'
-            // when button 'Blog Article' is clicked
-            onBlogArticle()
-          }
-        }
-      >
-        Blog Article
-      </button>
-      
-      <GoogleAnalytics title={ 'Google Analytics Placeholder' }/>
+      </div>
     </div>
   )
 }
