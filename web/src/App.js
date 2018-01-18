@@ -10,7 +10,7 @@ import PrimaryNav from './components/PrimaryNav'
 import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signUp, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
-import { listContents } from './api/contents'
+import { listContents, addContents } from './api/contents'
 
 class App extends Component {
   state = {
@@ -45,8 +45,14 @@ class App extends Component {
     this.setState({ showMenu: !showMenu })
   }
   // Event handlers for Dashboard
-  onAddContent = () => {
-    console.log('Add Content button clicked')
+  onAddContent = (contentData) => {
+    addContents(contentData)
+    .then((contentData) => {
+      console.log('Successfully added new content to database', contentData)
+    })
+    .catch((error) => {
+      console.log('Error received when adding content', error)
+    })
   }
   onViewEditContent = () => {
     console.log('ViewEditContent button clicked')
@@ -93,7 +99,7 @@ class App extends Component {
                     screenName={'Dashboard'}
                     subscriberCount={'0'}
                     onSignOut={ this.onSignOut }
-                    onAddContent={this.onAddContent}
+                    onAddContent={ this.onAddContent }
                     onViewEditContent={this.onViewEditContent}
                     onEmailSubscribers={this.onEmailSubscribers}
                     onBlogArticle={this.onBlogArticle}
@@ -146,7 +152,7 @@ class App extends Component {
 
     const { decodedToken } = this.state
     const signedIn = !!decodedToken
-    console.log( decodedToken, 'hello' )
+    
   }
 
   // When this App first appears on screen

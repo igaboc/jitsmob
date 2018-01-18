@@ -6,31 +6,30 @@ import Content from '../Content'
 function AddContentForm({
   screenName,
   onPreview,
-  onSave
+  onNewContentSave
 }) {
   return (
     <form
-      onPreview={ (event) => {
+      // const onPreview={ (event) => {
+      //   // Prevent old-school form submission
+      //   event.preventDefault()
+        
+      //   const form = event.target
+      //   const elements = form.elements // Allows looking up fields using their 'name' attributes
+      //   // Get entered values from fields
+      //   const title = elements.title.value
+      //   const category = elements.category.value
+      //   const bodyPart = elements.bodyPart.value
+      //   const youtubeURL = elements.youtubeURL.value
+      //   const description = elements.description.value // body is the description of the content
+
+      //   // Pass this information along to the parent component
+      //   onPreview({ title, category, bodyPart, youtubeURL, description })
+      // } }
+
+      onSubmit={ (event) => {
         // Prevent old-school form submission
         event.preventDefault()
-        
-        const form = event.target
-        const elements = form.elements // Allows looking up fields using their 'name' attributes
-        // Get entered values from fields
-        const title = elements.title.value
-        const category = elements.category.value
-        const bodyPart = elements.bodyPart.value
-        const youtubeURL = elements.youtubeURL.value
-        const description = elements.description.value // body is the description of the content
-
-        // Pass this information along to the parent component
-        onPreview({ title, category, bodyPart, youtubeURL, description })
-      } }
-
-      onSave={ (event) => {
-        // Prevent old-school form submission
-        event.preventDefault()
-        
         const form = event.target
         const elements = form.elements // Allows looking up fields using their 'name' attributes
         // Get entered values from fields
@@ -39,9 +38,9 @@ function AddContentForm({
         const bodyPart = elements.bodyPart.value
         const youtubeURL = elements.youtubeURL.value
         const description = elements.description.value  // body is the description of the content
-
+        
         // Pass this information along to the parent component
-        onSave({ title, category, bodyPart, youtubeURL, description})
+        onNewContentSave({ title, category, bodyPart, youtubeURL, description})
       } }
     >
       {/* <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/> */}
@@ -57,7 +56,7 @@ function AddContentForm({
       <h1>{ screenName }</h1>
       <div className="form-group">
         <label>
-          Title:
+          {'Title: '}
           <input
             className="form-control"
             type='textfield'
@@ -68,7 +67,7 @@ function AddContentForm({
       
       <div className="form-group">  
         <label>
-          Category:
+          {'Category: '}
           <select 
             name='category'  
             className="form-control"
@@ -83,7 +82,7 @@ function AddContentForm({
 
       <div className="form-group">  
         <label>
-          Body Part:
+          {'Body Part: '}
           <select 
             name='bodyPart'  
             className="form-control"
@@ -99,7 +98,7 @@ function AddContentForm({
 
       <div className="form-group">
         <label>
-          YouTube URL:
+          {'YouTube URL: '}
           <input
             className="form-control"
             type='textfield'
@@ -111,7 +110,7 @@ function AddContentForm({
 
       <div className="form-group">
         <label>
-          Description:
+          {'Description: '}
           <textarea
             className="form-control"
             type='textarea'
@@ -120,7 +119,7 @@ function AddContentForm({
         </label>
       </div>
 
-      <button
+      {/* <button
         onClick={ 
           (event) => {  // Event listener
             // Call function 'onPreview'
@@ -128,20 +127,21 @@ function AddContentForm({
             onPreview()
           }
         }
-        className="btn btn-warning mb-2"
+        className="btn-purple"
       >
         Preview 
-      </button>
+      </button> */}
 
       <button
-        onClick={ 
-          (event) => {  // Event listener
-            // Call function 'onSave'
-            // when button 'Save' is clicked
-            onSave()
-          }
-        }
-        className="btn btn-danger mb-2"
+        // onClick={ 
+        //   (event) => {  // Event listener
+        //     // Call function 'onSave'
+        //     // when button 'Save' is clicked
+        //     console.log('initialclick')
+        //     onSave()
+        //   }
+        // }
+        className="btn-jits"
       >
         Save 
       </button>

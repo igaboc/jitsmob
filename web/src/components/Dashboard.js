@@ -37,7 +37,10 @@ function Dashboard ({
             <Route path={url + '/newcontent'} render={ () => (
               <Fragment>
                 {/* <h1>New Content</h1> */}
-                <AddContentForm screenName="Upload New Content onto JitsMob Website" onPreview='null' onSave='null' />
+                <AddContentForm 
+                  screenName="Upload New Content onto JitsMob Website"
+                  onPreview='null' 
+                  onNewContentSave={ (contentData) => onAddContent(contentData) } />
               </Fragment>
             ) } />
             <Route path={url + '/mycontent'} render={ () => (
