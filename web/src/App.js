@@ -50,9 +50,11 @@ class App extends Component {
   onCreateSubscriber = (email) => {
     createSubscribers(email)
       .then((newSubscriber) => {
+        alert('You have successfully subscribed!')
         console.log('new subcriber', newSubscriber)
       })
       .catch((error) => {
+        alert('Oops, something went wrong!\n\nEither you have already subscribed or an error has occurred.')
         console.log('new subscriber error', error)
       })
   }
