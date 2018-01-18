@@ -2,7 +2,8 @@ import React from 'react'
 
 function Content({
   title,
-  subtitle,
+  category,
+  bodyPart,
   youtubeURL,
   description
 }) {
@@ -29,7 +30,8 @@ function Content({
       <div>Date added placeholder</div>
       <div>{ youtubeURL }</div>
       
-      <h2>{ subtitle }</h2>
+      <h2>{ category }</h2>
+      <h2>{ bodyPart }</h2>
       <div>{ description }</div>
 
       <div className="container">

@@ -9,7 +9,7 @@ function MyContent({
 }) {
 
   const videos = contents["contents"]
-  
+  console.log(videos)
   return (
     <div>
       <TopBar image={JitsmobLogo} alt={'Jitsmob logo'} />
@@ -22,10 +22,10 @@ function MyContent({
               <Content
                 {...content}
                 title={ content.title }
-                subtitle={ content.subtitle }
+                category={ content.category }
+                bodyPart={ content.bodyPart }
                 youtubeURL={content.youtubeURL }
                 description={ content.description }
-                content={ content }
               />
             </Fragment> 
           )

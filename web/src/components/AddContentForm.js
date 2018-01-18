@@ -48,9 +48,10 @@ function AddContentForm({
       <h1>Preview:</h1>
       <Content
         title={ 'title' }
-        subtitle={ 'category' }
+        category={ 'category' }
+        bodyPart={ 'bodyPart' }
         youtubeURL={ 'youtubeLink' }
-        description={ 'body' }
+        description={ 'description' }
       />
 
       <h1>Editor:</h1>
