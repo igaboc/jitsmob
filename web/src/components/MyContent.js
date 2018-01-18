@@ -9,7 +9,7 @@ function MyContent({
 }) {
 
   const videos = contents["contents"]
-  console.log(videos)
+  
   return (
     <div>
       <TopBar image={JitsmobLogo} alt={'Jitsmob logo'} />

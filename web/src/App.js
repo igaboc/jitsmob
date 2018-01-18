@@ -1,15 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
 import AddContentForm from './components/AddContentForm'
-import Content from './components/Content'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
 import PrimaryNav from './components/PrimaryNav'
+import ShowPage from './components/ShowPage'
 import 'bootstrap/dist/css/bootstrap.css';
-import { signIn, signUp, signOutNow } from './api/auth'
+import { signIn, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
 import { listContents } from './api/contents'
 
@@ -66,9 +66,8 @@ class App extends Component {
   }
 
   render() {
-    const { showMenu, error, decodedToken, contents } = this.state
-    const signedIn = !!decodedToken
-        
+    const { showMenu, contents } = this.state
+            
     return (
       <div className="App">
         <PrimaryNav
@@ -119,6 +118,17 @@ class App extends Component {
                 }
               </Fragment>
             ) } />
+
+            <Route path='/showpage' exact render={ () => (
+              <Fragment>
+                <ShowPage
+                  screenName={ 'Show Page' }
+                  contents={ contents }
+                  id={ '5a5ee3e46407bd616bf8e1b4' }
+                />
+              </Fragment>
+            ) } />
+
           </Switch>
         </Router>
       </div>
@@ -136,9 +146,6 @@ class App extends Component {
         this.setState({ contents })
       })
       .catch(saveError)
-
-    const { decodedToken } = this.state
-    const signedIn = !!decodedToken
   }
 
   // When this App first appears on screen
