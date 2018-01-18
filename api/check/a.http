@@ -1,6 +1,9 @@
 ###
 GET http://localhost:7000/contents
 
+### Read one video
+GET http://localhost:7000/contents/5a600a0e2f18f3294ad71470
+
 ###
 POST http://localhost:7000/auth/register
 Content-Type: application/json
