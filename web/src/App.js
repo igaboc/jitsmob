@@ -8,7 +8,7 @@ import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
 import PrimaryNav from './components/PrimaryNav'
 import 'bootstrap/dist/css/bootstrap.css';
-import { signIn, signUp, signOutNow } from './api/auth'
+import { signIn, /*signUp*/ signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
 import { listContents } from './api/contents'
 
@@ -17,7 +17,7 @@ class App extends Component {
     showMenu: false,
     // error: null,
     decodedToken: getDecodedToken(), // Restore the previous signed in data
-    // contents: null
+    contents: null
   }
   
   //Event handlers for signing in and out
@@ -67,7 +67,7 @@ class App extends Component {
   }
 
   render() {
-    const { showMenu, error, decodedToken, contents } = this.state
+    const { showMenu, decodedToken, contents } = this.state
     const adminSignedIn = !!decodedToken
 
     return (
@@ -116,7 +116,7 @@ class App extends Component {
               />
             ) } />
           
-            <Route path='/excercises' exact render={ () => (
+            <Route path='/exercises' exact render={ () => (
               <Fragment>
                 { contents &&
                   <MyContent
@@ -136,17 +136,13 @@ class App extends Component {
     const saveError = (error) => {
       this.setState({ error })
     }
-
     //Load for everyone
     listContents()
       .then((contents) => {
         this.setState({ contents })
       })
       .catch(saveError)
-
-    const { decodedToken } = this.state
-    const signedIn = !!decodedToken
-    console.log( decodedToken, 'hello' )
+    
   }
 
   // When this App first appears on screen

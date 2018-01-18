@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 // import { Link } from "react-router-dom";
 import jitsmobLogo from '../Grouplogo.svg';
 import './PrimaryNav.css';
-
+// import { NavLink } from 'react-router-dom'
 
 function PrimaryNav({
   menuClassWidth,
@@ -20,6 +20,7 @@ function PrimaryNav({
         <a className="ml-4 pt-3 pb-2" href="/excercises">Excercises</a>
         <a className="mx-4 pt-3 pb-2" href="/admin">Admin (for now only)</a>
         <a className="mx-4 pt-3 pb-2" href="/signin">Login (for now only)</a>
+        <a className="mx-4 pt-3 pb-2" href="/">Home (for now only)</a>
         <span className="py-2 icon" onClick={ (event) => { onMenuClick() } }>&#9776;</span>
       </div>
       <div className="col-lg-1"/>
@@ -27,12 +28,13 @@ function PrimaryNav({
   
 
     <div className={`overlay ${ menuClassWidth }`}>
-      <a href="javascript:void(0)" class="closebtn" onClick={ (event) => { onMenuClick() } } >&times;</a>
+      <span className="closebtn" onClick={ (event) => { onMenuClick() } } >&times;</span>
       <div className="overlay-content">
         <a href="/excercises">About</a>
         <a href="/admin">Admin (for now only)</a>
         <a href="/signin">Login (for now only)</a>
-        <a href="#">Contact</a>
+        <a href="/Exercises">Exercises</a>
+        <a href="/">Home</a>
       </div>
     </div>
   </Fragment>

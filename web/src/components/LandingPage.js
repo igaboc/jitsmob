@@ -36,19 +36,19 @@ function LandingPage() {
         <p>Follow Us</p>
         <p>Social media icons</p>
 
-        <div class='row mt-4 justify-content-center'>
+        <div className='row mt-4 justify-content-center'>
           <Fragment>
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
 
-            <div class='w-100'></div>
+            <div className='w-100'></div>
 
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
 
-            <div class='w-100'></div>
+            <div className='w-100'></div>
 
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
             <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />

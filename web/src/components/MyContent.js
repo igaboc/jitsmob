@@ -1,20 +1,19 @@
 import React, { Fragment } from 'react'
-import JitsmobLogo from '../images/JitsmobLogo.svg'
 import Content from './Content'
 
 function MyContent({
   screenName,
   contents
 }) {
-
   const videos = contents["contents"]
-  
+ 
   return (
     <div>
       <h1>{screenName}</h1>
       
       { 
         videos.map((content) => {
+          console.log(content)
           return (
             <Fragment key={ content._id }>
               <Content
