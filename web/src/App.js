@@ -3,7 +3,6 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
-import AddContentForm from './components/AddContentForm'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
 import PrimaryNav from './components/PrimaryNav'
@@ -69,7 +68,7 @@ class App extends Component {
   }
 
   render() {
-    const { showMenu, decodedToen, contents } = this.state
+    const { showMenu, decodedToken, contents } = this.state
     const adminSignedIn = !!decodedToken
 
     return (
