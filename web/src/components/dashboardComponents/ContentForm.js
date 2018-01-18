@@ -1,7 +1,7 @@
 import React from 'react'
-import JitsmobLogo from '../images/JitsmobLogo.svg'
-import TopBar from './TopBar'
-import Content from './Content'
+import JitsmobLogo from '../../images/JitsmobLogo.svg'
+// import TopBar from './TopBar'
+import Content from '../Content'
 
 function AddContentForm({
   screenName,
@@ -42,7 +42,7 @@ function AddContentForm({
         onSave({ bodypart, category, youtubeLink, body })
       } }
     >
-      <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/>
+      {/* <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/> */}
       <h1>{ screenName }</h1>
       
       <h1>Preview:</h1>

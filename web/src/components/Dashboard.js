@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import GoogleAnalytics from './dashboardComponents/GoogleAnalytics'
 import DashboardMenu from './dashboardComponents/DashboardMenu'
+import AddContentForm from './dashboardComponents/ContentForm'
 import './Dashboard.css';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
@@ -35,12 +36,14 @@ function Dashboard ({
             ) } />
             <Route path={url + '/newcontent'} render={ () => (
               <Fragment>
-                <h1>New Content</h1>
+                {/* <h1>New Content</h1> */}
+                <AddContentForm screenName="Upload New Content onto JitsMob Website" onPreview='null' onSave='null' />
               </Fragment>
             ) } />
             <Route path={url + '/mycontent'} render={ () => (
               <Fragment>
-                <h1>Edit Content</h1>
+                {/* <h1>Edit Content</h1> */}
+                <AddContentForm screenName="Edit Content" onPreview='null' onSave='null' />
               </Fragment>
             ) } />
             <Route path={url + '/contactsubscribers'} render={ () => (
