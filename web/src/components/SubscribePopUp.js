@@ -8,9 +8,9 @@ function SubscribePopUp({
 }) {
   return (
     <div className={`overlay ${popupClassWidth}`}>
-      <div className="popup-box" id='popupjs'>
+      <div className="popup-box">
         <div className="popup-text">
-          <a onClick={(event) => { onClickSubscribe() }} className="exit-cursor">X</a>
+          <a onClick={(event) => { onClickSubscribe() }} className="exit-cursor">&times;</a>
           <h2>Subscribe</h2>
           <p>Receive updates when new content is added</p>
 

@@ -52,6 +52,7 @@ class App extends Component {
       .then((newSubscriber) => {
         alert('You have successfully subscribed!')
         console.log('new subcriber', newSubscriber)
+        this.onSubscribeToggle()
       })
       .catch((error) => {
         alert('Oops, something went wrong!\n\nEither you have already subscribed or an error has occurred.')
