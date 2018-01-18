@@ -7,6 +7,7 @@ import AddContentForm from './components/AddContentForm'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
 import PrimaryNav from './components/PrimaryNav'
+import ContentLibrary from './components/ContentLibrary'
 import ShowPage from './components/ShowPage'
 import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signOutNow } from './api/auth'
@@ -67,7 +68,7 @@ class App extends Component {
 
   render() {
     const { showMenu, contents } = this.state
-            
+    
     return (
       <div className="App">
         <PrimaryNav
@@ -119,13 +120,26 @@ class App extends Component {
               </Fragment>
             ) } />
 
+            <Route path='/contentlibrary' exact render={ () => (
+              <Fragment>
+                { contents &&
+                  <ContentLibrary
+                    screenName={ 'Content Library' }
+                    contents={ contents }
+                  />
+                }
+              </Fragment>
+            ) } />
+
             <Route path='/showpage' exact render={ () => (
               <Fragment>
-                <ShowPage
-                  screenName={ 'Show Page' }
-                  contents={ contents }
-                  id={ '5a5ee3e46407bd616bf8e1b4' }
-                />
+                { contents &&
+                  <ShowPage
+                    screenName={ 'Show Page' }
+                    contents={ contents }
+                    id={ '5a601cf92cf2b8334e35adfc' }
+                  />
+                }
               </Fragment>
             ) } />
 
