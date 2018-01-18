@@ -42,8 +42,8 @@ function Dashboard ({
             ) } />
             <Route path={url + '/mycontent'} render={ () => (
               <Fragment>
-                {/* <h1>Edit Content</h1> */}
-                <AddContentForm screenName="Edit Content" onPreview='null' onSave='null' />
+                <h1>Edit Content</h1>
+                {/* <AddContentForm screenName="Edit Content" onPreview='null' onSave='null' /> */}
               </Fragment>
             ) } />
             <Route path={url + '/contactsubscribers'} render={ () => (
