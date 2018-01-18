@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage';
 import Subscribe from './components/Subscribe';
 import SubscribePopUp from './components/SubscribePopUp';
 import FindOutMoreButton from './components/FindOutMoreButton';
+import PrimaryNav from './components/PrimaryNav'
 import 'bootstrap/dist/css/bootstrap.css'
 
 import { createSubscribers } from './api/subscribers'
@@ -66,9 +67,7 @@ class App extends Component {
     return (
       <div className="App Site">
         <div className="Site-content">
-          <div className='temp-header'>
-            <h1>Header</h1>
-          </div>
+          <PrimaryNav />
           <div className="main">
             <LandingPage />
           </div>
