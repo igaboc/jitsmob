@@ -1,22 +1,25 @@
-import React, { Fragment } from 'react'
-import Content from './Content'
+import React, {Fragment} from 'react'
+import JitsmobLogo from '../images/JitsmobLogo.svg'
+import TopBar from './TopBar'
+import Content2 from './Content2'
 
-function MyContent({
+function ContentLibrary({
   screenName,
   contents
 }) {
+
   const videos = contents["contents"]
- 
+  
   return (
     <div>
+      <TopBar image={JitsmobLogo} alt={'Jitsmob logo'} />
       <h1>{screenName}</h1>
       
       { 
         videos.map((content) => {
-          console.log(content)
           return (
             <Fragment key={ content._id }>
-              <Content
+              <Content2
                 {...content}
                 title={ content.title }
                 category={ content.category }
@@ -26,10 +29,10 @@ function MyContent({
               />
             </Fragment> 
           )
-        }) 
+        })   
       } 
     </div>
   )
 }
 
-export default MyContent
+export default ContentLibrary

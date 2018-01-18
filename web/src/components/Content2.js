@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Content({
+function Content2({
   title,
   category,
   bodyPart,
@@ -41,4 +41,4 @@ function Content({
   )
 }
 
-export default Content
+export default Content2

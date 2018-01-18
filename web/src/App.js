@@ -3,12 +3,14 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
-// import Content from './components/Content'
+import AddContentForm from './components/AddContentForm'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
 import PrimaryNav from './components/PrimaryNav'
+import ContentLibrary from './components/ContentLibrary'
+import ShowPage from './components/ShowPage'
 import 'bootstrap/dist/css/bootstrap.css';
-import { signIn, /*signUp*/ signOutNow } from './api/auth'
+import { signIn, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
 import { listContents } from './api/contents'
 
@@ -19,7 +21,7 @@ class App extends Component {
     decodedToken: getDecodedToken(), // Restore the previous signed in data
     contents: null
   }
-  
+
   //Event handlers for signing in and out
   onSignIn = ({ email, password }) => {
     signIn({ email, password })
@@ -34,9 +36,9 @@ class App extends Component {
 
   onSignOut = () => {
     signOutNow()
-    this.setState({ 
+    this.setState({
       decodedToken: null,
-     })
+    })
   }
 
   // Event handler for menu toggle
@@ -67,7 +69,7 @@ class App extends Component {
   }
 
   render() {
-    const { showMenu, decodedToken, contents } = this.state
+    const { showMenu, decodedToen, contents } = this.state
     const adminSignedIn = !!decodedToken
 
     return (
@@ -75,57 +77,81 @@ class App extends Component {
         <PrimaryNav
           className=""
           menuClassWidth={showMenu ? 'w-100' : 'null'}
-          onMenuClick={ this.onMenuToggle }
+          onMenuClick={this.onMenuToggle}
         />
 
         <Router>
           <Switch>
-            <Route path='/' exact render={ () => (
+            <Route path='/' exact render={() => (
               <LandingPage />
-            ) } />
+            )} />
 
-            <Route path='/admin' render={ ({match}) => (
-              
-               adminSignedIn ? (
+            <Route path='/admin' render={({ match }) => (
+
+              adminSignedIn ? (
                 <Fragment>
                   <Dashboard
                     url={match.url}
                     screenName={'Dashboard'}
                     subscriberCount={'0'}
-                    onSignOut={ this.onSignOut }
+                    onSignOut={this.onSignOut}
                     onAddContent={this.onAddContent}
                     onViewEditContent={this.onViewEditContent}
                     onEmailSubscribers={this.onEmailSubscribers}
                     onBlogArticle={this.onBlogArticle}
                   />
-        
+
                 </Fragment>
               ) : (
-                <SignInForm
-                  onSignIn={this.onSignIn}
-                  admin ={ true }
-                />
-              )
-              
-            ) } />
+                  <SignInForm
+                    onSignIn={this.onSignIn}
+                    admin={true}
+                  />
+                )
 
-            <Route path='/signin' exact render={ () => (
+            )} />
+
+            <Route path='/signin' exact render={() => (
               <SignInForm
                 screenName={'Admin Sign In'}
                 onSignIn={this.onSignIn}
               />
-            ) } />
-          
-            <Route path='/exercises' exact render={ () => (
+            )} />
+
+            <Route path='/exercises' exact render={() => (
               <Fragment>
-                { contents &&
+                {contents &&
                   <MyContent
                     screenName={'My Content'}
-                    contents={ contents }
+                    contents={contents}
                   />
                 }
               </Fragment>
-            ) } />
+            )} />
+
+            <Route path='/contentlibrary' exact render={() => (
+              <Fragment>
+                {contents &&
+                  <ContentLibrary
+                    screenName={'Content Library'}
+                    contents={contents}
+                  />
+                }
+              </Fragment>
+            )} />
+
+            <Route path='/showpage' exact render={() => (
+              <Fragment>
+                {contents &&
+                  <ShowPage
+                    screenName={'Show Page'}
+                    contents={contents}
+                    id={'5a601cf92cf2b8334e35adfc'}
+                  />
+                }
+              </Fragment>
+            )} />
+
           </Switch>
         </Router>
       </div>
@@ -142,7 +168,6 @@ class App extends Component {
         this.setState({ contents })
       })
       .catch(saveError)
-    
   }
 
   // When this App first appears on screen
