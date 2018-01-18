@@ -3,7 +3,8 @@ import './SubscribePopUp.css';
 
 function SubscribePopUp({
   popupClassWidth,
-  onClickSubscribe
+  onClickSubscribe,
+  onSubmitEmail
 }) {
   return (
     <div className={`overlay ${popupClassWidth}`}>
@@ -12,13 +13,41 @@ function SubscribePopUp({
           <a onClick={(event) => { onClickSubscribe() }} className="exit-cursor">X</a>
           <h2>Subscribe</h2>
           <p>Receive updates when new content is added</p>
-          <form>
-            Email: <input className="form-display" type="email" name="_replyto" placeholder="your_email@something.com" />
+
+          <form
+            onSubmit={(event) => {
+              // Prevent old-school form submission
+              event.preventDefault()
+
+              const form = event.target
+              const elements = form.elements
+              const email = elements.email.value
+              // action = "/google"
+              // method = "POST"
+              onSubmitEmail({ email })
+              console.log(email)
+            }}
+          >
+
+            {'Email:'}
+            <input
+              type="text"
+              name="email"
+              placeholder="your_email@something.com"
+            />
+
+            <div className="form-spacing"></div>
+
+            <input
+              type="submit"
+              value="Subscribe!"
+            />
+
           </form>
 
         </div>
       </div>
-    </div>
+    </div >
 
   )
 }

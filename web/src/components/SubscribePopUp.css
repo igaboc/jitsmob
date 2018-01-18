@@ -12,12 +12,12 @@
 }
 
 .popup-text{
-  margin: 50px 0px 0px 0px;
+  margin: 30px 0px 0px 0px;
 }
 
 .exit-cursor{
   position: relative;
-  top: -50px;
+  top: -30px;
   left: 250px;
   font-size: 30px;
   color:red;
@@ -35,4 +35,8 @@
   background-color: rgba(29,28,27, 0.9); /* Black w/opacity */
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+.form-spacing{
+  padding:10px 0px 0px 0px;
 }

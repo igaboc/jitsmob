@@ -6,6 +6,8 @@ import SubscribePopUp from './components/SubscribePopUp';
 import FindOutMoreButton from './components/FindOutMoreButton';
 import 'bootstrap/dist/css/bootstrap.css'
 
+import { createSubscribers } from './api/subscribers'
+
 class App extends Component {
   state = {
     showMenu: false,
@@ -45,6 +47,15 @@ class App extends Component {
   onSave = () => {
     console.log('Save button clicked')
   }
+  onCreateSubscriber = (email) => {
+    createSubscribers(email)
+      .then((newSubscriber) => {
+        console.log('new subcriber', newSubscriber)
+      })
+      .catch((error) => {
+        console.log('new subscriber error', error)
+      })
+  }
 
   render() {
     const { showMenu, error, decodedToken, contents, showSubscribeBox } = this.state
@@ -67,6 +78,7 @@ class App extends Component {
         <SubscribePopUp
           popupClassWidth={showSubscribeBox ? ('w-100') : null}
           onClickSubscribe={this.onSubscribeToggle}
+          onSubmitEmail={this.onCreateSubscriber}
         />
       </div >
     );
