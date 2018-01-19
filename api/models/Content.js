@@ -6,17 +6,18 @@ const Content = mongoose.model('Content', {
     required: [true, 'Title is required']
   },
   category: {
-    type: String
+    type: String,
+    required: [true, 'Category Required']
   },
   bodyPart: {
-    type: String
+    type: String,
+    required: [true, 'bodyPart Required']
   },
   youtubeURL: {
     type: String
   },
   description: {
-    type: String, 
-    required: [true, 'Title is required']
+    type: String
   }
 })
 
