@@ -27,7 +27,8 @@ function ShowPage({
         youtubeURL={x.youtubeURL}
         description={x.description}
       />
-
+      {// Added rel="noopener noreferrer for extra security"
+      }
       <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank" rel="noopener noreferrer" >
         Share on Facebook
         <img src={ facebookLogo } alt="Share on Facebook"></img>
