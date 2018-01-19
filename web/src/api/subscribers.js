@@ -1,6 +1,7 @@
 import api from './init'
 
-export function addSubscriber(email){
-  return api.get('/subscribers', email)
+export function createSubscriber(email){
+  return api.post('/subscribers', email)
     .then((res) => res.data)
+    console.log(email)
 }

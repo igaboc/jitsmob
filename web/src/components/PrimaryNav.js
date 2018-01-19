@@ -2,21 +2,39 @@ import React, { Fragment } from "react";
 // import { Link } from "react-router-dom";
 import jitsmobLogo from '../Grouplogo.svg';
 import './PrimaryNav.css';
+import Subscribe from './Subscribe'
 // import { NavLink } from 'react-router-dom'
 
 function PrimaryNav({
   menuClassWidth,
   onMenuClick,
-
+  onClickSubscribe
 }) {
   return (
     <Fragment>
 
       <div className="topnav row py-2" id="myTopnav">
         <div className="col-2 text-center success">
-          <img className="logo" src={jitsmobLogo} alt="JitsMob Logo" />
+          <a href="/">
+            <img className="logo" src={jitsmobLogo} alt="JitsMob Logo" />
+          </a>
         </div>
         <div className="col-10 col-lg-9 pr-5">
+          {/* <span
+            className="btn-purple"
+            onClick={ (event) => {
+              onClickSubscribe()
+            }}
+          >
+            Subscribe
+          </span> */}
+          <div> 
+            <Subscribe 
+              onClickSubscribe={(event) => onClickSubscribe()}
+              buttonType='btn-purple' 
+              buttonDescription='Subscribe'
+            /> 
+          </div>
           <a className="ml-4 pt-3 pb-2" href="/exercises">Exercises</a>
           <a className="mx-4 pt-3 pb-2" href="/admin">Admin (for now only)</a>
           <a className="mx-4 pt-3 pb-2" href="/signin">Login (for now only)</a>

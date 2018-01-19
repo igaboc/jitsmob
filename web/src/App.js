@@ -7,15 +7,18 @@ import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
 import PrimaryNav from './components/PrimaryNav'
 import ContentLibrary from './components/ContentLibrary'
+import SubscribePopUp from './components/SubscribePopUp'
 import ShowPage from './components/ShowPage'
 import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
 import { listContents, addContents } from './api/contents'
+import { createSubscriber } from './api/subscribers'
 
 class App extends Component {
   state = {
     showMenu: false,
+    showSubscribeBox: false,
     // error: null,
     decodedToken: getDecodedToken(), // Restore the previous signed in data
     contents: null
@@ -45,6 +48,26 @@ class App extends Component {
     const showMenu = this.state.showMenu
     this.setState({ showMenu: !showMenu })
   }
+  // Set State to show subscribe box
+  onSubscribeToggle = () => {
+    console.log('this worked')
+    const { showSubscribeBox } = this.state
+    this.setState({ showSubscribeBox: !showSubscribeBox })
+  }
+  // Create subscribers
+  onCreateSubscriber = (email) => {
+    createSubscriber(email)
+      .then((newSubscriber) => {
+        alert('You have successfully subscribed!')
+        console.log('new subcriber', newSubscriber)
+        this.onSubscribeToggle()
+      })
+      .catch((error) => {
+        alert('Oops, something went wrong!\n\nEither you have already subscribed or an error has occurred.')
+        console.log('new subscriber error', error)
+      })
+  }
+
   // Event handlers for Dashboard
   onAddContent = (contentData) => {
     addContents(contentData)
@@ -74,7 +97,7 @@ class App extends Component {
   }
 
   render() {
-    const { showMenu, decodedToken, contents } = this.state
+    const { showMenu, showSubscribeBox, decodedToken, contents } = this.state
     const adminSignedIn = !!decodedToken
 
     return (
@@ -83,6 +106,7 @@ class App extends Component {
           className=""
           menuClassWidth={showMenu ? 'w-100' : 'null'}
           onMenuClick={this.onMenuToggle}
+          onClickSubscribe={this.onSubscribeToggle}
         />
 
         <Router>
@@ -159,6 +183,11 @@ class App extends Component {
 
           </Switch>
         </Router>
+        <SubscribePopUp
+          popupClassWidth={showSubscribeBox ? ('w-100') : null}
+          onClickSubscribe={this.onSubscribeToggle}
+          onSubmitEmail={this.onCreateSubscriber}
+        />
       </div>
     );
   }
