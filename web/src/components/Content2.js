@@ -5,7 +5,8 @@ function Content2({
   category,
   bodyPart,
   youtubeURL,
-  description
+  description,
+  id
 }) {
 
   var youtubeLink = youtubeURL // Get copy of youtubeURL
@@ -25,7 +26,10 @@ function Content2({
 
   return (
     <div>
-      <h2>{ title }</h2>
+      <a href={`/showpage/${id}`}>
+        <h2>{ title }</h2>
+      </a>
+      
 
       <div>Date added placeholder</div>
       <div>{ youtubeURL }</div>

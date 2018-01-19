@@ -26,6 +26,7 @@ function ContentLibrary({
                 bodyPart={ content.bodyPart }
                 youtubeURL={content.youtubeURL }
                 description={ content.description }
+                id={ content._id}
               />
             </Fragment> 
           )

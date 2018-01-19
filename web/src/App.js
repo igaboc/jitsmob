@@ -38,7 +38,7 @@ class App extends Component {
     signOutNow()
     this.setState({ decodedToken: null })
   }
-  
+
   // Event handler for menu toggle
   onMenuToggle = () => {
     const showMenu = this.state.showMenu
@@ -131,13 +131,13 @@ class App extends Component {
               </Fragment>
             ) } />
 
-            <Route path='/showpage' exact render={ () => (
+            <Route path='/showpage/:id' render={ ({match}) => (
               <Fragment>
                 { contents &&
                   <ShowPage
                     screenName={ 'Show Page' }
                     contents={ contents }
-                    id={ '5a601cf92cf2b8334e35adfc' }
+                    id={ match.params.id }
                   />
                 }
               </Fragment>
