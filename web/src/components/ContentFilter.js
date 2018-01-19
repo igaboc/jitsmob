@@ -27,7 +27,7 @@ function ContentFilter({
   return (
     <div className="container-fluid background-grey py-5">
       <div className="container-fluid text-center">
-        <h2 className="heading-font">Focus on...</h2>
+        <h2 className="heading-font">Focus on...{`${catFilter.join(', ')}, ${bodyFilter.join(', ')}`}</h2>
       </div>
 
       <div className={`filter-collapse ${!showFilter && 'h-0'}`}>
