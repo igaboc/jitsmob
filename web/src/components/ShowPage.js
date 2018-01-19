@@ -1,5 +1,6 @@
 import React from 'react'
 import Content from './Content'
+import facebookLogo from '../images/240px-Facebook_new.svg'
 
 function ShowPage({
   screenName,
@@ -26,6 +27,11 @@ function ShowPage({
         youtubeURL={x.youtubeURL}
         description={x.description}
       />
+
+      <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank">
+        Share on Facebook
+        <img src={ facebookLogo } alt="Share on Facebook"></img>
+      </a>
     </div>
   )
 }
