@@ -3,7 +3,7 @@ import GoogleAnalytics from './dashboardComponents/GoogleAnalytics'
 import DashboardMenu from './dashboardComponents/DashboardMenu'
 import AddContentForm from './dashboardComponents/ContentForm'
 import './Dashboard.css';
-import { BrowserRouter as Switch, Route} from 'react-router-dom'
+import { BrowserRouter as Route} from 'react-router-dom'
 
 function Dashboard ({
   subscriberCount,

@@ -28,7 +28,7 @@ function ShowPage({
         description={x.description}
       />
 
-      <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank" rel="noopener noreferrer" >
         Share on Facebook
         <img src={ facebookLogo } alt="Share on Facebook"></img>
       </a>
