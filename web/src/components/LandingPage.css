@@ -97,7 +97,18 @@
     padding: 30px 0px 70px 0px;
     background-color: #E4BD5D;
   }
-  .row :disabled{
-    background: red;
+  .flex-group{
+    display:flex;
+    flex-direction:row;
+  }
+  .flexbox{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .text-flex{
+    display:flex;
+    flex-direction: column;
+
   }
 }

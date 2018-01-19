@@ -19,20 +19,20 @@ function LandingPage({
 
       <div className='landing-section-wrapper1'>
         <div className='landing-page-text'>
-          <div className='row'>
-            <div className='col-4'>
+          <div className='flex-group'>
+            <div className='flexbox'>
               <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-              <h3 className='landing-page-para'>Boost Performance</h3>
+              <h3 className='landing-page-para text-flex'>Boost Performance</h3>
               <p>Increased range of motion can generate power and promote efficiency of functional movements through improved position and posture.</p>
             </div>
-            <div className='col-4'>
+            <div className='flexbox'>
               <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-              <h3 className='landing-page-para'>Optimise Range of Motion</h3>
+              <h3 className='landing-page-para text-flex'>Optimise Range of Motion</h3>
               <p>Range of Motion is optimized through the strengthening of ligaments and tendons while simultaneously removing excess fascia through specific stretching routines.</p>
             </div>
-            <div className='col-4'>
+            <div className='flexbox'>
               <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-              <h3 className='landing-page-para'>Accelerate Recovery</h3>
+              <h3 className='landing-page-para text-flex'>Accelerate Recovery</h3>
               <p>Recovery is increased through the natural release of hyaluronic acid while simultaneously resetting the central nervous system.</p>
             </div>
           </div>
