@@ -52,7 +52,7 @@
 /* Desktop/ipad media rule */
 /* =========================== */
 
-@media screen and (min-width:650px){
+@media screen and (min-width:730px){
   /* Flexboxes for sections */
   /* .flex-seperator{
     display: flex;
@@ -97,18 +97,40 @@
     padding: 30px 0px 70px 0px;
     background-color: #E4BD5D;
   }
-  .flex-group{
+  .responsive-group{
+    display: inline-block;
+  }
+  .responsive-row-main{
+    display: inline-block;
+    width: 430px;
+    height: 600px;
+  }
+  .responsive-row-description{
+    display: inline-block;
+    width: 230px;
+    height: 600px;
+    vertical-align:top;
+  }
+  .responsive-row-about{
+    display: inline-block;
+    width: 280px;
+    height: 600px;
+    padding: 0px 30px 0px 30px;
+    vertical-align:middle;
+  }
+
+}
+
+/* .flex-group{
     display:flex;
     flex-direction:row;
-  }
-  .flexbox{
+  } */
+  /* .flexbox{
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-  .text-flex{
+  } */
+  /* .text-flex{
     display:flex;
     flex-direction: column;
-
-  }
-}
+   } */
