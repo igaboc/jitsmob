@@ -1,5 +1,5 @@
 import React from 'react';
-import SubscribePopUp from './SubscribePopUp'
+// import SubscribePopUp from './SubscribePopUp'
 import './Subscribe.css';
 
 function Subscribe({
@@ -11,7 +11,7 @@ function Subscribe({
 
     <div>
         <button className={buttonType}>
-          <a className='remove-decor' href="#" onClick={(event) => {
+          <a className='remove-decor' onClick={(event) => {
             console.log('clicked')
             onClickSubscribe()
           }}>{buttonDescription}</a>

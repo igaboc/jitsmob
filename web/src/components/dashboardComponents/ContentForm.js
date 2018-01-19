@@ -1,7 +1,7 @@
 import React from 'react'
-import JitsmobLogo from '../../images/JitsmobLogo.svg'
+// import JitsmobLogo from '../../images/JitsmobLogo.svg'
 // import TopBar from './TopBar'
-import Content from '../Content'
+// import Content from '../Content'
 
 function AddContentForm({
   screenName,
