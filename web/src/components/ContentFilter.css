@@ -31,3 +31,11 @@
   height: 0;
   transition: 0.5s;
 }
+
+.border-bottom-clear{
+  border-bottom: 4px solid transparent;
+}
+.activeFilter {
+  border-bottom-color: #E4BD5D;
+  
+}

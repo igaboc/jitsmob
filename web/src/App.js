@@ -47,7 +47,7 @@ class App extends Component {
     const showMenu = this.state.showMenu
     this.setState({ showMenu: !showMenu })
   }
-
+  // Event handler for category filter
   onCatFilterEvent = (filterWord) => {
     const { catFilter } = this.state
     if (!catFilter.includes(filterWord)) {
@@ -60,8 +60,22 @@ class App extends Component {
         catFilter: catFilter.filter(f => f !== filterWord)
       })
     }
-    console.log(this.state.catFilter)
   }
+  // Event Handler for body filter
+  onBodyFilterEvent = (filterWord) => {
+    const { bodyFilter } = this.state
+    if (!bodyFilter.includes(filterWord)) {
+      this.setState({
+      bodyFilter: [...bodyFilter, filterWord]
+    })
+    }
+    else {
+      this.setState({
+        bodyFilter: bodyFilter.filter(f => f !== filterWord)
+      })
+    }
+  }
+
   // Event handlers for Dashboard
   onAddContent = (contentData) => {
     addContents(contentData)
@@ -91,7 +105,7 @@ class App extends Component {
   }
 
   render() {
-    const { showMenu, decodedToken, contents, catFilter } = this.state
+    const { showMenu, decodedToken, contents, catFilter, bodyFilter } = this.state
     const adminSignedIn = !!decodedToken
 
     return (
@@ -160,6 +174,10 @@ class App extends Component {
                     catFilter={catFilter}
                     catFilterToApp={ (word) => {
                       this.onCatFilterEvent(word)
+                    }}
+                    bodyFilter={bodyFilter}
+                    bodyFilterToApp={ (word) => {
+                      this.onBodyFilterEvent(word)
                     }}
                   />
                 }

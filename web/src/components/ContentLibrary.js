@@ -7,23 +7,49 @@ function ContentLibrary({
   contents,
   catFilterToApp,
   catFilter,
+  bodyFilterToApp,
+  bodyFilter
+  
 }) {
-
+  console.log(bodyFilter, 'first')
   let videos = []
+  let catFilteredArray = []
+  let bodyFilteredArray = []
   // contents["contents"]
-  if (catFilter.length < 1) {
+  if (catFilter.length < 1 && bodyFilter.length < 1) {
     videos = contents
   }
+  else if (catFilter.length > 0 && bodyFilter.length < 1 ) {
+    catFilter.map((filterWord) => {
+      catFilteredArray= catFilteredArray.concat(contents.filter(content => {
+        return content.category === filterWord
+      }))
+    })
+    videos = catFilteredArray
+  }
+  else if (catFilter.length < 1 && bodyFilter.length > 0 ) {
+    bodyFilter.map((filterWord) => {
+      bodyFilteredArray= bodyFilteredArray.concat(contents.filter(content => {
+        return content.bodyPart === filterWord
+      }))
+    })
+    videos = bodyFilteredArray
+  }
   else {
-    let filteredArray = []
-      catFilter.map((filterWord) => {
-        filteredArray= filteredArray.concat(contents.filter(content => {
-          return content.category === filterWord
-        }))
-      })
-      console.log(filteredArray)
-    videos = filteredArray
-  } 
+    // if both filters need to be run
+    catFilter.map((filterWord) => {
+      catFilteredArray= catFilteredArray.concat(contents.filter(content => {
+        return content.category === filterWord
+      }))
+    })
+    bodyFilter.map((filterWord) => {
+      bodyFilteredArray= bodyFilteredArray.concat(contents.filter(content => {
+        return content.bodyPart === filterWord
+      }))
+    })
+    videos = catFilteredArray.filter((n) => bodyFilteredArray.includes(n))
+  }
+  
 
   return (
     <div>
@@ -31,6 +57,11 @@ function ContentLibrary({
         onCatFilterToggle={ (word) => {
           catFilterToApp(word)
         }}
+        onBodyFilterToggle={ (word) => {
+          bodyFilterToApp(word)
+        }}
+        catFilter={catFilter}
+        bodyFilter={bodyFilter}
       />
       <h2>Fitlering for: { catFilter }</h2>
       {
