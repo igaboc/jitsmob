@@ -4,7 +4,10 @@
   bottom: 0;
   width: 100%;
   background-color: #4D4A5E;
-  color: white !important;
   text-align: center;
+}
+
+.remove-decor{
+  color: white !important;
   text-decoration: none !important;
 }

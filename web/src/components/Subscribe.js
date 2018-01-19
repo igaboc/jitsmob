@@ -8,7 +8,7 @@ function Footer({
   return (
     <div className='footer'>
       <footer>
-        <a href="#" onClick={(event) => {
+        <a className='remove-decor' href="#" onClick={(event) => {
           console.log('clicked')
           onClickSubscribe()
         }}>Subscribe</a>
