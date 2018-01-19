@@ -24,7 +24,6 @@ function Dashboard ({
       </div>
       <div className="col-md-9 col-lg-9 col-12 background-white">
         
-          <Switch>
             <Route path={url} exact render={ () => (
               <Fragment>
                 hello world
@@ -48,7 +47,6 @@ function Dashboard ({
                 <h1>Email your subscribers</h1>
               </Fragment>
             ) } />
-          </Switch>
 
       </div>
     </div>
