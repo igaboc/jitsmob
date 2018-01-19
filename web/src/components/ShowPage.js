@@ -9,27 +9,27 @@ function ShowPage({
 }) {
 
   var x
-  console.log('Showpage')
-  console.log(contents, id)
+  //console.log('Showpage')
+  //console.log(contents, id)
 
   /* contents['contents'].forEach((content) => {
     if(content._id === id) {
       x = content
     }
   }) */
-  console.log(contents['contents'].length)
-  console.log(contents['contents'][0]._id)
+  //console.log(contents['contents'].length)
+  //console.log(contents['contents'][0]._id)
   for (var i = 0; i < contents['contents'].length; i = i + 1) {
     if (contents['contents'][i]._id === id) {
       x = contents['contents'][i]
-      console.log('match')
+      //console.log('match')
     }
-    console.log(i)
-    console.log(contents['contents'][i]._id, id)
+    //console.log(i)
+    //console.log(contents['contents'][i]._id, id)
   }
 
   //x = contents['contents'][0]
-  console.log(x)
+  //console.log(x)
 
   /* function isId(contents, id) { 
     return contents. === id;
