@@ -1,17 +1,38 @@
 import React, { Fragment } from 'react'
 import Content2 from './Content2'
+import ContentFilter from './ContentFilter'
 
 function ContentLibrary({
   screenName,
-  contents
+  contents,
+  catFilterToApp,
+  catFilter,
 }) {
 
-  const videos = contents["contents"]
+  let videos = []
+  // contents["contents"]
+  if (catFilter.length < 1) {
+    videos = contents
+  }
+  else {
+    let filteredArray = []
+      catFilter.forEach((filterWord) => {
+        console.log(contents.filter(content => {
+          return content.category === filterWord
+        }))
+      })
+      console.log(filteredArray)
+    videos = filteredArray
+  } 
 
   return (
     <div>
-      <h1>{screenName}</h1>
-
+      <ContentFilter
+        onCatFilterToggle={ (word) => {
+          catFilterToApp(word)
+        }}
+      />
+      <h2>Fitlering for: { catFilter }</h2>
       {
         videos.map((content) => {
           return (

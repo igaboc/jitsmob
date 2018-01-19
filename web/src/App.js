@@ -18,7 +18,9 @@ class App extends Component {
     showMenu: false,
     // error: null,
     decodedToken: getDecodedToken(), // Restore the previous signed in data
-    contents: null
+    contents: null,
+    catFilter: [],
+    bodyFilter: [],
   }
 
   //Event handlers for signing in and out
@@ -45,6 +47,21 @@ class App extends Component {
     const showMenu = this.state.showMenu
     this.setState({ showMenu: !showMenu })
   }
+
+  onCatFilterEvent = (filterWord) => {
+    const { catFilter } = this.state
+    if (!catFilter.includes(filterWord)) {
+      this.setState({
+      catFilter: [...catFilter, filterWord]
+    })
+    }
+    else {
+      this.setState({
+        catFilter: catFilter.filter(f => f !== filterWord)
+      })
+    }
+    console.log(this.state.catFilter)
+  }
   // Event handlers for Dashboard
   onAddContent = () => {
     console.log('Add Content button clicked')
@@ -68,7 +85,7 @@ class App extends Component {
   }
 
   render() {
-    const { showMenu, decodedToken, contents } = this.state
+    const { showMenu, decodedToken, contents, catFilter } = this.state
     const adminSignedIn = !!decodedToken
 
     return (
@@ -133,7 +150,11 @@ class App extends Component {
                 {contents &&
                   <ContentLibrary
                     screenName={'Content Library'}
-                    contents={contents}
+                    contents={contents["contents"]}
+                    catFilter={catFilter}
+                    catFilterToApp={ (word) => {
+                      this.onCatFilterEvent(word)
+                    }}
                   />
                 }
               </Fragment>

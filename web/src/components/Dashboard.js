@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import GoogleAnalytics from './dashboardComponents/GoogleAnalytics'
 import DashboardMenu from './dashboardComponents/DashboardMenu'
-import './Dashboard.css';
 import { BrowserRouter as Switch, Route} from 'react-router-dom'
 
 function Dashboard ({
@@ -24,7 +23,6 @@ function Dashboard ({
       </div>
       <div className="col-md-9 col-lg-9 col-12 background-white">
         
-          <Switch>
             <Route path={url} exact render={ () => (
               <Fragment>
                 hello world
@@ -48,7 +46,6 @@ function Dashboard ({
                 <h1>Email your subscribers</h1>
               </Fragment>
             ) } />
-          </Switch>
 
       </div>
     </div>

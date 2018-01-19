@@ -1,0 +1,33 @@
+.filter-button {
+
+  display: block;
+  cursor:pointer;
+}
+.purple {
+  background-color: #4D4A5E;
+  color: #F2EEE9;
+}
+
+.black {
+  background-color: #1D1C1B;
+  color: #F2EEE9;
+}
+
+.filter-button:active {
+  background-color: #E4BD5D;
+  color: #1D1C1B;
+}
+
+.arrow {
+  border: solid #F2EEE9;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.h-0 {
+  height: 0;
+  transition: 0.5s;
+}
