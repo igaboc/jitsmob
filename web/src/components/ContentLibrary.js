@@ -16,8 +16,8 @@ function ContentLibrary({
   }
   else {
     let filteredArray = []
-      catFilter.forEach((filterWord) => {
-        console.log(contents.filter(content => {
+      catFilter.map((filterWord) => {
+        filteredArray= filteredArray.concat(contents.filter(content => {
           return content.category === filterWord
         }))
       })

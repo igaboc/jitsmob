@@ -11,7 +11,7 @@ import ShowPage from './components/ShowPage'
 import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
-import { listContents } from './api/contents'
+import { listContents, addContents } from './api/contents'
 
 class App extends Component {
   state = {
@@ -63,8 +63,14 @@ class App extends Component {
     console.log(this.state.catFilter)
   }
   // Event handlers for Dashboard
-  onAddContent = () => {
-    console.log('Add Content button clicked')
+  onAddContent = (contentData) => {
+    addContents(contentData)
+    .then((contentData) => {
+      console.log('Successfully added new content to database', contentData)
+    })
+    .catch((error) => {
+      console.log('Error received when adding content', error)
+    })
   }
   onViewEditContent = () => {
     console.log('ViewEditContent button clicked')

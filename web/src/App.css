@@ -117,3 +117,58 @@ body{
   width: 100%;
   height: 360px;
 }
+
+/* Buttons */
+
+.btn-purple {
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  font-family: 'Roboto', sans-serif;
+  color: #F2F2F2;
+  font-size: 16px;
+  background: #4D4A5E;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn-purple:hover {
+  background: #575373;
+  text-decoration: none;
+}
+
+.btn-yellow {
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  font-family: 'Roboto', sans-serif;
+  color: #1D1C1B;
+  font-size: 16px;
+  background: #E4BD5D;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn-yellow:hover {
+  background: #F5BE36;
+  text-decoration: none;
+}
+
+.btn-jits {
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  font-family: Arial;
+  color: #4D4A5E;
+  font-size: 16px;
+  background: transparent;
+  padding: 8.2px 18px;
+  border: solid #4D4A5E 2px;
+  text-decoration: none;
+}
+
+.btn-jits:hover {
+  background: #4D4A5E;
+  color: #F2EEE9;
+  text-decoration: none;
+}
