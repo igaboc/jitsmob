@@ -1,5 +1,6 @@
 import React from 'react'
 import Content from './Content'
+import './ShowPage.css'
 import facebookLogo from '../images/240px-Facebook_new.svg'
 
 function ShowPage({
@@ -17,7 +18,7 @@ function ShowPage({
   }
 
   return (
-    <div>
+    <div class="show_page_div">
       <h1>{screenName}</h1>
 
       <Content
