@@ -172,3 +172,9 @@ body{
   color: #F2EEE9;
   text-decoration: none;
 }
+
+.h-0 {
+  height: 0;
+  display: none;
+  transition: display .5s
+}

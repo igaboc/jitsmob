@@ -16,6 +16,7 @@ import { listContents, addContents } from './api/contents'
 class App extends Component {
   state = {
     showMenu: false,
+    showFilter: true,
     // error: null,
     decodedToken: getDecodedToken(), // Restore the previous signed in data
     contents: null,
@@ -75,7 +76,11 @@ class App extends Component {
       })
     }
   }
-
+  // Event handler for filter toggle
+  onFilterToggle = () => {
+    const showFilter = this.state.showFilter
+    this.setState({ showFilter: !showFilter })
+  }
   // Event handlers for Dashboard
   onAddContent = (contentData) => {
     addContents(contentData)
@@ -105,98 +110,101 @@ class App extends Component {
   }
 
   render() {
-    const { showMenu, decodedToken, contents, catFilter, bodyFilter } = this.state
+    const { showMenu, decodedToken, contents, catFilter, bodyFilter, showFilter } = this.state
     const adminSignedIn = !!decodedToken
 
     return (
       <div className="App">
-        <PrimaryNav
-          className=""
-          menuClassWidth={showMenu ? 'w-100' : 'null'}
-          onMenuClick={this.onMenuToggle}
-        />
-
         <Router>
-          <Switch>
-            <Route path='/' exact render={() => (
-              <LandingPage />
-            )} />
+          <Fragment>
+            <PrimaryNav
+              className=""
+              menuClassWidth={showMenu ? 'w-100' : 'null'}
+              onMenuClick={this.onMenuToggle}
+            />
+            <Switch>
+              <Route path='/' exact render={() => (
+                <LandingPage />
+              )} />
 
-            <Route path='/admin' render={({ match }) => (
+              <Route path='/admin' render={({ match }) => (
 
-              adminSignedIn ? (
+                adminSignedIn ? (
+                  <Fragment>
+                    <Dashboard
+                      url={match.url}
+                      screenName={'Dashboard'}
+                      subscriberCount={'0'}
+                      onSignOut={this.onSignOut}
+                      onAddContent={this.onAddContent}
+                      onViewEditContent={this.onViewEditContent}
+                      onEmailSubscribers={this.onEmailSubscribers}
+                      onBlogArticle={this.onBlogArticle}
+                    />
+
+                  </Fragment>
+                ) : (
+                    <SignInForm
+                      onSignIn={this.onSignIn}
+                      admin={true}
+                    />
+                  )
+
+              )} />
+
+              <Route path='/signin' exact render={() => (
+                <SignInForm
+                  screenName={'Admin Sign In'}
+                  onSignIn={this.onSignIn}
+                />
+              )} />
+
+              <Route path='/mycontent' exact render={() => (
                 <Fragment>
-                  <Dashboard
-                    url={match.url}
-                    screenName={'Dashboard'}
-                    subscriberCount={'0'}
-                    onSignOut={this.onSignOut}
-                    onAddContent={this.onAddContent}
-                    onViewEditContent={this.onViewEditContent}
-                    onEmailSubscribers={this.onEmailSubscribers}
-                    onBlogArticle={this.onBlogArticle}
-                  />
-
+                  {contents &&
+                    <MyContent
+                      screenName={'My Content'}
+                      contents={contents}
+                    />
+                  }
                 </Fragment>
-              ) : (
-                  <SignInForm
-                    onSignIn={this.onSignIn}
-                    admin={true}
-                  />
-                )
+              )} />
 
-            )} />
+              <Route path='/exercises' exact render={() => (
+                <Fragment>
+                  {contents &&
+                    <ContentLibrary
+                      screenName={'Content Library'}
+                      contents={contents["contents"]}
+                      showFilter={showFilter}
+                      filterToggleToApp={this.onFilterToggle}
+                      catFilter={catFilter}
+                      catFilterToApp={ (word) => {
+                        this.onCatFilterEvent(word)
+                      }}
+                      bodyFilter={bodyFilter}
+                      bodyFilterToApp={ (word) => {
+                        this.onBodyFilterEvent(word)
+                      }}
+                    />
+                  }
+                </Fragment>
+              )} />
 
-            <Route path='/signin' exact render={() => (
-              <SignInForm
-                screenName={'Admin Sign In'}
-                onSignIn={this.onSignIn}
-              />
-            )} />
+              <Route path='/showpage/:id' render={({ match }) => (
+                <Fragment>
+                  {contents &&
+                    <ShowPage
+                      screenName={'Show Page'}
+                      contents={contents}
+                      id={match.params.id}
+                    />
+                  }
+                </Fragment>
+              )} />
 
-            <Route path='/exercises' exact render={() => (
-              <Fragment>
-                {contents &&
-                  <MyContent
-                    screenName={'My Content'}
-                    contents={contents}
-                  />
-                }
-              </Fragment>
-            )} />
-
-            <Route path='/contentlibrary' exact render={() => (
-              <Fragment>
-                {contents &&
-                  <ContentLibrary
-                    screenName={'Content Library'}
-                    contents={contents["contents"]}
-                    catFilter={catFilter}
-                    catFilterToApp={ (word) => {
-                      this.onCatFilterEvent(word)
-                    }}
-                    bodyFilter={bodyFilter}
-                    bodyFilterToApp={ (word) => {
-                      this.onBodyFilterEvent(word)
-                    }}
-                  />
-                }
-              </Fragment>
-            )} />
-
-            <Route path='/showpage/:id' render={({ match }) => (
-              <Fragment>
-                {contents &&
-                  <ShowPage
-                    screenName={'Show Page'}
-                    contents={contents}
-                    id={match.params.id}
-                  />
-                }
-              </Fragment>
-            )} />
-
-          </Switch>
+            </Switch>
+          </Fragment>
         </Router>
       </div>
     );

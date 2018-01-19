@@ -5,7 +5,7 @@
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
+.topnav .navlink {
   font-family: 'Fjalla One', sans-serif;
   float: right;
   display: block;
@@ -18,7 +18,7 @@
 }
 
 /* Change the color of links on hover */
-.topnav a:hover {
+.topnav .navlink:hover {
   color: #4D4A5E;
   border-bottom: 3px solid transparent;
   border-color: #4D4A5E;
@@ -26,7 +26,7 @@
   transition: border-bottom .5s;
 }
 
-.topnav a.active {
+.active-navlink {
   border-bottom: 3px solid transparent;
   border-color: #4D4A5E;
 }
@@ -44,7 +44,7 @@
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
-  .topnav a {display: none;}
+  .topnav .navlink {display: none;}
   .topnav span.icon {
     float: right;
     display: block;

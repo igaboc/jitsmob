@@ -6,9 +6,11 @@ function ContentFilter({
   onBodyFilterToggle,
   catFilter,
   bodyFilter,
+  filterToggle,
+  showFilter
 }) {
   let strength, mobility, injuryPrevention, shoulders, legs, hips, spine = false
-  
+  console.log('boolean:', showFilter)
   if (catFilter.length > 0) {
     catFilter.includes('Strength') ? strength = true : null
     catFilter.includes('Mobility') ? mobility = true : null
@@ -28,7 +30,7 @@ function ContentFilter({
         <h2 className="heading-font">Focus on...</h2>
       </div>
 
-      <div>
+      <div className={`filter-collapse ${!showFilter && 'h-0'}`}>
         <div className="row">
           <div className="col-md-4 col-6 text-center mt-2 px-1">
             <div className={`border-bottom-clear ${mobility && 'activeFilter'}`}>
@@ -120,12 +122,11 @@ function ContentFilter({
         </div>
       </div>
       <div className="container-fluid text-center mt-2">
-        <a
+        <span
           className="arrow"
-          data-toggle="collapse"
-          href="#collapseExample"
-          aria-expanded="false"
-          aria-controls="collapseExample" 
+          onClick={ (event) => {
+            filterToggle()
+          }}
         />
       </div>
     </div>

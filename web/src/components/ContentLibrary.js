@@ -5,13 +5,15 @@ import ContentFilter from './ContentFilter'
 function ContentLibrary({
   screenName,
   contents,
+  showFilter,
+  filterToggleToApp,
   catFilterToApp,
   catFilter,
   bodyFilterToApp,
   bodyFilter
   
 }) {
-  console.log(bodyFilter, 'first')
+  // Filter code start
   let videos = []
   let catFilteredArray = []
   let bodyFilteredArray = []
@@ -49,7 +51,7 @@ function ContentLibrary({
     })
     videos = catFilteredArray.filter((n) => bodyFilteredArray.includes(n))
   }
-  
+  // Filter Code End
 
   return (
     <div>
@@ -62,8 +64,11 @@ function ContentLibrary({
         }}
         catFilter={catFilter}
         bodyFilter={bodyFilter}
+        filterToggle={ (event) => filterToggleToApp() }
+        showFilter={showFilter}
       />
       <h2>Fitlering for: { catFilter }</h2>
+      <h2>Andfor: { bodyFilter }</h2>
       {
         videos.map((content) => {
           return (
