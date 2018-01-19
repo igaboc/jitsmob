@@ -52,7 +52,7 @@
 /* Desktop/ipad media rule */
 /* =========================== */
 
-@media screen and (min-width:700px){
+@media screen and (min-width:650px){
   /* Flexboxes for sections */
   /* .flex-seperator{
     display: flex;
@@ -96,5 +96,8 @@
   .landing-section-wrapper3{
     padding: 30px 0px 70px 0px;
     background-color: #E4BD5D;
+  }
+  .row :disabled{
+    background: red;
   }
 }
