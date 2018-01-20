@@ -11,6 +11,7 @@ import FindOutMoreButton from './components/FindOutMoreButton';
 import PrimaryNav from './components/PrimaryNav'
 import ContentLibrary from './components/ContentLibrary'
 import ShowPage from './components/ShowPage'
+import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
@@ -249,6 +250,9 @@ class App extends Component {
           popupClassWidth={showSubscribeBox ? ('w-100') : null}
           onClickSubscribe={this.onSubscribeToggle}
           onSubmitEmail={this.onCreateSubscriber}
+        />
+        <Footer 
+          onClickSubscribe={this.onSubscribeToggle}
         />
       </div>
     );

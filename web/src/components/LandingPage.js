@@ -43,7 +43,7 @@ function LandingPage(
         </div>
       </div>
 
-      <div className='landing-section-wrapper2'>
+      <div className='landing-section-wrapper2' id="about">
         <div className='landing-page-text2'>
           <div className='responsive-group'>
             <div className='responsive-row-about'>

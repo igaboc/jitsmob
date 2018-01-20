@@ -103,6 +103,15 @@
   transition: 0.3s; /* Transition effects on hover (color) */
 }
 
+.overlay span {
+  padding: 2%;
+  text-decoration: none;
+  font-size: 36px;
+  color: #F2EEE9;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
 /* When you mouse over the navigation links, change their color */
 .overlay a:hover, .overlay a:focus {
   color: #727D7E;

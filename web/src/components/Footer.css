@@ -1,0 +1,49 @@
+.website-footer {
+  background-color: #E4BD5D;
+  color: #000000;
+  text-align: center;
+  margin: auto;
+  height: 10%;
+  padding-bottom: 2.5%
+}
+
+.social-media {
+  width: 10%;
+  margin: auto;
+  padding: 2%
+}
+
+.footer-link {
+  color: #000000;
+  font-family: 'Fjalla One', sans-serif;
+  margin: auto;
+  border-bottom-color: darkblue
+}
+
+.footer-link:hover {
+  text-decoration: none
+}
+
+/* MEDIUM TO LARGE DEVICES */
+
+@media (min-width: 768px) {
+  .social-media {
+    width: 60%;
+    margin: auto;
+    padding: 2%;
+  }
+  
+  .col-md-2 {
+    margin: auto
+  }
+
+  .col-md-1 {
+    margin: auto
+  }
+
+  span.footer-link:hover {
+    color: #575373;
+    text-decoration: none;
+  }
+
+}
