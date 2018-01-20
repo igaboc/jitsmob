@@ -28,24 +28,14 @@ function Content({
       <h2>{title}</h2>
 
       <div>Date added placeholder</div>
-<<<<<<< HEAD
-      <div>{ youtubeURL }</div>
-      
-      <h2>{ category }</h2>
-      <h2>{ bodyPart }</h2>
-      <div>{ description }</div>
-
-      <div className="container">
-        <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameBorder="0"/>
-=======
       <div>{youtubeURL}</div>
 
-      <h2>{subtitle}</h2>
+      <h2>{category}</h2>
+      <h2>{bodyPart}</h2>
       <div>{description}</div>
 
       <div className="container">
-        <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameborder="0" />
->>>>>>> css-adjustments
+        <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameBorder="0" />
       </div>
     </div>
   )
