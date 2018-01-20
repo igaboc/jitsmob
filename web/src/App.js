@@ -5,6 +5,9 @@ import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
+import Subscribe from './components/Subscribe';
+import SubscribePopUp from './components/SubscribePopUp';
+import FindOutMoreButton from './components/FindOutMoreButton';
 import PrimaryNav from './components/PrimaryNav'
 import ContentLibrary from './components/ContentLibrary'
 import ShowPage from './components/ShowPage'
@@ -12,11 +15,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
 import { listContents, addContents } from './api/contents'
+import { createSubscriber } from './api/subscribers'
 
 class App extends Component {
   state = {
     showMenu: false,
     showFilter: true,
+    showSubscribeBox: false,
     // error: null,
     decodedToken: getDecodedToken(), // Restore the previous signed in data
     contents: null,
@@ -53,8 +58,8 @@ class App extends Component {
     const { catFilter } = this.state
     if (!catFilter.includes(filterWord)) {
       this.setState({
-      catFilter: [...catFilter, filterWord]
-    })
+        catFilter: [...catFilter, filterWord]
+      })
     }
     else {
       this.setState({
@@ -67,8 +72,8 @@ class App extends Component {
     const { bodyFilter } = this.state
     if (!bodyFilter.includes(filterWord)) {
       this.setState({
-      bodyFilter: [...bodyFilter, filterWord]
-    })
+        bodyFilter: [...bodyFilter, filterWord]
+      })
     }
     else {
       this.setState({
@@ -81,15 +86,35 @@ class App extends Component {
     const showFilter = this.state.showFilter
     this.setState({ showFilter: !showFilter })
   }
+  // Set State to show subscribe box
+  onSubscribeToggle = () => {
+    console.log('this worked')
+    const { showSubscribeBox } = this.state
+    this.setState({ showSubscribeBox: !showSubscribeBox })
+  }
+  // Create subscribers
+  onCreateSubscriber = (email) => {
+    createSubscriber(email)
+      .then((newSubscriber) => {
+        alert('You have successfully subscribed!')
+        console.log('new subcriber', newSubscriber)
+        this.onSubscribeToggle()
+      })
+      .catch((error) => {
+        alert('Oops, something went wrong!\n\nEither you have already subscribed or an error has occurred.')
+        console.log('new subscriber error', error)
+      })
+  }
+
   // Event handlers for Dashboard
   onAddContent = (contentData) => {
     addContents(contentData)
-    .then((contentData) => {
-      console.log('Successfully added new content to database', contentData)
-    })
-    .catch((error) => {
-      console.log('Error received when adding content', error)
-    })
+      .then((contentData) => {
+        console.log('Successfully added new content to database', contentData)
+      })
+      .catch((error) => {
+        console.log('Error received when adding content', error)
+      })
   }
   onViewEditContent = () => {
     console.log('ViewEditContent button clicked')
@@ -108,19 +133,33 @@ class App extends Component {
   onSave = () => {
     console.log('Save button clicked')
   }
+  onCreateSubscriber = (email) => {
+    createSubscriber(email)
+      .then((newSubscriber) => {
+        alert('You have successfully subscribed!')
+        console.log('new subcriber', newSubscriber)
+        this.onSubscribeToggle()
+      })
+      .catch((error) => {
+        alert('Oops, something went wrong!\n\nEither you have already subscribed or an error has occurred.')
+        console.log('new subscriber error', error)
+      })
+  }
 
   render() {
-    const { showMenu, decodedToken, contents, catFilter, bodyFilter, showFilter } = this.state
+    const { showMenu, showSubscribeBox, decodedToken, contents, catFilter, bodyFilter, showFilter } = this.state
     const adminSignedIn = !!decodedToken
 
     return (
       <div className="App">
+
         <Router>
           <Fragment>
             <PrimaryNav
               className=""
               menuClassWidth={showMenu ? 'w-100' : 'null'}
               onMenuClick={this.onMenuToggle}
+              onClickSubscribe={this.onSubscribeToggle}
             />
             <Switch>
               <Route path='/' exact render={() => (
@@ -179,11 +218,11 @@ class App extends Component {
                       showFilter={showFilter}
                       filterToggleToApp={this.onFilterToggle}
                       catFilter={catFilter}
-                      catFilterToApp={ (word) => {
+                      catFilterToApp={(word) => {
                         this.onCatFilterEvent(word)
                       }}
                       bodyFilter={bodyFilter}
-                      bodyFilterToApp={ (word) => {
+                      bodyFilterToApp={(word) => {
                         this.onBodyFilterEvent(word)
                       }}
                     />
@@ -206,6 +245,11 @@ class App extends Component {
             </Switch>
           </Fragment>
         </Router>
+        <SubscribePopUp
+          popupClassWidth={showSubscribeBox ? ('w-100') : null}
+          onClickSubscribe={this.onSubscribeToggle}
+          onSubmitEmail={this.onCreateSubscriber}
+        />
       </div>
     );
   }

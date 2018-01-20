@@ -48,4 +48,17 @@ Content-Type: application/json
 DELETE http://localhost:7000/contents/5a56c08bd6cece1368823525
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE1MTU2MzQ1NjIsImV4cCI6MTUxNjIzOTM2Miwic3ViIjoiNWE1NTlmOTI4NTg3MGUwN2I0MjhmZTVmIn0.EendFFhK794DxlSObZbbZVSeZh9x9QTEPWhej6BVH14
 
+### Create Subscriber
+POST http://localhost:7000/subscribers
+Content-Type: application/json
 
+{
+  "email": "subscriber@test.com"
+}
+
+POST http://localhost:7000/subscribers
+Content-Type: application/json
+
+{
+  "email": "test1@gmail.com" 
+}
