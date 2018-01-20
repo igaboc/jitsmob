@@ -1,0 +1,27 @@
+.content {
+  box-sizing: border-box;
+}
+
+/* For "mobile" */
+.content_h2 {
+  padding-left: 17vw;
+  padding-right: 17vw;
+}
+
+.content_div_description {
+  padding-left: 17vw;
+  padding-right: 17vw;
+}
+
+/* For "Non mobile" */
+@media screen and (min-width:768px){
+  .content_h2 {
+    padding-left: 17vw;
+    padding-right: 2vw;
+  }
+  
+  .content_div_description {
+    padding-left: 2vw;
+    padding-right: 17vw;
+  }
+}

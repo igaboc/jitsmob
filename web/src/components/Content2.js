@@ -26,21 +26,19 @@ function Content2({
 
   return (
     <div>
+      <h2>{ bodyPart }</h2>
+      
+      <div className="container">
+        <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameBorder="0"/>
+      </div>
+      
       <a href={`/showpage/${id}`}>
         <h2>{ title }</h2>
       </a>
       
-
-      <div>Date added placeholder</div>
-      <div>{ youtubeURL }</div>
-      
       <h2>{ category }</h2>
-      <h2>{ bodyPart }</h2>
+      
       <div>{ description }</div>
-
-      <div className="container">
-        <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameBorder="0"/>
-      </div>
     </div>
   )
 }
