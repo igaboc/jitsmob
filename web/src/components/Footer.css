@@ -41,4 +41,9 @@
     margin: auto
   }
 
+  span.footer-link:hover {
+    color: #575373;
+    text-decoration: none;
+  }
+
 }

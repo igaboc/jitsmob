@@ -48,7 +48,7 @@ function PrimaryNav({
           <a href="/#about">About JitsMob</a>
           <a href="/exercises">Workouts</a>
           <a href="mailto:jitsmob@jitsmob.com">Contact Us</a>
-          <span className='subscribe' onClick={ (event) => {onClickSubscribe() }}>Subscribe</span>
+          <span onClick={ (event) => {onClickSubscribe() }}>Subscribe</span>
 
         </div>
       </div>

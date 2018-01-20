@@ -21,7 +21,7 @@ function Footer({
           <a href="mailto:jitsmob@jitsmob.com" className="footer-link">Contact Us</a>
         </div>
         <div className="col-xs-6 col-md-2">
-          <a href='' className="footer-link">Subscribe</a>
+          <span onClick={ (event) => {onClickSubscribe() }} className="footer-link">Subscribe</span>
         </div>
         <div className="col-xs-1 col-md-1">
           <a href="https://www.facebook.com/JitsMob-1854775828114449/?ref=br_rs" target="_blank" ><img src={facebookLogo} className="social-media" /></a>
