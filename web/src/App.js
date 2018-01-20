@@ -3,7 +3,6 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
-import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
 import Subscribe from './components/Subscribe';
 import SubscribePopUp from './components/SubscribePopUp';
@@ -15,7 +14,7 @@ import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
-import { listContents, addContents } from './api/contents'
+import { listContents, addContents, updateContent } from './api/contents'
 import { createSubscriber } from './api/subscribers'
 
 class App extends Component {
@@ -23,11 +22,12 @@ class App extends Component {
     showMenu: false,
     showFilter: true,
     showSubscribeBox: false,
-    // error: null,
+    error: null,
     decodedToken: getDecodedToken(), // Restore the previous signed in data
     contents: null,
     catFilter: [],
     bodyFilter: [],
+    editedContentID: null
   }
 
   //Event handlers for signing in and out
@@ -117,12 +117,35 @@ class App extends Component {
         console.log('Error received when adding content', error)
       })
   }
-  onViewEditContent = () => {
-    console.log('ViewEditContent button clicked')
+  onBeginEditContent = (id) => {
+    console.log(id)
+    this.setState({ editedContentID: id })
   }
-  onEmailSubscribers = () => {
-    console.log('EmailSubscribers button clicked')
+  onUpdateEditedContent = (contentData) => {
+    const { editedContentID } = this.state
+    updateContent(contentData, editedContentID)
+      .then((updatedContent) => {
+        this.setState((prevState) => {
+          // Replace in existing products array
+           const updatedContents = prevState.contents.contents.map((content) => {
+            if (content._id === updatedContent._id) {
+              return updatedContent
+            }
+            else {
+              return content
+            }
+          })
+          return {
+            contents: {contents: updatedContents},
+            editedContentID: null
+          }
+        })
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
   }
+
   onBlogArticle = () => {
     console.log('BlogArticle button clicked')
   }
@@ -148,7 +171,7 @@ class App extends Component {
   }
 
   render() {
-    const { showMenu, showSubscribeBox, decodedToken, contents, catFilter, bodyFilter, showFilter } = this.state
+    const { showMenu, showSubscribeBox, decodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID } = this.state
     const adminSignedIn = !!decodedToken
 
     return (
@@ -180,6 +203,12 @@ class App extends Component {
                       onViewEditContent={this.onViewEditContent}
                       onEmailSubscribers={this.onEmailSubscribers}
                       onBlogArticle={this.onBlogArticle}
+                      contents={ contents && contents.contents }
+                      onEditToApp={ this.onBeginEditContent }
+                      editedContentID={ editedContentID }
+                      onEditSave={
+                        this.onUpdateEditedContent
+                      }
                     />
 
                   </Fragment>
@@ -197,17 +226,6 @@ class App extends Component {
                   screenName={'Admin Sign In'}
                   onSignIn={this.onSignIn}
                 />
-              )} />
-
-              <Route path='/mycontent' exact render={() => (
-                <Fragment>
-                  {contents &&
-                    <MyContent
-                      screenName={'My Content'}
-                      contents={contents}
-                    />
-                  }
-                </Fragment>
               )} />
 
               <Route path='/exercises' exact render={() => (
@@ -236,7 +254,7 @@ class App extends Component {
                   {contents &&
                     <ShowPage
                       screenName={'Show Page'}
-                      contents={contents}
+                      contents={contents && contents}
                       id={match.params.id}
                     />
                   }

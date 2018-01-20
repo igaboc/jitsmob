@@ -1,12 +1,10 @@
 import React from 'react'
-//import JitsmobLogo from '../../images/JitsmobLogo.svg'
-// import TopBar from './TopBar'
-//import Content from '../Content'
 
 function AddContentForm({
   screenName,
   onPreview,
-  onNewContentSave
+  onSubmit,
+  initialContent={}
 }) {
   return (
     <form
@@ -40,7 +38,7 @@ function AddContentForm({
         const description = elements.description.value  // body is the description of the content
 
         // Pass this information along to the parent component
-        onNewContentSave({ title, category, bodyPart, youtubeURL, description })
+        onSubmit({ title, category, bodyPart, youtubeURL, description })
       }}
     >
       {/* <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/> */}
@@ -55,38 +53,44 @@ function AddContentForm({
       /> */}
 
       <h1>{screenName}</h1>
-      <div className="form-group">
-        <label>
-          {'Title: '}
+      <div className="row">
+        <div className="form-group col-md-6 col-12">
+          <label>
+            {'Title: '}
+          </label>
           <input
             className="form-control"
             type='textfield'
             name='title'
+            defaultValue={ initialContent.title }
           />
-        </label>
+        </div>
       </div>
-
-      <div className="form-group">
-        <label>
-          {'Category: '}
+      <div className="row"> 
+        <div className="form-group col-md-2 col-6">
+          <label>
+            {'Category: '}
+          </label>
           <select
             name='category'
             className="form-control"
+            defaultValue={ initialContent.category }
           >
             <option selected>...</option>
             <option value='Mobility'>Mobility</option>
             <option value='Strength'>Strength</option>
             <option value='Injury Prevention'>Injury</option>
           </select>
-        </label>
-      </div>
+        </div>
 
-      <div className="form-group">
-        <label>
-          {'Body Part: '}
+        <div className="form-group col-md-2 col-6">
+          <label>
+            {'Body Part: '}
+          </label>
           <select
             name='bodyPart'
             className="form-control"
+            defaultValue={ initialContent.bodyPart }
           >
             <option selected>...</option>
             <option value='Shoulders'>Shoulders</option>
@@ -94,30 +98,34 @@ function AddContentForm({
             <option value='Legs'>Legs</option>
             <option value='Spine'>Spine</option>
           </select>
-        </label>
-      </div>
+        </div>
 
-      <div className="form-group">
-        <label>
-          {'YouTube URL: '}
+        <div className="form-group col-md-4 col-12">
+          <label>
+            {'YouTube URL: '}
+          </label>
           <input
             className="form-control"
             type='textfield'
             name='youtubeURL'
+            defaultValue={ initialContent.youtubeURL }
           />
-        </label>
+        </div>
+        <div className="col-md-4 col-12"/>
       </div>
-
-
-      <div className="form-group">
-        <label>
-          {'Description: '}
+      <div className="row">
+        <div className="form-group col-md-8 col-12">
+          <label>
+            {'Description: '}
+          </label>
           <textarea
             className="form-control"
             type='textarea'
             name='description'
+            defaultValue={ initialContent.description }
+            rows="4"
           />
-        </label>
+        </div>
       </div>
 
       {/* <button

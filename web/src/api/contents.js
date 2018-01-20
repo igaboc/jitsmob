@@ -13,3 +13,8 @@ export function addContents(data){
   return api.post('/contents', data)
     .then((res) => res.data)
 }
+
+export function updateContent(data, id) {
+  return api.put(`/contents/${id}`, data)
+    .then((res) => res.data)
+}

@@ -5,3 +5,4 @@ body html {
   font-family: sans-serif;
   min-height: 100%;
 }
+input, button, submit { border:none; } 

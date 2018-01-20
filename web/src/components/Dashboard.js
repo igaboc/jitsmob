@@ -2,7 +2,9 @@ import React, { Fragment } from 'react'
 import GoogleAnalytics from './dashboardComponents/GoogleAnalytics'
 import DashboardMenu from './dashboardComponents/DashboardMenu'
 import ContentForm from './dashboardComponents/ContentForm'
+import MyContent from './dashboardComponents/MyContent'
 import { Route } from 'react-router-dom'
+
 
 function Dashboard({
   subscriberCount,
@@ -12,7 +14,11 @@ function Dashboard({
   onBlogArticle,
   onSignOut,
   onTabClick,
-  url
+  url,
+  contents,
+  onEditToApp,
+  editedContentID,
+  onEditSave
 }) {
   return (
     <div className="row">
@@ -38,13 +44,33 @@ function Dashboard({
             <ContentForm
               screenName="Upload New Content onto JitsMob Website"
               onPreview='null'
-              onNewContentSave={(contentData) => onAddContent(contentData)} />
+              onSubmit={(contentData) => onAddContent(contentData)} />
           </Fragment>
         )} />
         <Route path={url + '/mycontent'} render={() => (
           <Fragment>
-            <h1>Edit Content</h1>
-            {/* <AddContentForm screenName="Edit Content" onPreview='null' onSave='null' /> */}
+            {contents &&
+              <MyContent
+                contents={contents}
+                editedContentID = {editedContentID}
+                onEditContent={
+                  (id) => {
+                    onEditToApp(id)
+                  }
+                }
+                renderEditForm={ (content) => (
+                  <ContentForm
+                    initialContent={ content }
+                    screenName={ 'Edit Content' }
+                    onSubmit={
+                      (info) => {
+                        onEditSave(info)
+                      }
+                    }
+                  />
+                ) }
+              />
+            }
           </Fragment>
         )} />
         <Route path={url + '/contactsubscribers'} render={() => (

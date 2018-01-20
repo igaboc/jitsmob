@@ -1,0 +1,11 @@
+.link-styling {
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.link-styling:hover {
+  text-decoration: none;
+  color: #F2EEE9;
+}
+
