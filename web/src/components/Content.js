@@ -1,4 +1,7 @@
 import React from 'react'
+import Container from './Grid/Container'
+import Row from './Grid/Row'
+import Col from './Grid/Col'
 
 function Content({
   title,
@@ -25,18 +28,26 @@ function Content({
 
   return (
     <div>
-      <h2>{ title }</h2>
-
-      <div>Date added placeholder</div>
-      <div>{ youtubeURL }</div>
-      
-      <h2>{ category }</h2>
       <h2>{ bodyPart }</h2>
-      <div>{ description }</div>
-
+      
       <div className="container">
         <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameBorder="0"/>
       </div>
+      
+      <Container fluid={ true }>
+        <Row>
+          <Col>
+            <div className="col_div">
+              <h2>{ title }</h2>
+              <h2>{ category }</h2>
+            </div>
+            
+          </Col>
+          <Col>
+            <div className="col_div">{ description }</div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   )
 }

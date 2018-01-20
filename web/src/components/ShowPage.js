@@ -18,6 +18,7 @@ function ShowPage({
   }
 
   return (
+    
     <div class="show_page_div">
       <h1>{screenName}</h1>
 
