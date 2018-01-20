@@ -1,0 +1,28 @@
+.thumbnail {
+  margin: 5%;
+  background-color: #F2EEE9;
+  padding: 3%;
+}
+
+p.card-text {
+  font-family: 'Fjala One', sans-serif;
+}
+
+h4.card-title {
+  font-family: 'Fjala One', sans-serif;
+  color: #000000;
+  padding: 1%
+}
+
+h4.card-title:hover {
+  font-family: 'Fjala One', sans-serif;
+  color: #4D4A5E;
+}
+
+@media (min-width: 768px) {
+  .thumbnail {
+    width: 30%;
+    margin: 1%;
+
+  }
+}

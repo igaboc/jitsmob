@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Content2 from './Content2'
 import ContentFilter from './ContentFilter'
+import './ContentLibrary.css';
 
 function ContentLibrary({
   screenName,
@@ -67,25 +68,26 @@ function ContentLibrary({
         filterToggle={ (event) => filterToggleToApp() }
         showFilter={showFilter}
       />
-      <h2>Fitlering for: { catFilter }</h2>
-      <h2>Andfor: { bodyFilter }</h2>
+      <h2 className='heading'>EXERCISES</h2>
+      <div className='video-container'>
       {
         videos.map((content) => {
           return (
             <Fragment key={content._id}>
-              <Content2
-                {...content}
-                title={content.title}
-                category={content.category}
-                bodyPart={content.bodyPart}
-                youtubeURL={content.youtubeURL}
-                description={content.description}
-                id={content._id}
-              />
+                <Content2
+                  {...content}
+                  title={content.title}
+                  category={content.category}
+                  bodyPart={content.bodyPart}
+                  youtubeURL={content.youtubeURL}
+                  description={content.description}
+                  id={content._id}
+                />
             </Fragment>
           )
         })
       }
+      </div>
     </div>
   )
 }
