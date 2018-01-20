@@ -29,11 +29,11 @@ function PrimaryNav({
             Subscribe
           </span> */}
                                         <div>
-                                                <Subscribe
-                                                        onClickSubscribe={(event) => onClickSubscribe()}
-                                                        buttonType='btn-purple'
-                                                        buttonDescription='Subscribe'
-                                                />
+                                          <Subscribe
+                                                onClickSubscribe={(event) => onClickSubscribe()}
+                                                buttonType='btn-purple'
+                                                buttonDescription='Subscribe'
+                                         />
                                         </div>
                                         {/* <a className="ml-4 pt-3 pb-2" href="/exercises">Exercises</a>
                                         <a className="mx-4 pt-3 pb-2" href="/admin">Admin (for now only)</a>

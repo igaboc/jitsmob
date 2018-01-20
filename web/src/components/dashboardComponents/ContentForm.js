@@ -1,12 +1,10 @@
 import React from 'react'
-//import JitsmobLogo from '../../images/JitsmobLogo.svg'
-// import TopBar from './TopBar'
-//import Content from '../Content'
 
 function AddContentForm({
   screenName,
   onPreview,
-  onNewContentSave
+  onSubmit,
+  initialContent={}
 }) {
   return (
     <form
@@ -40,7 +38,7 @@ function AddContentForm({
         const description = elements.description.value  // body is the description of the content
 
         // Pass this information along to the parent component
-        onNewContentSave({ title, category, bodyPart, youtubeURL, description })
+        onSubmit({ title, category, bodyPart, youtubeURL, description })
       }}
     >
       {/* <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/> */}
@@ -62,6 +60,7 @@ function AddContentForm({
             className="form-control"
             type='textfield'
             name='title'
+            defaultValue={ initialContent.title }
           />
         </label>
       </div>
@@ -72,6 +71,7 @@ function AddContentForm({
           <select
             name='category'
             className="form-control"
+            defaultValue={ initialContent.category }
           >
             <option selected>...</option>
             <option value='Mobility'>Mobility</option>
@@ -87,6 +87,7 @@ function AddContentForm({
           <select
             name='bodyPart'
             className="form-control"
+            defaultValue={ initialContent.bodyPart }
           >
             <option selected>...</option>
             <option value='Shoulders'>Shoulders</option>
@@ -104,6 +105,7 @@ function AddContentForm({
             className="form-control"
             type='textfield'
             name='youtubeURL'
+            defaultValue={ initialContent.youtubeURL }
           />
         </label>
       </div>
@@ -116,6 +118,7 @@ function AddContentForm({
             className="form-control"
             type='textarea'
             name='description'
+            defaultValue={ initialContent.description }
           />
         </label>
       </div>
