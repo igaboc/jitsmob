@@ -13,7 +13,7 @@ function AddContentForm({
       // const onPreview={ (event) => {
       //   // Prevent old-school form submission
       //   event.preventDefault()
-        
+
       //   const form = event.target
       //   const elements = form.elements // Allows looking up fields using their 'name' attributes
       //   // Get entered values from fields
@@ -27,7 +27,7 @@ function AddContentForm({
       //   onPreview({ title, category, bodyPart, youtubeURL, description })
       // } }
 
-      onSubmit={ (event) => {
+      onSubmit={(event) => {
         // Prevent old-school form submission
         event.preventDefault()
         const form = event.target
@@ -38,13 +38,13 @@ function AddContentForm({
         const bodyPart = elements.bodyPart.value
         const youtubeURL = elements.youtubeURL.value
         const description = elements.description.value  // body is the description of the content
-        
+
         // Pass this information along to the parent component
-        onNewContentSave({ title, category, bodyPart, youtubeURL, description})
-      } }
+        onNewContentSave({ title, category, bodyPart, youtubeURL, description })
+      }}
     >
       {/* <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/> */}
-      
+
       {/* <h1>Preview:</h1>
       <Content
         title={ 'title' }
@@ -54,7 +54,7 @@ function AddContentForm({
         description={ 'body' }
       /> */}
 
-      <h1>{ screenName }</h1>
+      <h1>{screenName}</h1>
       <div className="form-group">
         <label>
           {'Title: '}
@@ -65,12 +65,12 @@ function AddContentForm({
           />
         </label>
       </div>
-      
-      <div className="form-group">  
+
+      <div className="form-group">
         <label>
           {'Category: '}
-          <select 
-            name='category'  
+          <select
+            name='category'
             className="form-control"
           >
             <option selected>...</option>
@@ -81,11 +81,11 @@ function AddContentForm({
         </label>
       </div>
 
-      <div className="form-group">  
+      <div className="form-group">
         <label>
           {'Body Part: '}
-          <select 
-            name='bodyPart'  
+          <select
+            name='bodyPart'
             className="form-control"
           >
             <option selected>...</option>
@@ -107,7 +107,7 @@ function AddContentForm({
           />
         </label>
       </div>
-      
+
 
       <div className="form-group">
         <label>
@@ -144,7 +144,7 @@ function AddContentForm({
         // }
         className="btn-jits"
       >
-        Save 
+        Save
       </button>
 
     </form>
