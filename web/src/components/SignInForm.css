@@ -2,11 +2,3 @@
   background-color: #727D7E
 }
 
-.photo-background {
-  background-image:url('../images/Anklemobs.png');
-  background-repeat:no-repeat;
-  background-position:center;
-  min-height: 100%;
-  padding-top: 25%;
-  padding-bottom: 25%;
-}

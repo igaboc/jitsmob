@@ -4,6 +4,14 @@
   overflow: hidden;
 }
 
+.subscribe-nav {
+  font-family: 'Fjalla One', sans-serif;
+  color: F2EEE9;
+  font-size: 1.3em;
+  float: right;
+  display: block;
+  cursor: pointer;
+}
 /* Style the links inside the navigation bar */
 .topnav .navlink {
   font-family: 'Fjalla One', sans-serif;

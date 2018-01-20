@@ -7,7 +7,7 @@ function SignInForm({
   // admin is boolean = true/false
 }) {
   return (
-    <div className='container-fluid photo-background'>
+    <div className='container-fluid'>
     <div className='row'>
       <div className='col-lg-4 col-1'/>
       <div className='col-lg-4 col-10 background-grey py-2 my-4'>

@@ -31,10 +31,11 @@ function PrimaryNav({
           <a className="mx-4 pt-3 pb-2" href="/admin">Admin (for now only)</a>
         <a className="mx-4 pt-3 pb-2" href="/signin">Login (for now only)</a> */}
           
-          <span className="navlink mx-4 pt-3 pb-2" onClick={ (event) => {onClickSubscribe() }}><div className='btn-purple'>SUBSCRIBE</div></span>
+          
           <NavLink activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" exact to="/">Contact</NavLink>
           <NavLink activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" to="/exercises">Workouts</NavLink>
           <NavLink activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" to="/#about">About</NavLink>
+          <span className="subscribe-nav mx-4 pt-2 mt-2 pb-2 btn-purple" onClick={ (event) => {onClickSubscribe() }}>SUBSCRIBE</span>
           <span className="py-2 icon" onClick={(event) => { onMenuClick() }}>&#9776;</span>
         </div>
         <div className="col-lg-1" />
