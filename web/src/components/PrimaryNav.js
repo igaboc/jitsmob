@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import jitsmobLogo from '../Grouplogo.svg';
 import './PrimaryNav.css';
 import Subscribe from './Subscribe'
-// import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function PrimaryNav({
   menuClassWidth,
@@ -35,9 +35,12 @@ function PrimaryNav({
                                                         buttonDescription='Subscribe'
                                                 />
                                         </div>
-                                        <a className="ml-4 pt-3 pb-2" href="/exercises">Exercises</a>
+                                        {/* <a className="ml-4 pt-3 pb-2" href="/exercises">Exercises</a>
                                         <a className="mx-4 pt-3 pb-2" href="/admin">Admin (for now only)</a>
-                                        <a className="mx-4 pt-3 pb-2" href="/signin">Login (for now only)</a>
+                                        <a className="mx-4 pt-3 pb-2" href="/signin">Login (for now only)</a> */}
+                                        <NavLink activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" to="/admin">Admin (for now only)</NavLink>
+                                        <NavLink activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" exact to="/">Home</NavLink>
+                                        <NavLink activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" to="/exercises">Exercises</NavLink>
                                         <span className="py-2 icon" onClick={(event) => { onMenuClick() }}>&#9776;</span>
                                 </div>
                                 <div className="col-lg-1" />

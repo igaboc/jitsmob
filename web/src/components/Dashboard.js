@@ -2,9 +2,7 @@ import React, { Fragment } from 'react'
 import GoogleAnalytics from './dashboardComponents/GoogleAnalytics'
 import DashboardMenu from './dashboardComponents/DashboardMenu'
 import ContentForm from './dashboardComponents/ContentForm'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import AddContentForm from './dashboardComponents/ContentForm'
-import './Dashboard.css';
+import { Route } from 'react-router-dom'
 
 function Dashboard({
   subscriberCount,

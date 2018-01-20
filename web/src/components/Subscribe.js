@@ -10,12 +10,12 @@ function Subscribe({
   return (
 
     <div>
-        <button className={buttonType}>
-          <a className='remove-decor' onClick={(event) => {
-            console.log('clicked')
-            onClickSubscribe()
-          }}>{buttonDescription}</a>
-        </button>
+      <button className={buttonType} onClick={(event) => {
+        console.log('clicked')
+        onClickSubscribe()
+      }}>
+        <a className='remove-decor'>{buttonDescription}</a>
+      </button>
     </div>
 
 
