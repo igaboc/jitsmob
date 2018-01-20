@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Roboto');
-
+.App {
+  min-height: 100%;
+}
 /*Fonts*/
 .heading-font {
   font-family: 'Fjalla One', sans-serif;
