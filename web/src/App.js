@@ -5,9 +5,11 @@ import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
 import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
+import Subscribe from './components/Subscribe';
+import SubscribePopUp from './components/SubscribePopUp';
+import FindOutMoreButton from './components/FindOutMoreButton';
 import PrimaryNav from './components/PrimaryNav'
 import ContentLibrary from './components/ContentLibrary'
-import SubscribePopUp from './components/SubscribePopUp'
 import ShowPage from './components/ShowPage'
 import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signOutNow } from './api/auth'
@@ -130,6 +132,18 @@ class App extends Component {
   }
   onSave = () => {
     console.log('Save button clicked')
+  }
+  onCreateSubscriber = (email) => {
+    createSubscriber(email)
+      .then((newSubscriber) => {
+        alert('You have successfully subscribed!')
+        console.log('new subcriber', newSubscriber)
+        this.onSubscribeToggle()
+      })
+      .catch((error) => {
+        alert('Oops, something went wrong!\n\nEither you have already subscribed or an error has occurred.')
+        console.log('new subscriber error', error)
+      })
   }
 
   render() {

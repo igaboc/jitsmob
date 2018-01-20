@@ -15,24 +15,24 @@ function SubscribePopUp({
           <p>Receive updates when new content is added</p>
 
           <form
-            action="https://netlify.us17.list-manage.com/subscribe/post" 
+            action="https://netlify.us17.list-manage.com/subscribe/post"
             method="POST"
 
-            // onSubmit={(event) => {
-            //   // Prevent old-school form submission
-            //   event.preventDefault()
+          // onSubmit={(event) => {
+          //   // Prevent old-school form submission
+          //   event.preventDefault()
 
-            //   const form = event.target
-            //   const elements = form.elements
-            //   const email = elements.MERGE0.value
-            //   // action = "/google"
-            //   // method = "POST"
-            //   onSubmitEmail({ email })
-            //   console.log(email)
-            // }}
+          //   const form = event.target
+          //   const elements = form.elements
+          //   const email = elements.MERGE0.value
+          //   // action = "/google"
+          //   // method = "POST"
+          //   onSubmitEmail({ email })
+          //   console.log(email)
+          // }}
           >
-          <input type="hidden" name="u" value="b743ade8d059da5b58446311b" />
-          <input type="hidden" name="id" value="1f958097b0" />
+            <input type="hidden" name="u" value="b743ade8d059da5b58446311b" />
+            <input type="hidden" name="id" value="1f958097b0" />
             {'Email:'}
             <input
               type="email"

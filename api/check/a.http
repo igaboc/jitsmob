@@ -56,3 +56,9 @@ Content-Type: application/json
   "email": "subscriber@test.com"
 }
 
+POST http://localhost:7000/subscribers
+Content-Type: application/json
+
+{
+  "email": "test1@gmail.com" 
+}
