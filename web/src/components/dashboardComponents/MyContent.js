@@ -12,7 +12,9 @@ function MyContent({
  
   return (
     <div>
-      <h1 className="heading-font">My Content</h1>
+      <div className="container-fluid text-center m-3">
+        <h1 className="heading-font pr-5">My Content</h1>
+      </div>
       { 
         videos.map((content) => {
           return (
