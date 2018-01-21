@@ -1,0 +1,48 @@
+.video-container {
+  background-color: #4D4A5E;
+  padding: 1%;
+  margin: 1%;
+}
+
+.heading {
+  margin: 1%;
+  font-family: 'Fjala One', sans-serif
+}
+
+.pagination {
+  margin: 2.5%; 
+}
+
+.pagination>li.active {
+  margin: 0.5%;
+  width: 50px;
+  text-align: center
+}
+
+.pagination>li.null {
+  margin: 0.5%;
+  width: 50px;
+  text-align: center
+}
+
+.pagination>li.active>li.page-link {
+  background-color: #C4C4C4 !important;
+  color: #000000;
+  border-color: #C4C4C4;
+  border-radius: 0;
+}
+
+.pagination>li.null>li.page-link {
+  background-color: #F2EEE9 !important;
+  color: #000000;
+  border-color: #000000;
+  border-radius: 0
+}
+
+@media (min-width: 768px) {
+  .video-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around
+  }
+}

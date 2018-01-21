@@ -2,7 +2,8 @@ import React from 'react'
 
 function Content({
   title,
-  subtitle,
+  category,
+  bodyPart,
   youtubeURL,
   description
 }) {
@@ -16,24 +17,25 @@ function Content({
   var rel = "0"
   var modest = "1"
 
-  var videoSrc = "https://www.youtube.com/embed/" + 
-      video + "?autoplay=" + 
-      autoplay + "&rel=" + 
-      rel + "&modestbranding=" +
-      modest
+  var videoSrc = "https://www.youtube.com/embed/" +
+    video + "?autoplay=" +
+    autoplay + "&rel=" +
+    rel + "&modestbranding=" +
+    modest
 
   return (
     <div>
-      <h2>{ title }</h2>
+      <h2>{title}</h2>
 
       <div>Date added placeholder</div>
-      <div>{ youtubeURL }</div>
-      
-      <h2>{ subtitle }</h2>
-      <div>{ description }</div>
+      <div>{youtubeURL}</div>
+
+      <h2>{category}</h2>
+      <h2>{bodyPart}</h2>
+      <div>{description}</div>
 
       <div className="container">
-        <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameborder="0"/>
+        <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameBorder="0" />
       </div>
     </div>
   )

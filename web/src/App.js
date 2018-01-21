@@ -1,28 +1,43 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
-import AddContentForm from './components/AddContentForm'
-import Content from './components/Content'
-import MyContent from './components/MyContent'
 import LandingPage from './components/LandingPage';
+import Subscribe from './components/Subscribe';
+import SubscribePopUp from './components/SubscribePopUp';
+import FindOutMoreButton from './components/FindOutMoreButton';
 import PrimaryNav from './components/PrimaryNav'
+import ContentLibrary from './components/ContentLibrary'
+import ShowPage from './components/ShowPage'
+import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.css';
-import { signIn, signUp, signOutNow } from './api/auth'
+import { signIn, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
-import { listContents } from './api/contents'
-import { initGA, logPageView } from './utils/analytics'
+import { listContents, addContents, updateContent } from './api/contents'
+import { createSubscriber } from './api/subscribers'
 
 class App extends Component {
-  state = {
-    showMenu: false,
-    error: null,
-    decodedToken: getDecodedToken(), // Restore the previous signed in data
-    contents: null
+  constructor(){
+    super();
+    this.state = {
+      showMenu: false,
+      showFilter: true,
+      showSubscribeBox: false,
+      error: null,
+      decodedToken: getDecodedToken(), // Restore the previous signed in data
+      contents: null,
+      catFilter: [],
+      bodyFilter: [],
+      editedContentID: null,
+      // State for pagination of content library
+      currentPage: 1,
+      contentPerPage: 9
+    };
+    this.handleClick = this.handleClick.bind(this)
   }
-  
-  // Event handlers for signing in and out
+
+  //Event handlers for signing in and out
   onSignIn = ({ email, password }) => {
     signIn({ email, password })
       .then((decodedToken) => {
@@ -36,24 +51,108 @@ class App extends Component {
 
   onSignOut = () => {
     signOutNow()
-    this.setState({ decodedToken: null })
+    this.setState({
+      decodedToken: null,
+    })
   }
-  
+
   // Event handler for menu toggle
   onMenuToggle = () => {
     const showMenu = this.state.showMenu
     this.setState({ showMenu: !showMenu })
   }
+  // Event handler for category filter
+  onCatFilterEvent = (filterWord) => {
+    const { catFilter } = this.state
+    if (!catFilter.includes(filterWord)) {
+      this.setState({
+        catFilter: [...catFilter, filterWord]
+      })
+    }
+    else {
+      this.setState({
+        catFilter: catFilter.filter(f => f !== filterWord)
+      })
+    }
+  }
+  // Event Handler for body filter
+  onBodyFilterEvent = (filterWord) => {
+    const { bodyFilter } = this.state
+    if (!bodyFilter.includes(filterWord)) {
+      this.setState({
+        bodyFilter: [...bodyFilter, filterWord]
+      })
+    }
+    else {
+      this.setState({
+        bodyFilter: bodyFilter.filter(f => f !== filterWord)
+      })
+    }
+  }
+  // Event handler for filter toggle
+  onFilterToggle = () => {
+    const showFilter = this.state.showFilter
+    this.setState({ showFilter: !showFilter })
+  }
+  // Set State to show subscribe box
+  onSubscribeToggle = () => {
+    console.log('this worked')
+    const { showSubscribeBox } = this.state
+    this.setState({ showSubscribeBox: !showSubscribeBox })
+  }
+  // Create subscribers
+  onCreateSubscriber = (email) => {
+    createSubscriber(email)
+      .then((newSubscriber) => {
+        alert('You have successfully subscribed!')
+        console.log('new subcriber', newSubscriber)
+        this.onSubscribeToggle()
+      })
+      .catch((error) => {
+        alert('Oops, something went wrong!\n\nEither you have already subscribed or an error has occurred.')
+        console.log('new subscriber error', error)
+      })
+  }
+
   // Event handlers for Dashboard
-  onAddContent = () => {
-    console.log('Add Content button clicked')
+  onAddContent = (contentData) => {
+    addContents(contentData)
+      .then((contentData) => {
+        console.log('Successfully added new content to database', contentData)
+      })
+      .catch((error) => {
+        console.log('Error received when adding content', error)
+      })
   }
-  onViewEditContent = () => {
-    console.log('ViewEditContent button clicked')
+  onBeginEditContent = (id) => {
+    console.log(id)
+    this.setState({ editedContentID: id })
   }
-  onEmailSubscribers = () => {
-    console.log('EmailSubscribers button clicked')
+  onUpdateEditedContent = (contentData) => {
+    const { editedContentID } = this.state
+    updateContent(contentData, editedContentID)
+      .then((updatedContent) => {
+        this.setState((prevState) => {
+          // Replace in existing products array
+           const updatedContents = prevState.contents.contents.map((content) => {
+            if (content._id === updatedContent._id) {
+              return updatedContent
+            }
+            else {
+              return content
+            }
+          })
+          return {
+            contents: {contents: updatedContents},
+            editedContentID: null
+          }
+        })
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
   }
+
   onBlogArticle = () => {
     console.log('BlogArticle button clicked')
   }
@@ -65,63 +164,131 @@ class App extends Component {
   onSave = () => {
     console.log('Save button clicked')
   }
+  onCreateSubscriber = (email) => {
+    createSubscriber(email)
+      .then((newSubscriber) => {
+        alert('You have successfully subscribed!')
+        console.log('new subcriber', newSubscriber)
+        this.onSubscribeToggle()
+      })
+      .catch((error) => {
+        alert('Oops, something went wrong!\n\nEither you have already subscribed or an error has occurred.')
+        console.log('new subscriber error', error)
+      })
+  }
+
+  // Event handler for pagination of content library
+  handleClick(event) {
+    this.setState({
+      currentPage: Number(event.target.id)
+    });
+  }
 
   render() {
-    const { showMenu, error, decodedToken, contents } = this.state
-    const signedIn = !!decodedToken
-        
+    const { showMenu, showSubscribeBox, decodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
+    const adminSignedIn = !!decodedToken
+
     return (
       <div className="App">
-        <PrimaryNav
-          className=""
-          menuClassWidth={showMenu ? 'w-100' : 'null'}
-          onMenuClick={this.onMenuToggle}
-        />
 
         <Router>
-          <Switch>
-            <Route path='/' exact render={ () => (
-              <LandingPage />
-            ) } />
+          <Fragment>
+            <PrimaryNav
+              className=""
+              menuClassWidth={showMenu ? 'w-100' : 'null'}
+              onMenuClick={this.onMenuToggle}
+              onClickSubscribe={this.onSubscribeToggle}
+            />
+            <Switch>
+              <Route path='/' exact render={() => (
+                <LandingPage />
+              )} />
 
-            <Route onUpdate={logPageView} path='/admin' exact render={ () => (
-              <Fragment>
-                <Dashboard
-                  screenName={'Dashboard'}
-                  subscriberCount={'0'}
-                  onAddContent={this.onAddContent}
-                  onViewEditContent={this.onViewEditContent}
-                  onEmailSubscribers={this.onEmailSubscribers}
-                  onBlogArticle={this.onBlogArticle}
-                />
-      
-                <AddContentForm
-                  screenName={'Add Content'}
-                  onPreview={this.onPreview}
-                  onSave={this.onSave}
-                />
-              </Fragment>
-            ) } />
+              <Route path='/admin' render={({ match }) => (
 
-            <Route path='/signin' exact render={ () => (
-              <SignInForm
-                screenName={'Admin Sign In'}
-                onSignIn={this.onSignIn}
-              />
-            ) } />
-          
-            <Route path='/excercises' exact render={ () => (
-              <Fragment>
-                { contents &&
-                  <MyContent
-                    screenName={'My Content'}
-                    contents={ contents }
-                  />
-                }
-              </Fragment>
-            ) } />
-          </Switch>
+                adminSignedIn ? (
+                  <Fragment>
+                    <Dashboard
+                      url={match.url}
+                      screenName={'Dashboard'}
+                      subscriberCount={'0'}
+                      onSignOut={this.onSignOut}
+                      onAddContent={this.onAddContent}
+                      onViewEditContent={this.onViewEditContent}
+                      onEmailSubscribers={this.onEmailSubscribers}
+                      onBlogArticle={this.onBlogArticle}
+                      contents={ contents && contents.contents }
+                      onEditToApp={ this.onBeginEditContent }
+                      editedContentID={ editedContentID }
+                      onEditSave={
+                        this.onUpdateEditedContent
+                      }
+                    />
+
+                  </Fragment>
+                ) : (
+                    <SignInForm
+                      onSignIn={this.onSignIn}
+                      admin={true}
+                    />
+                  )
+
+              )} />
+
+              <Route path='/signin' exact render={() => (
+                <SignInForm
+                  screenName={'Admin Sign In'}
+                  onSignIn={this.onSignIn}
+                />
+              )} />
+
+              <Route path='/exercises' exact render={() => (
+                <Fragment>
+                  {contents &&
+                    <ContentLibrary
+                      screenName={'Content Library'}
+                      contents={contents["contents"]}
+                      showFilter={showFilter}
+                      filterToggleToApp={this.onFilterToggle}
+                      catFilter={catFilter}
+                      catFilterToApp={(word) => {
+                        this.onCatFilterEvent(word)
+                      }}
+                      bodyFilter={bodyFilter}
+                      bodyFilterToApp={(word) => {
+                        this.onBodyFilterEvent(word)
+                      }}
+                      currentPage={currentPage}
+                      contentPerPage={contentPerPage}
+                      onHandleClick={this.handleClick}
+                    />
+                  }
+                </Fragment>
+              )} />
+
+              <Route path='/showpage/:id' render={({ match }) => (
+                <Fragment>
+                  {contents &&
+                    <ShowPage
+                      screenName={'Show Page'}
+                      contents={contents && contents}
+                      id={match.params.id}
+                    />
+                  }
+                </Fragment>
+              )} />
+
+            </Switch>
+          </Fragment>
         </Router>
+        <SubscribePopUp
+          popupClassWidth={showSubscribeBox ? ('w-100') : null}
+          onClickSubscribe={this.onSubscribeToggle}
+          onSubmitEmail={this.onCreateSubscriber}
+        />
+        <Footer 
+          onClickSubscribe={this.onSubscribeToggle}
+        />
       </div>
     );
   }
@@ -130,16 +297,12 @@ class App extends Component {
     const saveError = (error) => {
       this.setState({ error })
     }
-
     //Load for everyone
     listContents()
       .then((contents) => {
         this.setState({ contents })
       })
       .catch(saveError)
-
-    const { decodedToken } = this.state
-    const signedIn = !!decodedToken
   }
 
   // When this App first appears on screen

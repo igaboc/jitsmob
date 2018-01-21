@@ -1,73 +1,85 @@
-import React from 'react'
-import JitsmobLogo from '../images/JitsmobLogo.svg'
-import TopBar from './TopBar'
-import GoogleAnalytics from './GoogleAnalytics'
+import React, { Fragment } from 'react'
+import GoogleAnalytics from './dashboardComponents/GoogleAnalytics'
+import DashboardMenu from './dashboardComponents/DashboardMenu'
+import ContentForm from './dashboardComponents/ContentForm'
+import MyContent from './dashboardComponents/MyContent'
+import { Route } from 'react-router-dom'
+
 
 function Dashboard({
-  screenName,
   subscriberCount,
   onAddContent,
   onViewEditContent,
   onEmailSubscribers,
-  onBlogArticle
+  onBlogArticle,
+  onSignOut,
+  onTabClick,
+  url,
+  contents,
+  onEditToApp,
+  editedContentID,
+  onEditSave
 }) {
   return (
-    <div>
-      <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/>
-      <h1>{ screenName }</h1>
+    <div className="row">
 
-      <div>{ subscriberCount }</div>
-      <div>Subscribers</div>
-      
-      <button
-        onClick={ 
-          (event) => {  // Event listener
-            // Call function 'onAddContent'
-            // when button 'Add Content' is clicked
-            onAddContent()
-          }
-        }
-      >
-        Add Content  
-      </button>
-      
-      <button
-        onClick={ 
-          (event) => {  // Event listener
-            // Call function 'onViewEditContent'
-            // when button 'View Edit Content' is clicked
-            onViewEditContent()
-          }
-        }
-      >
-        View Edit Content
-      </button>
-      
-      <button
-        onClick={ 
-          (event) => {  // Event listener
-            // Call function 'onEmailSubscribers'
-            // when button 'Email Subscribers' is clicked
-            onEmailSubscribers()
-          }
-        }
-      >
-        Email Subscribers
-      </button>
+      <div className="col-md-3 col-lg-3 col-12">
+        <DashboardMenu
+          signOut={(event) => { onSignOut() }}
+        />
+      </div>
+      <div className="col-md-9 col-lg-9 col-12 background-white">
 
-      <button
-        onClick={ 
-          (event) => {  // Event listener
-            // Call function 'onBlogArticle'
-            // when button 'Blog Article' is clicked
-            onBlogArticle()
-          }
-        }
-      >
-        Blog Article
-      </button>
-      
-      <GoogleAnalytics title={ 'Google Analytics Placeholder' }/>
+        <Route path={url} exact render={() => (
+          <Fragment>
+            hello world
+                <div>{subscriberCount}</div>
+            <div>Subscribers</div>
+            <GoogleAnalytics title={'Google Analytics Placeholder'} />
+          </Fragment>
+        )} />
+        <Route path={url + '/newcontent'} render={() => (
+          <Fragment>
+            {/* <h1>New Content</h1> */}
+            <ContentForm
+              screenName="Upload New Content onto JitsMob Website"
+              onPreview='null'
+              onSubmit={(contentData) => onAddContent(contentData)} />
+          </Fragment>
+        )} />
+        <Route path={url + '/mycontent'} render={() => (
+          <Fragment>
+            {contents &&
+              <MyContent
+                contents={contents}
+                editedContentID = {editedContentID}
+                onEditContent={
+                  (id) => {
+                    onEditToApp(id)
+                  }
+                }
+                renderEditForm={ (content) => (
+                  <ContentForm
+                    initialContent={ content }
+                    screenName={ 'Edit Content' }
+                    onSubmit={
+                      (info) => {
+                        onEditSave(info)
+                      }
+                    }
+                  />
+                ) }
+              />
+            }
+          </Fragment>
+        )} />
+        <Route path={url + '/contactsubscribers'} render={() => (
+          <Fragment>
+            <h1>Email your subscribers</h1>
+          </Fragment>
+        )} />
+
+      </div>
     </div>
   )
 }

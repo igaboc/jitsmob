@@ -1,10 +1,10 @@
 import axios from 'axios'
 import { rememberToken, getValidToken } from './token'
 
-console.log('process.env.REACT_APP_API_URL', process.env.REACT_APP_API_URL)
+// console.log('process.env.REACT_APP_API_URL', process.env.REACT_APP_API_URL)
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL
+  baseURL: 'http://localhost:7000'
 })
 
 export function setToken(token) {

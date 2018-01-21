@@ -15,6 +15,19 @@ router.get('/contents', (req, res) => {
   })
 })
 
+// Read one video
+router.get('/contents/:id', (req, res) => {
+  const { id } = req.params
+  
+  Content.findById(id)
+  .then((content) => {
+    res.status(200).json({content})
+  })
+  .catch((error)=> {
+    res.status(400).json({error: error.message}) //if you return the whole error you may be giving away too much information
+  })
+})
+
 // Create
 router.post('/contents', authMiddleware.requireJWT, (req, res) => {
   Content.create(req.body)
