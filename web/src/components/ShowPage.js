@@ -2,8 +2,8 @@ import React, { Fragment } from 'react'
 import Content from './Content'
 import './ShowPage.css'
 import facebookLogo from '../images/240px-Facebook_new.svg'
-import ContentFilter from './ContentFilter'
 import Content2 from './Content2'
+import './ContentLibrary.css'
 
 function ShowPage({
   screenName,
@@ -58,14 +58,17 @@ function ShowPage({
         </a>
       </div>
 
+      
+      <h2 className="recommended">Recommended for you</h2>
+      
       {// Recommend videos that are in same category or talks
        // about the same bodypart as current video
-        <div classname="recommended">
+        <div className='video-container'>
           {
             videos.map((content) => {
               return (
                 <Fragment key={content._id}>
-                  <Content2
+                 <Content2
                     {...content}
                     title={content.title}
                     category={content.category}
