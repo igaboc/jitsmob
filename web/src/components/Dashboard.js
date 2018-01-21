@@ -32,10 +32,7 @@ function Dashboard({
 
         <Route path={url} exact render={() => (
           <Fragment>
-            hello world
-                <div>{subscriberCount}</div>
-            <div>Subscribers</div>
-            <GoogleAnalytics title={'Google Analytics Placeholder'} />
+            <GoogleAnalytics title={'Website Traffic Overview'} />
           </Fragment>
         )} />
         <Route path={url + '/newcontent'} render={() => (

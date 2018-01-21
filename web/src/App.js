@@ -308,8 +308,8 @@ class App extends Component {
   // When this App first appears on screen
   componentDidMount() {
     this.load()
-    initGA()
-    logPageView()
+    // initGA()
+    // logPageView()
   }
 
   // When state changes
