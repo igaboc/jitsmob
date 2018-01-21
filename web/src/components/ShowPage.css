@@ -1,3 +1,30 @@
 .show_page_div {
   background-color: #4D4A5E;
 }
+
+.share_on_facebook_div {
+  padding-top: 10px;
+}
+
+.share_on_facebook_link {
+  padding-left: 17vw;
+}
+
+.share_on_facebook_button {
+  background-color: blue;
+  border-color: blue;
+}
+
+.share_on_facebook_button:hover {
+  background-color: grey;
+}
+
+.facebook_logo {
+  width: 20px;
+  height:20px;
+}
+
+.share_on_facebook_words {
+  padding-left: 4px;
+  color: white;
+}

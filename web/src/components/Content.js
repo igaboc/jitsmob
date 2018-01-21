@@ -1,4 +1,5 @@
 import React from 'react'
+import './Content.css'
 
 function Content({
   title,
@@ -24,18 +25,33 @@ function Content({
     modest
 
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className="content">
+      <div className="row">
+        <div className="col-1 col-md-2">
+          <h2 className="content_h2">{bodyPart}</h2>
+        </div>
+      </div>
 
-      <div>Date added placeholder</div>
-      <div>{youtubeURL}</div>
+      <div className="row">
+        <div className="col-1 col-md-2">
+        </div>
+        
+        <div className="col-10 col-md-8">
+          <iframe title="MMA"  type="text/html" width="100%" height="300vw" src={videoSrc} frameBorder="0" />
+        </div>
+      </div>
 
-      <h2>{category}</h2>
-      <h2>{bodyPart}</h2>
-      <div>{description}</div>
-
-      <div className="container">
-        <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameBorder="0" />
+      <div>
+        <div className="row">
+          <div className="col-12 col-md-6">
+            <h2 className="content_h2">{title}</h2>
+            <h2 className="content_h2">{category}</h2>
+          </div>
+          
+          <div className="col-12 col-md-6">
+            <div className="content_div_description">{description}</div>
+          </div>
+        </div>
       </div>
     </div>
   )
