@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Roboto');
 .App {
   min-height: 100%;
+  background-color: #F2EEE9
 }
 /*Fonts*/
 .heading-font {

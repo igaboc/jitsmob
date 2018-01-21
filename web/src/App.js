@@ -18,16 +18,23 @@ import { listContents, addContents, updateContent } from './api/contents'
 import { createSubscriber } from './api/subscribers'
 
 class App extends Component {
-  state = {
-    showMenu: false,
-    showFilter: true,
-    showSubscribeBox: false,
-    error: null,
-    decodedToken: getDecodedToken(), // Restore the previous signed in data
-    contents: null,
-    catFilter: [],
-    bodyFilter: [],
-    editedContentID: null
+  constructor(){
+    super();
+    this.state = {
+      showMenu: false,
+      showFilter: true,
+      showSubscribeBox: false,
+      error: null,
+      decodedToken: getDecodedToken(), // Restore the previous signed in data
+      contents: null,
+      catFilter: [],
+      bodyFilter: [],
+      editedContentID: null,
+      // State for pagination of content library
+      currentPage: 1,
+      contentPerPage: 9
+    };
+    this.handleClick = this.handleClick.bind(this)
   }
 
   //Event handlers for signing in and out
@@ -170,8 +177,15 @@ class App extends Component {
       })
   }
 
+  // Event handler for pagination of content library
+  handleClick(event) {
+    this.setState({
+      currentPage: Number(event.target.id)
+    });
+  }
+
   render() {
-    const { showMenu, showSubscribeBox, decodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID } = this.state
+    const { showMenu, showSubscribeBox, decodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
     const adminSignedIn = !!decodedToken
 
     return (
@@ -244,6 +258,9 @@ class App extends Component {
                       bodyFilterToApp={(word) => {
                         this.onBodyFilterEvent(word)
                       }}
+                      currentPage={currentPage}
+                      contentPerPage={contentPerPage}
+                      onHandleClick={this.handleClick}
                     />
                   }
                 </Fragment>
