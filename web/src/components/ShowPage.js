@@ -10,7 +10,8 @@ function ShowPage({
 }) {
 
   var x
-  
+  // Search through contents for video with id that matches the
+  // one being passed in. If match is found, let it equal to 'x'
   for (var i = 0; i < contents['contents'].length; i = i + 1) {
     if (contents['contents'][i]._id === id) {
       x = contents['contents'][i]
@@ -28,7 +29,8 @@ function ShowPage({
         youtubeURL={ x.youtubeURL }
         description={ x.description }
       />
-      {// Added rel="noopener noreferrer for extra security"
+      { // Draw 'Share on Facebook button',
+        // added rel="noopener noreferrer for extra security"
       }
       <div className="share_on_facebook_div">
       <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank" rel="noopener noreferrer" className="share_on_facebook_link">
