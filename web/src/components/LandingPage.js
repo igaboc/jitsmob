@@ -1,6 +1,9 @@
 import React from 'react';
 import FindOutMoreButton from './FindOutMoreButton';
 import './LandingPage.css';
+import './../images/SpineMobs.png'
+import './../images/AboutMePhoto.png'
+import './../images/Laptop.svg'
 
 function LandingPage({
 
@@ -8,14 +11,19 @@ function LandingPage({
   return (
     <div className='fonts'>
       <div className='landing-section-wrapper0'>
-        <div className='landing-page-text'>
-          <div className='responsive-group'>
-            <div className='responsive-row-main'>
-              <h3 className='landing-page-para'>Boost Your</h3>
-              <h2 className='landing-page-para'>Jiu-Jitsu Performance</h2>
-              <p className='landing-page-para'>Thousands of Jiu-Jitsu athletes worldwide incorporate JitsMob into their daily workout routine</p>
-              <FindOutMoreButton />
-              <br />
+        <div className='wrapper0-image'>
+          <div className='wrapper0-opacity'>
+            <div className='wrapper0-padding'>
+              <div className='landing-page-text'>
+                <div className='responsive-group'>
+                  <div className='responsive-row-main'>
+                    <h3 className='landing-page-para'>Boost Your</h3>
+                    <h2 className='landing-page-para'>Jiu-Jitsu Performance</h2>
+                    <FindOutMoreButton />
+                    <br />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -24,22 +32,27 @@ function LandingPage({
       <div className='landing-section-wrapper1'>
         <div className='landing-page-text'>
           <div className='responsive-group'>
-            <div className='responsive-row-description'>
+            <div className='responsive-row-description wrapper1-text-spacing'>
               <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
               <h3 className='landing-page-para'>Boost Performance</h3>
               <p>Increased range of motion can generate power and promote efficiency of functional movements through improved position and posture.</p>
+              <button className='responsive-button1'>Watch Mobility Videos Now</button>
             </div>
-            <div className='responsive-row-description'>
+            <div className='responsive-row-description wrapper1-text-spacing'>
               <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
               <h3 className='landing-page-para'>Optimise Range of Motion</h3>
               <p>Range of Motion is optimized through the strengthening of ligaments and tendons while simultaneously removing excess fascia through specific stretching routines.</p>
+              <button className='responsive-button2'>Improve Performance Now</button>
             </div>
-            <div className='responsive-row-description'>
+            <div className='responsive-row-description wrapper1-text-spacing'>
               <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
               <h3 className='landing-page-para'>Accelerate Recovery</h3>
               <p>Recovery is increased through the natural release of hyaluronic acid while simultaneously resetting the central nervous system.</p>
+              <button className='responsive-button3'>Watch Mobility Videos Now</button>
             </div>
           </div>
+          <h3>Want to be kept up-to-date with any new content</h3>
+          <button>Subscribe Here</button>
         </div>
       </div>
 
@@ -47,7 +60,7 @@ function LandingPage({
         <div className='landing-page-text2'>
           <div className='responsive-group'>
             <div className='responsive-row-about'>
-              <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
+              <img className='about-me-photo' alt="" />
             </div>
             <div className='responsive-row-about'>
               <h3 className='landing-page-text2h landing-page-para'>HI, I’m Tao</h3>
@@ -60,27 +73,11 @@ function LandingPage({
 
       <div className='landing-section-wrapper3'>
         <div className='landing-page-text'>
-          <h2>FOLLOW US</h2>
-          <p>Social media icons</p>
-
-          <div className='row mt-4 justify-content-center'>
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-
-            <div className='w-100'></div>
-
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-
-            <div className='w-100'></div>
-
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-          </div>
-
+          <h2>NEW APPLICATION COMING SOON</h2>
+          <p>Be among the first to know</p>
+          <p>Subscribe for Updates <br />
+            <button>Subscribe</button></p>
+          <img className='wrapper3-laptop-image' alt="Laptop" />
         </div>
       </div>
     </div>

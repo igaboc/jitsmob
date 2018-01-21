@@ -72,10 +72,6 @@ class App extends Component {
             <LandingPage />
           </div>
         </div>
-        <Subscribe
-          onClickSubscribe={this.onSubscribeToggle}
-        />
-
 
         <SubscribePopUp
           popupClassWidth={showSubscribeBox ? ('w-100') : null}

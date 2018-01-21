@@ -20,7 +20,7 @@
   margin: 0px 20px 0px 20px;
 }
 .landing-page-para{
-  padding-top: 20px;
+  padding: 20px 0px 20px 0px;
 }
 .landing-page-text2{
   text-align: center;
@@ -32,37 +32,64 @@
   margin: 0px 20px 0px 20px;
   color:#E4BD5D;
 }
+    /* Wrapper 0 */
 .landing-section-wrapper0{
-  padding: 70px 0px 70px 0px;
-  background-color: #fff;
+  margin: 0 auto;
+  padding: 0 auto;
+  height: 350px;
 }
+.wrapper0-image{
+  background-image: url('../images/SpineMobs.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 350px;
+  min-height: 600px;
+  /* width: 100%; */
+}
+.wrapper0-opacity{
+  background:rgba(204, 204, 204, 0.8);
+  height:100%;
+  width:100%;
+}
+.wrapper0-padding{
+  padding-top: 50px;
+}
+    /* Wrapper 1 */
 .landing-section-wrapper1{
   padding: 70px 0px 70px 0px;
   background-color: #F2EEE9;
 }
+.wrapper1-text-spacing{
+  padding-bottom: 10px;
+}
+    /* Wrapper 2 */
 .landing-section-wrapper2{
   padding: 70px 0px 70px 0px;
   background-color: #4D4A5E;
 }
+.about-me-photo{
+  background-image: url('../images/AboutMePhoto.png');
+  background-size: contain;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+    /* Wrapper 3 */
 .landing-section-wrapper3{
   padding: 30px 0px 70px 0px;
-  background-color: #E4BD5D;
+  background-color: #C4C4C4;
+}
+.wrapper3-laptop-image{
+  background-image: url('../images/Laptop.svg');
+  height: 200px;
+  width: 200px;
+  background-size: cover;
 }
 
 /* Desktop/ipad media rule */
 /* =========================== */
 
 @media screen and (min-width:730px){
-  /* Flexboxes for sections */
-  /* .flex-seperator{
-    display: flex;
-    flex: wrap;
-    flex-direction: row;
-    justify-content: center;
-    font-size: 60px;
-    width: 25%;
-    height: 3em;
-  } */
   /* Text adjustment and alignment */
   .landing-page-text{
     text-align: center;
@@ -81,29 +108,43 @@
     margin: 0px 20px 0px 20px;
     color:#E4BD5D;
   }
+      /* Wrapper 0 */
   .landing-section-wrapper0{
-    padding: 70px 0px 70px 0px;
-    background-color: #fff;
+      margin: 0 auto;
+      padding: 0 auto;
+      height: 500px;
+    }
+  .wrapper0-image{
+    background-image: url('../images/SpineMobs.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: relative;
+    height: 100%;
+    width: 100%;
+    max-height: 1000px;
+    min-height: 900px;
   }
+      /* Wrapper 1 */
   .landing-section-wrapper1{
     padding: 70px 0px 70px 0px;
     background-color: #F2EEE9;
   }
+      /* Wrapper 2 */
   .landing-section-wrapper2{
     padding: 70px 0px 70px 0px;
     background-color: #4D4A5E;
   }
-  .landing-section-wrapper3{
-    padding: 30px 0px 70px 0px;
-    background-color: #E4BD5D;
-  }
+      /* Responsive Inline Blocks */
   .responsive-group{
     display: inline-block;
   }
   .responsive-row-main{
     display: inline-block;
-    width: 430px;
-    height: 600px;
+    position: relative;
+    top: 100px;
+    right: 225px;
+    width: 300px;
+    height: 550px;
   }
   .responsive-row-description{
     display: inline-block;
@@ -114,23 +155,21 @@
   .responsive-row-about{
     display: inline-block;
     width: 280px;
-    height: 600px;
+    height: 500px;
     padding: 0px 30px 0px 30px;
     vertical-align:middle;
   }
-
+      /* Responsive Description Buttons */
+  .responsive-button1{
+    position: relative;
+    top: 100px;
+  }
+  .responsive-button2{
+    position: relative;
+    top: 47px;
+  }
+  .responsive-button3{
+    position: relative;
+    top: 128px;
+  }
 }
-
-/* .flex-group{
-    display:flex;
-    flex-direction:row;
-  } */
-  /* .flexbox{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-  } */
-  /* .text-flex{
-    display:flex;
-    flex-direction: column;
-   } */
