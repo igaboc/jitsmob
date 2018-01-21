@@ -4,7 +4,8 @@
 
 /* Styling for 'Share on Facebook button' */
 .share_on_facebook_div {
-  padding-top: 10px;
+  background-color: #F2EEE9;
+  padding-bottom: 10px;
 }
 
 .share_on_facebook_link {
