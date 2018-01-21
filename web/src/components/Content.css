@@ -3,7 +3,9 @@
 }
 
 /* For "mobile" */
-.content_h2 {
+.content_h2,
+.content_iframe
+ {
   padding-left: 17vw;
   padding-right: 17vw;
 }
@@ -20,6 +22,11 @@
     padding-right: 2vw;
   }
   
+  .content_iframe {
+    padding-left: 17vw;
+    padding-right: 17vw;
+  }
+
   .content_div_description {
     padding-left: 2vw;
     padding-right: 17vw;
