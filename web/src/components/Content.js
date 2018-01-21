@@ -27,30 +27,25 @@ function Content({
   return (
     <div className="content">
       <div className="row">
-        <div className="col-1 col-md-2">
-          <h2 className="content_h2">{bodyPart}</h2>
+        <div className="col-12 col-md-12">
+          <h2 className="content_h2_bodypart">{bodyPart}</h2>
         </div>
       </div>
 
       <div className="row">
-        <div className="col-1 col-md-2">
-        </div>
-        
-        <div className="col-10 col-md-8">
-          <iframe title="MMA"  type="text/html" width="100%" height="300vw" src={videoSrc} frameBorder="0" />
+        <div className="col-12 col-md-12">
+          <iframe title="MMA"  type="text/html" width="100%" height="300vw" src={videoSrc} frameBorder="0" className="content_iframe"/>
         </div>
       </div>
 
-      <div>
-        <div className="row">
-          <div className="col-12 col-md-6">
-            <h2 className="content_h2">{title}</h2>
-            <h2 className="content_h2">{category}</h2>
-          </div>
-          
-          <div className="col-12 col-md-6">
-            <div className="content_div_description">{description}</div>
-          </div>
+      <div className="row under_iframe_top">
+        <div className="col-12 col-md-6">
+          <h2 className="content_title">{title}</h2>
+          <div className="content_category"> Category: {category}</div>
+        </div>
+        
+        <div className="col-12 col-md-6">
+          <div className="content_div_description">{description}</div>
         </div>
       </div>
     </div>
