@@ -1,7 +1,17 @@
-.thumbnail {
+.card {
   margin: 5%;
   background-color: #F2EEE9;
-  padding: 3%;
+  border-radius: 0 !important;
+  border: none !important
+}
+
+.card-img-top {
+  border-radius: 0 !important;
+  border: none
+}
+
+.card-block {
+  padding: 1%
 }
 
 p.card-text {
@@ -20,7 +30,7 @@ h4.card-title:hover {
 }
 
 @media (min-width: 768px) {
-  .thumbnail {
+  .card {
     width: 30%;
     margin: 1%;
 

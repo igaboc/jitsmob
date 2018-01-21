@@ -41,11 +41,13 @@ function Content2({
 }
 
   return (
-    <div className='thumbnail'>
+    <div className='card'>
       
       <div className="card-img-top">
         {/* <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameBorder="0"/> */}
-        <img className="card-img-top" src={videoSrc} alt="Card image cap" />
+        <a href={`/showpage/${id}`}>
+          <img className="card-img-top" src={videoSrc} alt="Card image cap" />
+        </a>
       </div>
       
       <div className='card-block'>
