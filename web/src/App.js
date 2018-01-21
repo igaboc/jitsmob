@@ -18,7 +18,7 @@ import { listContents, addContents, updateContent } from './api/contents'
 import { createSubscriber } from './api/subscribers'
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       showMenu: false,
@@ -134,7 +134,7 @@ class App extends Component {
       .then((updatedContent) => {
         this.setState((prevState) => {
           // Replace in existing products array
-           const updatedContents = prevState.contents.contents.map((content) => {
+          const updatedContents = prevState.contents.contents.map((content) => {
             if (content._id === updatedContent._id) {
               return updatedContent
             }
@@ -143,7 +143,7 @@ class App extends Component {
             }
           })
           return {
-            contents: {contents: updatedContents},
+            contents: { contents: updatedContents },
             editedContentID: null
           }
         })
@@ -189,7 +189,6 @@ class App extends Component {
     const adminSignedIn = !!decodedToken
 
     return (
-<<<<<<< HEAD
       <div className="App">
 
         <Router>
@@ -218,22 +217,13 @@ class App extends Component {
                       onViewEditContent={this.onViewEditContent}
                       onEmailSubscribers={this.onEmailSubscribers}
                       onBlogArticle={this.onBlogArticle}
-                      contents={ contents && contents.contents }
-                      onEditToApp={ this.onBeginEditContent }
-                      editedContentID={ editedContentID }
+                      contents={contents && contents.contents}
+                      onEditToApp={this.onBeginEditContent}
+                      editedContentID={editedContentID}
                       onEditSave={
                         this.onUpdateEditedContent
                       }
                     />
-=======
-      <div className="App Site">
-        <div className="Site-content">
-          <PrimaryNav />
-          <div className="main">
-            <LandingPage />
-          </div>
-        </div>
->>>>>>> css-adjustments
 
                   </Fragment>
                 ) : (
@@ -296,7 +286,7 @@ class App extends Component {
           onClickSubscribe={this.onSubscribeToggle}
           onSubmitEmail={this.onCreateSubscriber}
         />
-        <Footer 
+        <Footer
           onClickSubscribe={this.onSubscribeToggle}
         />
       </div>

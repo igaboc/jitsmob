@@ -73,36 +73,11 @@ function LandingPage(
 
       <div className='landing-section-wrapper3'>
         <div className='landing-page-text'>
-<<<<<<< HEAD
-          <h2>FOLLOW US</h2>
-          <p>Social media icons</p>
-
-          <div className='row mt-4 justify-content-center'>
-
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-
-            <div className='w-100'></div>
-
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-
-            <div className='w-100'></div>
-
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-            <img src="http://placeholder.pics/svg/100x100" alt="Placeholder" />
-          </div>
-
-=======
           <h2>NEW APPLICATION COMING SOON</h2>
           <p>Be among the first to know</p>
           <p>Subscribe for Updates <br />
             <button>Subscribe</button></p>
           <img className='wrapper3-laptop-image' alt="Laptop" />
->>>>>>> css-adjustments
         </div>
       </div>
     </div>
