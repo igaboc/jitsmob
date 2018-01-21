@@ -189,6 +189,7 @@ class App extends Component {
     const adminSignedIn = !!decodedToken
 
     return (
+<<<<<<< HEAD
       <div className="App">
 
         <Router>
@@ -224,6 +225,15 @@ class App extends Component {
                         this.onUpdateEditedContent
                       }
                     />
+=======
+      <div className="App Site">
+        <div className="Site-content">
+          <PrimaryNav />
+          <div className="main">
+            <LandingPage />
+          </div>
+        </div>
+>>>>>>> css-adjustments
 
                   </Fragment>
                 ) : (
