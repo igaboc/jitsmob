@@ -27,8 +27,8 @@ function Content({
   return (
     <div className="content">
       <div className="row">
-        <div className="col-12 col-md-6">
-          <h2 className="content_h2">{bodyPart}</h2>
+        <div className="col-12 col-md-12">
+          <h2 className="content_h2_bodypart">{bodyPart}</h2>
         </div>
       </div>
 
@@ -39,15 +39,17 @@ function Content({
       </div>
 
       <div>
-        <div className="row">
+        <div className="row under_iframe_top">
+        
           <div className="col-12 col-md-6">
-            <h2 className="content_h2">{title}</h2>
-            <h2 className="content_h2">{category}</h2>
+            <h2 className="content_title">{title}</h2>
+            <div className="content_category"> Category: {category}</div>
           </div>
           
           <div className="col-12 col-md-6">
             <div className="content_div_description">{description}</div>
           </div>
+          
         </div>
       </div>
     </div>

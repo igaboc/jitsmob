@@ -2,10 +2,25 @@
   box-sizing: border-box;
 }
 
+.content_h2_bodypart {
+  background-color: black;
+  color: white;
+  margin-left: 17vw;
+  margin-right: 17vw;
+  margin-bottom: 0px;
+}
+
+.under_iframe_top {
+  background-color: #F2EEE9;
+  margin-top: -5px;
+  padding-top: 10px;
+}
+
 /* For "mobile" */
-.content_h2,
+.content_title,
+.content_category,
 .content_iframe
- {
+{
   padding-left: 17vw;
   padding-right: 17vw;
 }
@@ -17,7 +32,8 @@
 
 /* For "Non mobile" */
 @media screen and (min-width:768px){
-  .content_h2 {
+  .content_title,
+  .content_category {
     padding-left: 17vw;
     padding-right: 2vw;
   }
