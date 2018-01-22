@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import Content from './Content'
 import './ShowPage.css'
 import facebookLogo from '../images/240px-Facebook_new.svg'
-import MetaTags from 'react-meta-tags'
+import {Helmet} from "react-helmet";
 
 function ShowPage({
   screenName,
@@ -22,16 +22,12 @@ function ShowPage({
 
   return (
     <Fragment>
-      <MetaTags>
-        <title>{ x.title }</title>
-        <meta property="og:url" content={`http://jitsmob.netlify.com/showpage/${x._id}`} />
-        <meta name="description" content={x.description} />
-        <meta property="og:title" content={x.title}/>
-        <meta property="og:image" content={ youtubeID } />
-        <meta property="og:type" content="article" />
-        <meta property="fb:app_id" content="227904387752343" />
-        <description>{x.description}</description>
-      </MetaTags>
+      <Helmet>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Jitsmob: Juijitsu and MMA Mobility Training" />
+        <meta property="og:description" content="You won't regret it" />
+
+      </Helmet>
       <div class="show_page_div">
         <h1>{screenName}</h1>
 
@@ -44,6 +40,7 @@ function ShowPage({
         />
         {// Added rel="noopener noreferrer for extra security"
         }
+        
         <a href={`https://www.facebook.com/sharer/sharer.php?u=http://jitsmob.netlify.com/showpage/${x._id}`} target="_blank" rel="noopener noreferrer" >
           Share on Facebook
           <img src={ facebookLogo } alt="Share on Facebook"></img>
