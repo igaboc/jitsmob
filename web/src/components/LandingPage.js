@@ -2,8 +2,8 @@ import React from 'react';
 import FindOutMoreButton from './FindOutMoreButton';
 import './LandingPage.css';
 import './../images/SpineMobs.png'
-import './../images/AboutMePhoto.png'
-import './../images/Laptop.svg'
+import Tao from './../images/AboutMePhoto.png'
+import Laptop from './../images/Laptop.svg'
 
 function LandingPage({
 
@@ -19,7 +19,7 @@ function LandingPage({
                   <div className='responsive-row-main'>
                     <h3 className='landing-page-para'>Boost Your</h3>
                     <h2 className='landing-page-para'>Jiu-Jitsu Performance</h2>
-                    <FindOutMoreButton />
+                    {/* <FindOutMoreButton /> */}
                     <br />
                   </div>
                 </div>
@@ -58,11 +58,11 @@ function LandingPage({
 
       <div className='landing-section-wrapper2'>
         <div className='landing-page-text2'>
-          <div className='responsive-group'>
-            <div className='responsive-row-about'>
-              <img className='about-me-photo' alt="" />
+          <div className='row'>
+            <div className='col-md-6 col-12 px-auto'>
+              <img className="w-75 about-me-photo" alt="Tao" src={Tao} />
             </div>
-            <div className='responsive-row-about'>
+            <div className='col-md-6 col-12'>
               <h3 className='landing-page-text2h landing-page-para'>HI, I’m Tao</h3>
               <p className='landing-page-para'>Jitsmob aims to accelerate, improve and optimize your performance in Juijitsu.</p>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -77,7 +77,7 @@ function LandingPage({
           <p>Be among the first to know</p>
           <p>Subscribe for Updates <br />
             <button>Subscribe</button></p>
-          <img className='wrapper3-laptop-image' alt="Laptop" />
+          <img className='wrapper3-laptop-image' alt="Laptop" src={Laptop} />
         </div>
       </div>
     </div>
