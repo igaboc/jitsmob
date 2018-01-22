@@ -24,12 +24,13 @@ function ShowPage({
     <Fragment>
       <MetaTags>
         <title>{ x.title }</title>
-        <meta proptery="og:url" content={`https://www.facebook.com/sharer/sharer.php?u=http://jitsmob.netlify.com/showpage/${x._id}`} />
+        <meta property="og:url" content={`http://jitsmob.netlify.com/showpage/${x._id}`} />
         <meta name="description" content={x.description} />
         <meta property="og:title" content={x.title}/>
         <meta property="og:image" content={ youtubeID } />
         <meta property="og:type" content="article" />
         <meta property="fb:app_id" content="227904387752343" />
+        <description>{x.description}</description>
       </MetaTags>
       <div class="show_page_div">
         <h1>{screenName}</h1>
