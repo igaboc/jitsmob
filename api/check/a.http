@@ -62,3 +62,24 @@ Content-Type: application/json
 {
   "email": "test1@gmail.com" 
 }
+
+### Create New User
+
+POST http://localhost:7000/authUser/register
+Content-Type: application/json
+
+{
+  "email": "first@testuser.com",
+  "firstName": "TestUserFN",
+  "lastName": "TestUserLN",
+  "password": "password123"
+}
+
+### Sign in User
+POST http://localhost:7000/auth
+Content-Type: application/json
+
+{
+  "password": "password123",
+  "email": "first@testuser.com"
+}
