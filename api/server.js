@@ -20,6 +20,7 @@ server.use([
   require('./routes/content'),
   require('./routes/auth'),
   require('./routes/authUser'), 
+  require('./routes/userworkout'), 
   require('./routes/subscriber')
   // require('./routes/wishlist'),
 ])

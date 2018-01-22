@@ -83,3 +83,15 @@ Content-Type: application/json
   "password": "password123",
   "email": "first@testuser.com"
 }
+
+### Read users' workout
+GET http://localhost:7000/userworkout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjYyMDUzNSwiZXhwIjoxNTE3MjI1MzM1LCJzdWIiOiI1YTY1YzNhYzU2YjczYTg3NDZjYTM0ZjgifQ.tWdsSFku4zu2WjUrfRPDecWOBlZsJj2Ugfk16avJAJk
+
+### Add to userworkout
+POST http://localhost:7000/userworkout/contents/5a6541bb279fcc6c4cb40858
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjYyMDUzNSwiZXhwIjoxNTE3MjI1MzM1LCJzdWIiOiI1YTY1YzNhYzU2YjczYTg3NDZjYTM0ZjgifQ.tWdsSFku4zu2WjUrfRPDecWOBlZsJj2Ugfk16avJAJk
+
+### Remove from userworkout
+DELETE http://localhost:7000/userworkout/contents/5a6541bb279fcc6c4cb40858
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjYyMDUzNSwiZXhwIjoxNTE3MjI1MzM1LCJzdWIiOiI1YTY1YzNhYzU2YjczYTg3NDZjYTM0ZjgifQ.tWdsSFku4zu2WjUrfRPDecWOBlZsJj2Ugfk16avJAJk
