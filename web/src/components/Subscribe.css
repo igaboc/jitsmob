@@ -7,4 +7,5 @@
 .remove-decor{
   color: white !important;
   text-decoration: none !important;
+  cursor: pointer;
 }

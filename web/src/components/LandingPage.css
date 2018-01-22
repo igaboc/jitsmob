@@ -1,4 +1,14 @@
-
+/* Subscribe Button */
+.subscribe-landing {
+  font-family: 'Fjalla One', sans-serif;
+  color: #F2EEE9;
+  font-size: 1.3em;
+  display: block;
+  cursor: pointer;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* fonts */
 .fonts h2{
@@ -38,6 +48,9 @@
   padding: 0 auto;
   height: 350px;
 }
+.wrapper0-text{
+  color:#CCA035;
+}
 .wrapper0-image{
   background-image: url('../images/SpineMobs.png');
   background-repeat: no-repeat;
@@ -46,7 +59,7 @@
   height: 100%;
 }
 .wrapper0-opacity{
-  background:rgba(204, 204, 204, 0.8);
+  background:rgba(230, 230, 230, 0.85);
   height:100%;
   width:100%;
 }

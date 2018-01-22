@@ -4,10 +4,11 @@ import './LandingPage.css';
 import './../images/SpineMobs.png'
 import Tao from './../images/AboutMePhoto.png'
 import Laptop from './../images/Laptop.svg'
+import Subscribe from './Subscribe'
 
-function LandingPage(
-
-) {
+function LandingPage({
+  onClickSubscribe
+}) {
   return (
     <div className='fonts'>
       <div className='landing-section-wrapper0'>
@@ -17,7 +18,7 @@ function LandingPage(
               <div className='landing-page-text'>
                 <div className='responsive-group'>
                   <div className='responsive-row-main'>
-                    <h3 className='landing-page-para'>Boost Your</h3>
+                    <h3 className='landing-page-para wrapper0-text'>BOOST YOUR</h3>
                     <h2 className='landing-page-para'>Jiu-Jitsu Performance</h2>
                     {/* <FindOutMoreButton /> */}
                     <br />
@@ -52,7 +53,9 @@ function LandingPage(
             </div>
           </div>
           <h3>Want to be kept up-to-date with any new content</h3>
-          <button>Subscribe Here</button>
+          <div className='pt-2'>
+            <span className="subscribe-landing btn-purple" onClick={(event) => { onClickSubscribe() }}>SUBSCRIBE HERE</span>
+          </div>
         </div>
       </div>
 
@@ -75,8 +78,9 @@ function LandingPage(
         <div className='landing-page-text'>
           <h2>NEW APPLICATION COMING SOON</h2>
           <p>Be among the first to know</p>
-          <p>Subscribe for Updates <br />
-            <button>Subscribe</button></p>
+          <div className='pb-3 mb-3'>
+            <span className="subscribe-landing btn-purple" onClick={(event) => { onClickSubscribe() }}>SUBSCRIBE FOR UPDATES</span>
+          </div>
           <img className='wrapper3-laptop-image' alt="Laptop" src={Laptop} />
         </div>
       </div>

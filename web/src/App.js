@@ -201,7 +201,9 @@ class App extends Component {
             />
             <Switch>
               <Route path='/' exact render={() => (
-                <LandingPage />
+                <LandingPage
+                  onClickSubscribe={this.onSubscribeToggle}
+                />
               )} />
 
               <Route path='/admin' render={({ match }) => (
