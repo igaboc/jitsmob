@@ -35,31 +35,33 @@ function ShowPage({
   }
 
   return (
-    <div class="show_page_div">
-      
-      <Content
-        title={ x.title }
-        category={ x.category }
-        bodyPart={ x.bodyPart }
-        youtubeURL={ x.youtubeURL }
-        description={ x.description }
-      />
+    <div className="show_page_div">
+      <div className="show_page_div_inner">
+        <Content
+          title={ x.title }
+          category={ x.category }
+          bodyPart={ x.bodyPart }
+          youtubeURL={ x.youtubeURL }
+          description={ x.description }
+        />
 
-      { // Draw 'Share on Facebook button',
-        // added rel="noopener noreferrer for extra security"
-      }
-      <div className="share_on_facebook_div">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank" rel="noopener noreferrer" className="share_on_facebook_link">
-          <button className="share_on_facebook_button">
-            <img src={ facebookLogo } alt="Share on Facebook" className="facebook_logo"></img>
-            <span className="share_on_facebook_words">Share</span>  
-          </button>
-        </a>
+        { // Draw 'Share on Facebook button',
+          // added rel="noopener noreferrer for extra security"
+        }
+        {
+        <div className="share_on_facebook_div">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank" rel="noopener noreferrer" className="share_on_facebook_link">
+            <button className="share_on_facebook_button">
+              <img src={ facebookLogo } alt="Share on Facebook" className="facebook_logo"></img>
+              <span className="share_on_facebook_words">Share</span>  
+            </button>
+          </a>
+        </div>
+        }
       </div>
 
-      
       <h2 className="recommended">Recommended for you</h2>
-      
+            
       {// Recommend videos that are in same category or talks
        // about the same bodypart as current video
         <div className='video-container'>

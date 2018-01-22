@@ -1,5 +1,6 @@
 import React from 'react'
 import './Content.css'
+import facebookLogo from '../images/240px-Facebook_new.svg'
 
 function Content({
   title,
