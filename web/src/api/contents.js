@@ -18,3 +18,8 @@ export function updateContent(data, id) {
   return api.put(`/contents/${id}`, data)
     .then((res) => res.data)
 }
+
+export function deleteContent(id) {
+  return api.delete(`/contents/${id}`)
+    .then((res) => res.data)
+}

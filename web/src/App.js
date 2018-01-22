@@ -14,7 +14,7 @@ import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
-import { listContents, addContents, updateContent } from './api/contents'
+import { listContents, addContents, updateContent, deleteContent } from './api/contents'
 import { createSubscriber } from './api/subscribers'
 
 class App extends Component {
@@ -153,6 +153,37 @@ class App extends Component {
       })
   }
 
+  onDeleteContent = (id) => {
+    deleteContent(id)
+      // .then((updatedContent) => {
+      //   this.setState((prevState) => {
+      //     // Replace in existing products array
+      //     const updatedContents = prevState.contents.contents.map((content) => {
+      //       if (content._id === updatedContent._id) {
+      //         return updatedContent
+      //       }
+      //       else {
+      //         return content
+      //       }
+      //     })
+      //     console.log('updated contents', updatedContents)
+      //     return {
+      //       contents: {contents: updatedContents},
+      //       editedContentID: null
+      //     }
+      //   })
+      // })
+      // .catch((error) => {
+      //   this.setState({ error })
+      // })
+      .then(() => {
+        this.load()
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
+  }
+
   onBlogArticle = () => {
     console.log('BlogArticle button clicked')
   }
@@ -220,9 +251,8 @@ class App extends Component {
                       contents={ contents && contents.contents }
                       onEditToApp={ this.onBeginEditContent }
                       editedContentID={ editedContentID }
-                      onEditSave={
-                        this.onUpdateEditedContent
-                      }
+                      onEditSave={this.onUpdateEditedContent}
+                      onDeleteContent={this.onDeleteContent}
                     />
 
                   </Fragment>

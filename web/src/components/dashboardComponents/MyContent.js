@@ -7,6 +7,7 @@ function MyContent({
   onEditContent,
   editedContentID,
   renderEditForm,
+  onDeleteContent
 }) {
   const videos = contents
  
@@ -24,6 +25,9 @@ function MyContent({
                 onEdit={ () => {
                   onEditContent(content._id)
                 }} 
+                onDelete={ () => {
+                  onDeleteContent(content._id)
+                }}
                 title={ content.title }
                 category={ content.category }
                 bodyPart={ content.bodyPart }
