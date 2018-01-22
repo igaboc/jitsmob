@@ -1,4 +1,4 @@
-@host = https://jitsmob-api-nxcpzaqzfi.now.sh
+@host = https://jitsmob-api-upcxckbqfz.now.sh
 
 ###
 GET {{host}}/contents
@@ -23,12 +23,13 @@ Content-Type: application/json
 }
 ### Create Content
 POST {{host}}/contents
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJiYkBtYWlsLmNvbSIsImlhdCI6MTUxNTcxOTA2NiwiZXhwIjoxNTE2MzIzODY2LCJzdWIiOiI1YTU4MDk4YTM3Njk2ZjAwOWY3ZTc0MWQifQ.R4TQb9Tw6IItL5Gaxc-xdurzc6aJ8Q3TmzjxU4y68cU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJiYkBtYWlsLmNvbSIsImlhdCI6MTUxNjU5MjI0NCwiZXhwIjoxNTE3MTk3MDQ0LCJzdWIiOiI1YTU4MDk4YTM3Njk2ZjAwOWY3ZTc0MWQifQ.9_65yTabAVAFCAguv2MTEBG38ypEe2qYAV8_xqSsLSc
 Content-Type: application/json
 
 {
   "title": "testTitle",
-  "subtitle": "testSubtitle",
+  "category": "Mobility",
+  "bodyPart": "Shoulders"
   "youtubeURL": "Clayton",
   "description": "navy top secret questions" 
 }
@@ -44,7 +45,7 @@ Content-Type: application/json
 }
 
 ### Delete Content
-DELETE {{host}}/contents/5a5809d737696f009f7e741f
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJiYkBtYWlsLmNvbSIsImlhdCI6MTUxNTcxOTA2NiwiZXhwIjoxNTE2MzIzODY2LCJzdWIiOiI1YTU4MDk4YTM3Njk2ZjAwOWY3ZTc0MWQifQ.R4TQb9Tw6IItL5Gaxc-xdurzc6aJ8Q3TmzjxU4y68cU
+DELETE {{host}}/contents/5a6556f2c275d1006b4c083d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJiYkBtYWlsLmNvbSIsImlhdCI6MTUxNjU5MjI0NCwiZXhwIjoxNTE3MTk3MDQ0LCJzdWIiOiI1YTU4MDk4YTM3Njk2ZjAwOWY3ZTc0MWQifQ.9_65yTabAVAFCAguv2MTEBG38ypEe2qYAV8_xqSsLSc
 
 
