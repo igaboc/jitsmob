@@ -321,6 +321,7 @@ class App extends Component {
     this.load()
     // initGA()
     // logPageView()
+    
   }
 
   // When state changes
