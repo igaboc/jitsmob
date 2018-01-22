@@ -18,7 +18,8 @@ function Dashboard({
   contents,
   onEditToApp,
   editedContentID,
-  onEditSave
+  onEditSave,
+  onDeleteContent
 }) {
   return (
     <div className="row">
@@ -53,6 +54,11 @@ function Dashboard({
                 onEditContent={
                   (id) => {
                     onEditToApp(id)
+                  }
+                }
+                onDeleteContent={
+                  (id) => {
+                    onDeleteContent(id)
                   }
                 }
                 renderEditForm={ (content) => (
