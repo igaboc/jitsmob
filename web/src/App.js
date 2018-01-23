@@ -126,7 +126,10 @@ class App extends Component {
   }
   onBeginEditContent = (id) => {
     console.log(id)
-    this.setState({ editedContentID: id })
+    // Have popup window ask admin for confirmation to edit content
+    if(window.confirm('Are you sure you want to edit contents?')) {
+      this.setState({ editedContentID: id }) // If yes, run code to edit content
+    }
   }
   onUpdateEditedContent = (contentData) => {
     const { editedContentID } = this.state
@@ -154,8 +157,9 @@ class App extends Component {
   }
 
   onDeleteContent = (id) => {
+    // Have popup window ask admin for confirmation to delete
     if (window.confirm('Are you sure you want to delete?')) {
-      deleteContent(id)
+      deleteContent(id) // If yes, run code to delete content
       .then(() => {
         this.load()
       })
