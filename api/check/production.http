@@ -1,14 +1,14 @@
-@host = https://jitsmob-api-muxzbdgalk.now.sh
+@host = https://jitsmob-api-dszdgfqgau.now.sh
 
 ###
 GET {{host}}/contents
 
-###
+### add admin
 POST {{host}}/auth/register
 Content-Type: application/json
 
 {
-  "email": "bbb@mail.com",
+  "email": "ccc@mail.com",
   "firstName": "TestFN",
   "lastName": "TestFN",
   "password": "password123"
@@ -19,11 +19,11 @@ Content-Type: application/json
 
 {
   "password": "password123",
-  "email": "bbb@mail.com"
+  "email": "aaa@mail.com"
 }
 ### Create Content
 POST {{host}}/contents
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJiYkBtYWlsLmNvbSIsImlhdCI6MTUxNjU5MjI0MiwiZXhwIjoxNTE3MTk3MDQyLCJzdWIiOiI1YTU4MDk4YTM3Njk2ZjAwOWY3ZTc0MWQifQ.djaAdzOlfzio1JbgQIToBsmsJkQKMShzHn4N1Pbc568
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFhYUBtYWlsLmNvbSIsImlhdCI6MTUxNjY3MDY4OSwiZXhwIjoxNTE3Mjc1NDg5LCJzdWIiOiI1YTY2OGVlMGViMzViYTAwOWNlNTdlNTcifQ.0u1f5D3xmJHO4ODwWrZn1vSqGfQrTyMrunPVirskwLQ
 Content-Type: application/json
 
 {
@@ -47,5 +47,40 @@ Content-Type: application/json
 ### Delete Content
 DELETE {{host}}/contents/5a6556f2c275d1006b4c083d
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJiYkBtYWlsLmNvbSIsImlhdCI6MTUxNjU5MjI0NCwiZXhwIjoxNTE3MTk3MDQ0LCJzdWIiOiI1YTU4MDk4YTM3Njk2ZjAwOWY3ZTc0MWQifQ.9_65yTabAVAFCAguv2MTEBG38ypEe2qYAV8_xqSsLSc
+
+
+### Create New User
+
+POST {{host}}/authUser/register
+Content-Type: application/json
+
+{
+  "email": "first@testuser.com",
+  "firstName": "TestUserFN",
+  "lastName": "TestUserLN",
+  "password": "password123"
+}
+
+### Sign in User
+POST {{host}}/auth
+Content-Type: application/json
+
+{
+  "password": "password123",
+  "email": "first@testuser.com"
+}
+
+### Read users' workout
+GET {{host}}/userworkout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjY2OTY3MiwiZXhwIjoxNTE3Mjc0NDcyLCJzdWIiOiI1YTY2OGFlNzhjZjg4NDQ1YTA5MzcxMDgifQ.d2ZnauNZgnf_R4ZX94iYoTKj81Cr1LoQovC9TkN0B34
+
+### Add to userworkout
+POST {{host}}/userworkout/contents/5a6687b4ba9ac1487c2bf163
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjY2OTY3MiwiZXhwIjoxNTE3Mjc0NDcyLCJzdWIiOiI1YTY2OGFlNzhjZjg4NDQ1YTA5MzcxMDgifQ.d2ZnauNZgnf_R4ZX94iYoTKj81Cr1LoQovC9TkN0B34
+
+### Remove from userworkout
+DELETE {{host}}/userworkout/contents/5a6687b4ba9ac1487c2bf163
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjY2OTY3MiwiZXhwIjoxNTE3Mjc0NDcyLCJzdWIiOiI1YTY2OGFlNzhjZjg4NDQ1YTA5MzcxMDgifQ.d2ZnauNZgnf_R4ZX94iYoTKj81Cr1LoQovC9TkN0B34
+
 
 

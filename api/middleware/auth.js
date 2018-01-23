@@ -7,7 +7,7 @@ const jwtSecret = process.env.JWT_SECRET
 const jwtAlgorithm = 'HS256'
 const jwtExpiresIn = '7 days'
 
-passport.use(Admin.createStrategy())
+passport.use(Admin.createStrategy('admin'))
 
 function register(req, res, next) {
   // Create a fresh user model

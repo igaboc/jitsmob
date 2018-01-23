@@ -2,7 +2,7 @@ import api, { setToken } from './init'
 import { getDecodedToken } from './token'
 
 export function signIn({ email, password }) {
-  return api.post('/auth', { password, email })
+  return api.post('/authUser', { password, email })
   .then((res) => {
     const token = res.data.token
     console.log('hello', res)

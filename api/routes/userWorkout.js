@@ -1,6 +1,6 @@
 const express = require('express')
 const UserWorkout = require('../models/UserWorkout')
-const { requireJWT } = require('../middleware/auth')
+const { requireJWT } = require('../middleware/authUser')
 
 const router = new express.Router()
 

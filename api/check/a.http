@@ -9,7 +9,7 @@ POST http://localhost:7000/auth/register
 Content-Type: application/json
 
 {
-  "email": "bbb@mail.com",
+  "email": "aaa@mail.com",
   "firstName": "TestFN",
   "lastName": "TestFN",
   "password": "password123"
@@ -86,12 +86,12 @@ Content-Type: application/json
 
 ### Read users' workout
 GET http://localhost:7000/userworkout
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjYyMDUzNSwiZXhwIjoxNTE3MjI1MzM1LCJzdWIiOiI1YTY1YzNhYzU2YjczYTg3NDZjYTM0ZjgifQ.tWdsSFku4zu2WjUrfRPDecWOBlZsJj2Ugfk16avJAJk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjY2OTY3MiwiZXhwIjoxNTE3Mjc0NDcyLCJzdWIiOiI1YTY2OGFlNzhjZjg4NDQ1YTA5MzcxMDgifQ.d2ZnauNZgnf_R4ZX94iYoTKj81Cr1LoQovC9TkN0B34
 
 ### Add to userworkout
-POST http://localhost:7000/userworkout/contents/5a6541bb279fcc6c4cb40858
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjYyMDUzNSwiZXhwIjoxNTE3MjI1MzM1LCJzdWIiOiI1YTY1YzNhYzU2YjczYTg3NDZjYTM0ZjgifQ.tWdsSFku4zu2WjUrfRPDecWOBlZsJj2Ugfk16avJAJk
+POST http://localhost:7000/userworkout/contents/5a6687b4ba9ac1487c2bf163
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjY2OTY3MiwiZXhwIjoxNTE3Mjc0NDcyLCJzdWIiOiI1YTY2OGFlNzhjZjg4NDQ1YTA5MzcxMDgifQ.d2ZnauNZgnf_R4ZX94iYoTKj81Cr1LoQovC9TkN0B34
 
 ### Remove from userworkout
-DELETE http://localhost:7000/userworkout/contents/5a6541bb279fcc6c4cb40858
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjYyMDUzNSwiZXhwIjoxNTE3MjI1MzM1LCJzdWIiOiI1YTY1YzNhYzU2YjczYTg3NDZjYTM0ZjgifQ.tWdsSFku4zu2WjUrfRPDecWOBlZsJj2Ugfk16avJAJk
+DELETE http://localhost:7000/userworkout/contents/5a6687b4ba9ac1487c2bf163
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjY2OTY3MiwiZXhwIjoxNTE3Mjc0NDcyLCJzdWIiOiI1YTY2OGFlNzhjZjg4NDQ1YTA5MzcxMDgifQ.d2ZnauNZgnf_R4ZX94iYoTKj81Cr1LoQovC9TkN0B34
