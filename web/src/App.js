@@ -15,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signOutNow, userSignIn } from './api/auth'
 import { getDecodedToken } from './api/token'
 import { listContents, addContents, updateContent, deleteContent } from './api/contents'
+import { listMyWorkout, addContentToMyWorkout, removeContentFromMyWorkout } from './api/userworkout'
 import { createSubscriber } from './api/subscribers'
 
 class App extends Component {
@@ -33,7 +34,9 @@ class App extends Component {
       editedContentID: null,
       // State for pagination of content library
       currentPage: 1,
-      contentPerPage: 9
+      contentPerPage: 9,
+      // State for my (logged in users') workouts
+      myWorkout: null
     };
     this.handleClick = this.handleClick.bind(this)
   }
@@ -197,8 +200,30 @@ class App extends Component {
     });
   }
 
+  // Event handler for adding contents to users workouts
+
+  onAddContentToMyWorkout = (contentID) => {
+    addContentToMyWorkout(contentID)
+      .then((myWorkout) => {
+        this.setState({ myWorkout })
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
+  }
+
+  onRemoveContentFromMyWorkout = (contentID) => {
+    removeContentFromMyWorkout(contentID)
+      .then((myWorkout) => {
+        this.setState({ myWorkout })
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
+  }
+
   render() {
-    const { showMenu, showSubscribeBox, decodedToken, userDecodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
+    const { showMenu, showSubscribeBox, decodedToken, userDecodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage, myWorkout } = this.state
     const adminSignedIn = !!decodedToken
     const userSignedIn = !!userDecodedToken
     console.log('signed in user?', userSignedIn)
@@ -338,6 +363,24 @@ class App extends Component {
         this.setState({ contents })
       })
       .catch(saveError)
+
+    const { userDecodedToken } = this.state
+    const userSignedIn = !!decodedToken
+
+    if (userSignedIn) {
+      // Load only for signed in users
+      listMyWorkout()
+        .then((myWorkout) => {
+          this.setState({ myWorkout })
+        })
+        .catch(saveError)
+    }
+    else {
+      // Clear sign-in-only data
+      this.setState({
+        myWorkout: null
+      })
+    }
   }
 
   // When this App first appears on screen
