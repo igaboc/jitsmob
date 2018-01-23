@@ -9,7 +9,7 @@ POST http://localhost:7000/auth/register
 Content-Type: application/json
 
 {
-  "email": "bbb@mail.com",
+  "email": "eee1@mail.com",
   "firstName": "TestFN",
   "lastName": "TestFN",
   "password": "password123"
@@ -20,7 +20,7 @@ Content-Type: application/json
 
 {
   "password": "password123",
-  "email": "bbb@mail.com"
+  "email": "ccc@mail.com"
 }
 ### Create Content
 POST http://localhost:7000/contents
@@ -69,14 +69,23 @@ POST http://localhost:7000/authUser/register
 Content-Type: application/json
 
 {
-  "email": "first@testuser.com",
+  "email": "second@testuser.com",
   "firstName": "TestUserFN",
   "lastName": "TestUserLN",
   "password": "password123"
 }
 
 ### Sign in User
-POST http://localhost:7000/auth
+POST http://localhost:7000/authUser
+Content-Type: application/json
+
+{
+  "password": "password123",
+  "email": "first@testuser.com"
+}
+
+### Sign out User
+POST http://localhost:7000/authUser
 Content-Type: application/json
 
 {
