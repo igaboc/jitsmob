@@ -7,9 +7,10 @@ const jwtSecret = process.env.JWT_SECRET
 const jwtAlgorithm = 'HS256'
 const jwtExpiresIn = '7 days'
 
-passport.use(Admin.createStrategy('admin'))
+passport.use('admin-local', Admin.createStrategy())
 
 function register(req, res, next) {
+  console.log('body', req.body)
   // Create a fresh user model
   const admin = new Admin({
     email: req.body.email,
@@ -25,7 +26,7 @@ function register(req, res, next) {
     }
 
     // Store user so we can access it in our handler
-    req.admin = admin
+    req.user = admin
     // Success!
     next()
   })
@@ -88,7 +89,7 @@ function signJWTForAdmin(req, res) {
 module.exports = {
   initialize: passport.initialize(),
   register,
-  signIn: passport.authenticate('local', { session: false }),
+  signIn: passport.authenticate('admin-local', { session: false }),
   requireJWT: passport.authenticate('jwt', { session: false }),
   signJWTForAdmin
 }
