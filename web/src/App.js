@@ -17,7 +17,6 @@ import { getDecodedToken } from './api/token'
 import { listContents, addContents, updateContent, deleteContent } from './api/contents'
 import { createSubscriber } from './api/subscribers'
 
-
 class App extends Component {
   constructor() {
     super();
@@ -155,13 +154,15 @@ class App extends Component {
   }
 
   onDeleteContent = (id) => {
-    deleteContent(id)
+    if (window.confirm('Are you sure you want to delete?')) {
+      deleteContent(id)
       .then(() => {
         this.load()
       })
       .catch((error) => {
         this.setState({ error })
       })
+    }
   }
 
   onBlogArticle = () => {
