@@ -74,6 +74,24 @@
   text-decoration: none;
 }
 
+.btn-delete {
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  font-family: Arial;
+  color: #F2EEE9;
+  font-size: 16px;
+  background: #E33935;
+  padding: 10px 20px 10px 20px;
+  border: solid #E33935 2px;
+  text-decoration: none;
+}
+
+.btn-delete:hover {
+  color: #E33935 !important;
+  background: #F2EEE9;
+  text-decoration: none;
+}
 
 
 /* wrappers */

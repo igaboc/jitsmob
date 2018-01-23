@@ -3,7 +3,7 @@ import Content from './Content'
 import './ShowPage.css'
 import facebookLogo from '../images/240px-Facebook_new.svg'
 import Content2 from './Content2'
-import './ContentLibrary.css'
+import { Helmet } from "react-helmet";
 
 function ShowPage({
   screenName,
@@ -13,10 +13,12 @@ function ShowPage({
   
   // Search through contents for video with id that matches the
   // one being passed in. If match is found, let it equal to 'x'
-  var x
+  var x, youtubeID
+
   for (var i = 0; i < contents['contents'].length; i = i + 1) {
     if (contents['contents'][i]._id === id) {
       x = contents['contents'][i]
+      youtubeID = "https://img.youtube.com/vi/" + x.youtubeURL.split('=')[1] + "/sddefault.jpg"
     }
   }
 
@@ -36,6 +38,14 @@ function ShowPage({
 
   return (
     <div class="show_page_div">
+      <Fragment>
+        <Helmet>
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Jitsmob: Juijitsu and MMA Mobility Training" />
+          <meta property="og:description" content="You won't regret it" />
+        </Helmet>
+      </Fragment>
+
       <h1>{screenName}</h1>
 
       <Content
@@ -58,7 +68,6 @@ function ShowPage({
         </a>
       </div>
 
-      
       <h2 className="recommended">Recommended for you</h2>
       
       {// Recommend videos that are in same category or talks

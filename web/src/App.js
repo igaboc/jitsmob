@@ -14,11 +14,12 @@ import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
-import { listContents, addContents, updateContent } from './api/contents'
+import { listContents, addContents, updateContent, deleteContent } from './api/contents'
 import { createSubscriber } from './api/subscribers'
 
+
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       showMenu: false,
@@ -134,7 +135,7 @@ class App extends Component {
       .then((updatedContent) => {
         this.setState((prevState) => {
           // Replace in existing products array
-           const updatedContents = prevState.contents.contents.map((content) => {
+          const updatedContents = prevState.contents.contents.map((content) => {
             if (content._id === updatedContent._id) {
               return updatedContent
             }
@@ -143,10 +144,20 @@ class App extends Component {
             }
           })
           return {
-            contents: {contents: updatedContents},
+            contents: { contents: updatedContents },
             editedContentID: null
           }
         })
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
+  }
+
+  onDeleteContent = (id) => {
+    deleteContent(id)
+      .then(() => {
+        this.load()
       })
       .catch((error) => {
         this.setState({ error })
@@ -201,7 +212,9 @@ class App extends Component {
             />
             <Switch>
               <Route path='/' exact render={() => (
-                <LandingPage />
+                <LandingPage
+                  onClickSubscribe={this.onSubscribeToggle}
+                />
               )} />
 
               <Route path='/admin' render={({ match }) => (
@@ -220,9 +233,8 @@ class App extends Component {
                       contents={ contents && contents.contents }
                       onEditToApp={ this.onBeginEditContent }
                       editedContentID={ editedContentID }
-                      onEditSave={
-                        this.onUpdateEditedContent
-                      }
+                      onEditSave={this.onUpdateEditedContent}
+                      onDeleteContent={this.onDeleteContent}
                     />
 
                   </Fragment>
@@ -286,7 +298,7 @@ class App extends Component {
           onClickSubscribe={this.onSubscribeToggle}
           onSubmitEmail={this.onCreateSubscriber}
         />
-        <Footer 
+        <Footer
           onClickSubscribe={this.onSubscribeToggle}
         />
       </div>
@@ -310,6 +322,7 @@ class App extends Component {
     this.load()
     // initGA()
     // logPageView()
+    
   }
 
   // When state changes
