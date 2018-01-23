@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 // import { Link } from "react-router-dom";
 import jitsmobLogo from '../Grouplogo.svg';
 import './PrimaryNav.css';
-import Subscribe from './Subscribe'
 import { NavLink } from 'react-router-dom'
 
 function PrimaryNav({
@@ -20,7 +19,7 @@ function PrimaryNav({
           </a>
         </div>
         <div className="col-10 col-lg-9 pr-5">
-        {/* <div>
+          {/* <div>
           <Subscribe
           onClickSubscribe={(event) => onClickSubscribe()}
           buttonType='btn-purple'
@@ -30,12 +29,12 @@ function PrimaryNav({
           {/* <a className="ml-4 pt-3 pb-2" href="/exercises">Exercises</a>
           <a className="mx-4 pt-3 pb-2" href="/admin">Admin (for now only)</a>
         <a className="mx-4 pt-3 pb-2" href="/signin">Login (for now only)</a> */}
-          
-          
+
+
           <NavLink activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" exact to="/">Contact</NavLink>
           <NavLink activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" to="/exercises">Workouts</NavLink>
           <NavLink activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" to="/#about">About</NavLink>
-          <span className="subscribe-nav mx-4 pt-2 mt-2 pb-2 btn-purple" onClick={ (event) => {onClickSubscribe() }}>SUBSCRIBE</span>
+          <span className="subscribe-nav mx-4 pt-2 mt-2 pb-2 btn-purple" onClick={(event) => { onClickSubscribe() }}>SUBSCRIBE</span>
           <span className="py-2 icon" onClick={(event) => { onMenuClick() }}>&#9776;</span>
         </div>
         <div className="col-lg-1" />
@@ -49,7 +48,7 @@ function PrimaryNav({
           <a href="/#about">About JitsMob</a>
           <a href="/exercises">Workouts</a>
           <a href="mailto:jitsmob@jitsmob.com">Contact Us</a>
-          <span onClick={ (event) => {onClickSubscribe() }}>Subscribe</span>
+          <span onClick={(event) => { onClickSubscribe() }}>Subscribe</span>
 
         </div>
       </div>

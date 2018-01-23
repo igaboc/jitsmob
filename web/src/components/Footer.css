@@ -18,7 +18,8 @@
   color: #000000;
   font-family: 'Fjalla One', sans-serif;
   margin: auto;
-  border-bottom-color: darkblue
+  border-bottom-color: darkblue;
+  cursor: pointer;
 }
 
 .footer-link:hover {

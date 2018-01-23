@@ -4,6 +4,8 @@
   right: 25%;
   top: 25%;
   bottom: 25%;
+  height: 280px;
+  width: 400px;
   margin: auto;
   background-color:#4D4A5E;
   text-align:center;
@@ -12,15 +14,21 @@
 }
 
 .popup-text{
-  margin: 30px 0px 0px 0px;
+  margin: 10px 0px 0px 0px;
 }
 
 .exit-cursor{
   position: relative;
-  top: -30px;
-  left: 250px;
-  font-size: 30px;
-  color:red;
+  height: 50px;
+  width: 40px;
+  top: -20px;
+  left: 340px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.exit-cursor:hover{
+  border-bottom: 4px solid red;
 }
 
 .overlay {

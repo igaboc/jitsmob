@@ -4,9 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
 import LandingPage from './components/LandingPage';
-import Subscribe from './components/Subscribe';
 import SubscribePopUp from './components/SubscribePopUp';
-import FindOutMoreButton from './components/FindOutMoreButton';
 import PrimaryNav from './components/PrimaryNav'
 import ContentLibrary from './components/ContentLibrary'
 import ShowPage from './components/ShowPage'
@@ -184,6 +182,17 @@ class App extends Component {
     });
   }
 
+  // Direct to content library
+  toContentLibrary() {
+
+    console.log('this worked')
+  }
+
+
+  // const { showSubscribeBox } = this.state
+  // this.setState({ showSubscribeBox: !showSubscribeBox })
+
+
   render() {
     const { showMenu, showSubscribeBox, decodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
     const adminSignedIn = !!decodedToken
@@ -194,7 +203,6 @@ class App extends Component {
         <Router>
           <Fragment>
             <PrimaryNav
-              className=""
               menuClassWidth={showMenu ? 'w-100' : 'null'}
               onMenuClick={this.onMenuToggle}
               onClickSubscribe={this.onSubscribeToggle}
@@ -203,6 +211,12 @@ class App extends Component {
               <Route path='/' exact render={() => (
                 <LandingPage
                   onClickSubscribe={this.onSubscribeToggle}
+                  onClickMobilityVideos={(filterWord) => { this.onCatFilterEvent('Mobility') }}
+                  onClickStrengthVideos={(filterWord) => { this.onCatFilterEvent('Strength') }}
+                  onClickInjuryPreventionVideos={(filterWord) => {
+                    console.log('clicked')
+                    this.onCatFilterEvent('Injury Prevention')
+                  }}
                 />
               )} />
 
