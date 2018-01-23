@@ -20,7 +20,7 @@ Content-Type: application/json
 
 {
   "password": "password123",
-  "email": "ccc@mail.com"
+  "email": "eee1@mail.com"
 }
 ### Create Content
 POST http://localhost:7000/contents

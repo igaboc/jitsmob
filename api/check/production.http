@@ -1,4 +1,4 @@
-@host = https://jitsmob-api-dszdgfqgau.now.sh
+@host = https://jitsmob-api-dwbvwvaflb.now.sh
 
 ###
 GET {{host}}/contents
@@ -19,7 +19,7 @@ Content-Type: application/json
 
 {
   "password": "password123",
-  "email": "aaa@mail.com"
+  "email": "ccc@mail.com"
 }
 ### Create Content
 POST {{host}}/contents
@@ -55,10 +55,10 @@ POST {{host}}/authUser/register
 Content-Type: application/json
 
 {
-  "email": "first@testuser.com",
+  "email": "daniel@abc.com",
   "firstName": "TestUserFN",
   "lastName": "TestUserLN",
-  "password": "password123"
+  "password": "aaaaaa"
 }
 
 ### Sign in User
@@ -66,8 +66,8 @@ POST {{host}}/auth
 Content-Type: application/json
 
 {
-  "password": "password123",
-  "email": "first@testuser.com"
+  "email": "daniel@abc.com"
+  "password": "aaaaaa",
 }
 
 ### Read users' workout
