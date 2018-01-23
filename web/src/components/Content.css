@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Roboto');
+
 .content {
   box-sizing: border-box;
 }
@@ -8,44 +10,59 @@
   margin-left: 17vw;
   margin-right: 17vw;
   margin-bottom: 0px;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 36px;
+}
+
+.content_iframe {
+  padding-left: 17vw;
+  padding-right: 17vw;
 }
 
 .under_iframe_top {
   background-color: #F2EEE9;
-  margin-top: -5px;
+  margin-top: -6px;
   padding-top: 10px;
   padding-bottom: 70px;
 }
 
-/* For "mobile" */
-.content_title,
-.content_category,
-.content_iframe
-{
-  padding-left: 17vw;
-  padding-right: 17vw;
+.content_h2_title {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 36px;
 }
 
+.content_category,
 .content_div_description {
-  padding-left: 17vw;
-  padding-right: 17vw;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+/* For "mobile" */
+.content_h2_title,
+.content_category,
+.content_div_description {
+  margin-left: 17vw;
+  margin-right: 17vw;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 /* For "Non mobile" */
 @media screen and (min-width:768px){
-  .content_title,
+  
+  .content_h2_title,
   .content_category {
-    padding-left: 17vw;
-    padding-right: 2vw;
+    margin-left: 17vw;
+    margin-right: 2vw;
+    padding-left: 4px;
   }
   
-  .content_iframe {
-    padding-left: 17vw;
-    padding-right: 17vw;
-  }
-
   .content_div_description {
-    padding-left: 2vw;
-    padding-right: 17vw;
+    margin-left: 2vw;
+    margin-right: 17vw;
+    padding-right: 4px;
   }
 }

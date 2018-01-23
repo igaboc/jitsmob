@@ -1,5 +1,6 @@
 import React from 'react'
 import './Content.css'
+import facebookLogo from '../images/240px-Facebook_new.svg'
 
 function Content({
   title,
@@ -40,7 +41,7 @@ function Content({
 
       <div className="row under_iframe_top">
         <div className="col-12 col-md-6">
-          <h2 className="content_title">{title}</h2>
+          <h2 className="content_h2_title">{title}</h2>
           <div className="content_category"> Category: {category}</div>
         </div>
         
