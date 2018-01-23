@@ -117,10 +117,18 @@ class App extends Component {
   // Event handlers for Dashboard
   onAddContent = (contentData) => {
     addContents(contentData)
-      .then((contentData) => {
-        console.log('Successfully added new content to database', contentData)
+      .then((newContent) => {
+        this.setState((prevState) => {
+          // Append to end of existing contents
+          const updatedContent = prevState.contents.contents.concat(newContent)
+          return {
+            contents: { contents: updatedContent }
+          }
+        })
+        console.log('Successfully added new content to database', newContent)
       })
       .catch((error) => {
+        this.setState({ error })
         console.log('Error received when adding content', error)
       })
   }

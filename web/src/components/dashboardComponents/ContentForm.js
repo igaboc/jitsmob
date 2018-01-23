@@ -31,14 +31,21 @@ function AddContentForm({
         const form = event.target
         const elements = form.elements // Allows looking up fields using their 'name' attributes
         // Get entered values from fields
-        const title = elements.title.value
-        const category = elements.category.value
-        const bodyPart = elements.bodyPart.value
-        const youtubeURL = elements.youtubeURL.value
-        const description = elements.description.value  // body is the description of the content
+        let title = elements.title.value
+        let category = elements.category.value
+        let bodyPart = elements.bodyPart.value
+        let youtubeURL = elements.youtubeURL.value
+        let description = elements.description.value  // body is the description of the content
 
         // Pass this information along to the parent component
         onSubmit({ title, category, bodyPart, youtubeURL, description })
+        // Clear form fields
+        elements.title.value = ""
+        elements.category.value = ""
+        elements.bodyPart.value = ""
+        elements.youtubeURL.value = ""
+        elements.description.value = ""
+        alert("Content added.")
       }}
     >
       {/* <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/> */}
