@@ -14,7 +14,8 @@ function ContentLibrary({
   bodyFilter,
   currentPage,
   contentPerPage,
-  onHandleClick
+  onHandleClick,
+  userSignedIn
 }) {
   // Filter code start
     let videos = []
@@ -118,6 +119,7 @@ function ContentLibrary({
                 youtubeURL={content.youtubeURL}
                 description={content.description}
                 id={content._id}
+                userSignedIn={ userSignedIn }
               />
             </Fragment>
           )

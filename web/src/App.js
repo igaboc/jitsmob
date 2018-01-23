@@ -54,18 +54,19 @@ class App extends Component {
   }
 
   onSignOut = (key) => {
+    console.log(key)
     signOutNow(key)
     this.setState({
       decodedToken: null,
+      userDecodedToken: null
     })
   }
 
   onUserSignIn = ({ email, password }) => {
-    const { userDecodedToken } = this.state
     userSignIn({ email, password })
-      .then((decodedToken) => {
+      .then((userDecodedToken) => {
         this.setState({ userDecodedToken })
-        console.log('User decoded token: ', decodedToken)
+        console.log('User decoded token: ', userDecodedToken)
       })
       .catch((error) => {
         this.setState({ error })
@@ -226,7 +227,6 @@ class App extends Component {
     const { showMenu, showSubscribeBox, decodedToken, userDecodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage, myWorkout } = this.state
     const adminSignedIn = !!decodedToken
     const userSignedIn = !!userDecodedToken
-    console.log('signed in user?', userSignedIn)
 
     return (
       <div className="App">
@@ -283,7 +283,7 @@ class App extends Component {
                   <Redirect to="/" />
                 ) : (
                   <SignInForm
-                    onUserSignin={ this.onUserSignIn }
+                    onUserSignIn={ this.onUserSignIn }
                     admin={false}
                   />
                 )
@@ -321,6 +321,7 @@ class App extends Component {
                       currentPage={currentPage}
                       contentPerPage={contentPerPage}
                       onHandleClick={this.handleClick}
+                      userSignedIn={ userSignedIn }
                     />
                   }
                 </Fragment>
@@ -395,10 +396,7 @@ class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     // If just signed in, signed up, or signed out,
     // then the token will have changed
-    if (this.state.userDecodedToken !== prevState.userDecodedToken) {
-      this.load()
-    }
-    if (this.state.decodedToken !== prevState.decodedToken) {
+    if (this.state.decodedToken !== prevState.decodedToken || this.state.userDecodedToken !== prevState.userDecodedToken) {
       this.load()
     }
     

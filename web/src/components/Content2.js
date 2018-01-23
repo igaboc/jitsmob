@@ -7,7 +7,8 @@ function Content2({
   bodyPart,
   youtubeURL,
   description,
-  id
+  id,
+  userSignedIn,
 }) {
 
   var youtubeLink = youtubeURL // Get copy of youtubeURL
@@ -55,7 +56,16 @@ function Content2({
           <h4 className='card-title'>{ truncateText(title, 50) }</h4>
         </a>
         <p className='card-text'><small class="text-muted">{ category }, { bodyPart }</small></p>
-        <p className='card-text'>{ truncateText(description, 100) }</p>
+        <div className="row">
+          <div className={ userSignedIn ? ('col-8') : ('col-12') }>
+            <p className='card-text'>{ truncateText(description, 100) }</p>
+          </div>
+          { userSignedIn && 
+            <div className="col-4 pr-4">
+              <button className="btn-yellow">Add to workout</button>
+            </div>
+          }
+        </div>
       </div>
 
     </div>
