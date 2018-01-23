@@ -24,8 +24,7 @@ Content-Type: application/json
 }
 ### Create Content
 POST http://localhost:7000/contents
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJiYkBtYWlsLmNvbSIsImlhdCI6MTUxNjA3NDkyMSwiZXhwIjoxNTE2Njc5NzIxLCJzdWIiOiI1YTVkNTgyMjEyNjc2NjYzY2EzYmE5ZTQifQ.fsCDA07F3cyiqmUT79VJeuPXW_Rz3eEo5VjLELV9EO0
-Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVlZTFAbWFpbC5jb20iLCJpYXQiOjE1MTY3NDkxNDksImV4cCI6MTUxNzM1Mzk0OSwic3ViIjoiNWE2Njk5ODA4YjE2ODU0ODQwMzkxZmE1In0.gke7gLBbWsAs4Sifo2thzw54Ir1Pq0jOPJfxuB47fqk
 
 {
   "title": "testTitle",
@@ -37,7 +36,7 @@ Content-Type: application/json
 ### Update Content
 
 PUT http://localhost:7000/contents/5a56c08bd6cece1368823525
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE1MTU2MzQ1NjIsImV4cCI6MTUxNjIzOTM2Miwic3ViIjoiNWE1NTlmOTI4NTg3MGUwN2I0MjhmZTVmIn0.EendFFhK794DxlSObZbbZVSeZh9x9QTEPWhej6BVH14
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVlZTFAbWFpbC5jb20iLCJpYXQiOjE1MTY2OTMzNzcsImV4cCI6MTUxNzI5ODE3Nywic3ViIjoiNWE2Njk5ODA4YjE2ODU0ODQwMzkxZmE1In0.MHOvBhhvhHZ3spzfrQ28XdVfDB6K7lkGCijlSyL1-9Y
 Content-Type: application/json
 
 {
@@ -99,7 +98,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0Q
 
 ### Add to userworkout
 POST http://localhost:7000/userworkout/contents/5a6687b4ba9ac1487c2bf163
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjY2OTY3MiwiZXhwIjoxNTE3Mjc0NDcyLCJzdWIiOiI1YTY2OGFlNzhjZjg4NDQ1YTA5MzcxMDgifQ.d2ZnauNZgnf_R4ZX94iYoTKj81Cr1LoQovC9TkN0B34
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjY5MzQ1NiwiZXhwIjoxNTE3Mjk4MjU2LCJzdWIiOiI1YTY2OGFlNzhjZjg4NDQ1YTA5MzcxMDgifQ.QYwJVe0Y4SzNFR4eBsQcRUCVLn-ycuKFyEAtXA_vXU4
 
 ### Remove from userworkout
 DELETE http://localhost:7000/userworkout/contents/5a6687b4ba9ac1487c2bf163

@@ -9,6 +9,7 @@ function Content2({
   description,
   id,
   userSignedIn,
+  onWishListAdd
 }) {
 
   var youtubeLink = youtubeURL // Get copy of youtubeURL
@@ -62,7 +63,7 @@ function Content2({
           </div>
           { userSignedIn && 
             <div className="col-4 pr-4">
-              <button className="btn-yellow">Add to workout</button>
+              <button className="btn-yellow" onClick={ (event) => onWishListAdd(id) }>Add to workout</button>
             </div>
           }
         </div>

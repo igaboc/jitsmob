@@ -16,6 +16,7 @@ import { signIn, signOutNow, userSignIn } from './api/auth'
 import { getDecodedToken } from './api/token'
 import { listContents, addContents, updateContent, deleteContent } from './api/contents'
 import { createSubscriber } from './api/subscribers'
+import { listWorkout, addToWorkout, removeFromWorkout } from './api/userworkout'
 
 class App extends Component {
   constructor() {
@@ -31,6 +32,7 @@ class App extends Component {
       catFilter: [],
       bodyFilter: [],
       editedContentID: null,
+      userworkout: null,
       // State for pagination of content library
       currentPage: 1,
       contentPerPage: 9
@@ -190,7 +192,15 @@ class App extends Component {
         console.log('new subscriber error', error)
       })
   }
-
+  onWishListAdd = (id) => {
+    addToWorkout(id)
+      .then((userworkout) =>
+        this.setState({ userworkout })
+    )
+      .catch((error) => {
+        console.log('Error received when adding content', error)
+      })
+  }
   // Event handler for pagination of content library
   handleClick(event) {
     this.setState({
@@ -199,10 +209,10 @@ class App extends Component {
   }
 
   render() {
-    const { showMenu, showSubscribeBox, decodedToken, userDecodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
+    const { userworkout, showMenu, showSubscribeBox, decodedToken, userDecodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
     const adminSignedIn = !!decodedToken
     const userSignedIn = !!userDecodedToken
-
+    console.log('my workout', userworkout)
     return (
       <div className="App">
 
@@ -297,6 +307,7 @@ class App extends Component {
                       contentPerPage={contentPerPage}
                       onHandleClick={this.handleClick}
                       userSignedIn={ userSignedIn }
+                      onWishListAdd={this.onWishListAdd}
                     />
                   }
                 </Fragment>
@@ -337,6 +348,13 @@ class App extends Component {
     listContents()
       .then((contents) => {
         this.setState({ contents })
+      })
+      .catch(saveError)
+    
+    listWorkout()
+      .then((userworkout) => {
+        console.log('workout array', userworkout)
+        this.setState({ userworkout })
       })
       .catch(saveError)
   }

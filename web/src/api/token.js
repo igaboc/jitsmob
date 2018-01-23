@@ -1,5 +1,5 @@
 import decodeJWT from 'jwt-decode'
-
+import setToken from './init.js'
 
 export function rememberToken(token, key) {
   if (token) {

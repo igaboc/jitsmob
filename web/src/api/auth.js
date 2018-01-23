@@ -29,6 +29,7 @@ export function signUp({ email, password, firstName, lastName }) {
 
 export function signOutNow(key) {
   // Forget the token
+  
   setToken(null, key)
 }
 

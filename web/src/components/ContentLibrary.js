@@ -15,7 +15,8 @@ function ContentLibrary({
   currentPage,
   contentPerPage,
   onHandleClick,
-  userSignedIn
+  userSignedIn,
+  onWishListAdd
 }) {
   // Filter code start
     let videos = []
@@ -120,6 +121,7 @@ function ContentLibrary({
                 description={content.description}
                 id={content._id}
                 userSignedIn={ userSignedIn }
+                onWishListAdd={ (id) => onWishListAdd(id) }
               />
             </Fragment>
           )
