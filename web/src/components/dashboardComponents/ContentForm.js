@@ -45,7 +45,7 @@ function AddContentForm({
         elements.bodyPart.value = ""
         elements.youtubeURL.value = ""
         elements.description.value = ""
-        alert("Content added.")
+        alert("Content saved.")
       }}
     >
       {/* <TopBar image={ JitsmobLogo } alt={ 'Jitsmob logo' }/> */}
