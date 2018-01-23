@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
 import LandingPage from './components/LandingPage';
@@ -12,7 +12,7 @@ import ContentLibrary from './components/ContentLibrary'
 import ShowPage from './components/ShowPage'
 import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.css';
-import { signIn, signOutNow } from './api/auth'
+import { signIn, signOutNow, userSignIn } from './api/auth'
 import { getDecodedToken } from './api/token'
 import { listContents, addContents, updateContent, deleteContent } from './api/contents'
 import { createSubscriber } from './api/subscribers'
@@ -25,7 +25,8 @@ class App extends Component {
       showFilter: true,
       showSubscribeBox: false,
       error: null,
-      decodedToken: getDecodedToken(), // Restore the previous signed in data
+      userDecodedToken: getDecodedToken('userToken'),
+      decodedToken: getDecodedToken('adminToken'), // Restore the previous signed in data
       contents: null,
       catFilter: [],
       bodyFilter: [],
@@ -49,12 +50,25 @@ class App extends Component {
       })
   }
 
-  onSignOut = () => {
-    signOutNow()
+  onSignOut = (key) => {
+    signOutNow(key)
     this.setState({
       decodedToken: null,
     })
   }
+
+  onUserSignIn = ({ email, password }) => {
+    const { userDecodedToken } = this.state
+    userSignIn({ email, password })
+      .then((decodedToken) => {
+        this.setState({ userDecodedToken })
+        console.log('User decoded token: ', decodedToken)
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
+  }
+
 
   // Event handler for menu toggle
   onMenuToggle = () => {
@@ -163,17 +177,6 @@ class App extends Component {
       })
   }
 
-  onBlogArticle = () => {
-    console.log('BlogArticle button clicked')
-  }
-
-  // Event handlers for Add Content Screen
-  onPreview = () => {
-    console.log('Preview button clicked')
-  }
-  onSave = () => {
-    console.log('Save button clicked')
-  }
   onCreateSubscriber = (email) => {
     createSubscriber(email)
       .then((newSubscriber) => {
@@ -195,8 +198,10 @@ class App extends Component {
   }
 
   render() {
-    const { showMenu, showSubscribeBox, decodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
+    const { showMenu, showSubscribeBox, decodedToken, userDecodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
     const adminSignedIn = !!decodedToken
+    const userSignedIn = !!userDecodedToken
+    console.log('signed in user?', userSignedIn)
 
     return (
       <div className="App">
@@ -208,6 +213,8 @@ class App extends Component {
               menuClassWidth={showMenu ? 'w-100' : 'null'}
               onMenuClick={this.onMenuToggle}
               onClickSubscribe={this.onSubscribeToggle}
+              userSignIn={userSignedIn}
+              onSignOut={(key) => this.onSignOut(key)}
             />
             <Switch>
               <Route path='/' exact render={() => (
@@ -247,10 +254,27 @@ class App extends Component {
               )} />
 
               <Route path='/signin' exact render={() => (
-                <SignInForm
-                  screenName={'Admin Sign In'}
+                userSignedIn ? (
+                  <Redirect to="/" />
+                ) : (
+                  <SignInForm
+                    onUserSignin={ this.onUserSignIn }
+                    admin={false}
+                  />
+                )
+                
+              )} />
+              <Route path='/myworkout' render={() => (
+                userSignedIn ? (
+                  <h1>Hello Word</h1>
+                ) : (
+                  <SignInForm
+                  onUserSignIn={this.onUserSignIn}
                   onSignIn={this.onSignIn}
+                  admin={ false }
                 />
+                )
+
               )} />
 
               <Route path='/exercises' exact render={() => (
@@ -328,9 +352,13 @@ class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     // If just signed in, signed up, or signed out,
     // then the token will have changed
+    if (this.state.userDecodedToken !== prevState.userDecodedToken) {
+      this.load()
+    }
     if (this.state.decodedToken !== prevState.decodedToken) {
       this.load()
     }
+    
   }
 }
 

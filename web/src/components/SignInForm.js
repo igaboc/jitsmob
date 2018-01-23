@@ -3,7 +3,8 @@ import './SignInForm.css';
 
 function SignInForm({
   onSignIn,
-  admin
+  onUserSignIn,
+  admin,
   // admin is boolean = true/false
 }) {
   return (
@@ -26,7 +27,7 @@ function SignInForm({
             const email = elements.email.value
             const password = elements.password.value
             // Pass this information along to the parent component
-            onSignIn({ email, password })
+            admin ? onSignIn({ email, password }) : onUserSignIn({ email, password })
           } }
         > 
           <div className="form-group">

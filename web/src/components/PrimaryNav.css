@@ -4,10 +4,11 @@
   overflow: hidden;
 }
 
+
 .subscribe-nav {
   font-family: 'Fjalla One', sans-serif;
   color: #F2EEE9;
-  font-size: 1.3em;
+  font-size: 1.1em;
   float: right;
   display: block;
   cursor: pointer;
@@ -20,9 +21,10 @@
   color: #1D1C1B;
   text-align: center;
   text-decoration: left;
-  font-size: 1.3em;
+  font-size: 1.1em;
   border-bottom: 3px solid rgb(255, 255, 255, 0);
   text-decoration: none;
+  cursor: pointer;
 }
 
 /* Change the color of links on hover */

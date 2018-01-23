@@ -39,7 +39,7 @@ function DashboardMenu({
             </NavLink>
           </div>
           <div className="col-6 col-md-12 p-0 mb-2">
-            <span onClick={ (event) => { signOut() } } className="sidemenu-button">
+            <span onClick={ (event) => { signOut('adminToken') } } className="sidemenu-button">
               Logout
             </span>
           </div>

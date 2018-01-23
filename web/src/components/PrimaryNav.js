@@ -3,12 +3,14 @@ import React, { Fragment } from "react";
 import jitsmobLogo from '../Grouplogo.svg';
 import './PrimaryNav.css';
 import Subscribe from './Subscribe'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 function PrimaryNav({
   menuClassWidth,
   onMenuClick,
-  onClickSubscribe
+  onClickSubscribe,
+  userSignIn,
+  onSignOut
 }) {
   return (
     <Fragment>
@@ -31,10 +33,29 @@ function PrimaryNav({
           <a className="mx-4 pt-3 pb-2" href="/admin">Admin (for now only)</a>
         <a className="mx-4 pt-3 pb-2" href="/signin">Login (for now only)</a> */}
           
-          
+          { userSignIn ? (
+            <span 
+              className="navlink mx-4 pt-3 pb-2" 
+              onClick={ (event) => {
+                onSignOut('userToken')
+            } }
+            >
+              Sign Out
+            </span>
+            ) : (
+            <Fragment>
+              <Link to="/signin" className="navlink mx-4 pt-3 pb-2" >Sign In</Link>
+              <span className="navlink mx-4 pt-3 pb-2" >Sign Up</span>
+            </Fragment>
+          )}
           <a activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" exact href="mailto:jitsmob@jitsmob.com">Contact</a>
+          <NavLink activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" to="/myworkout">My Workout</NavLink>
           <NavLink activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" to="/exercises">Workouts</NavLink>
           <a activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" href="/#about">About</a>
+
+          
+          
+          
           <span className="subscribe-nav mx-4 pt-2 mt-2 pb-2 btn-purple" onClick={ (event) => {onClickSubscribe() }}>SUBSCRIBE</span>
           <span className="py-2 icon" onClick={(event) => { onMenuClick() }}>&#9776;</span>
         </div>

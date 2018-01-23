@@ -26,8 +26,8 @@ function Dashboard({
 
       <div className="col-md-3 col-lg-3 col-12">
         <DashboardMenu
-          signOut={(event) => { onSignOut() }}
-        />
+          signOut={(key) => { onSignOut(key) }}
+        />  
       </div>
       <div className="col-md-9 col-lg-9 col-12 background-white">
 

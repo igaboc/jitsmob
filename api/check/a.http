@@ -77,12 +77,12 @@ Content-Type: application/json
 
 ### Sign in User
 POST http://localhost:7000/authUser
-Content-Type: application/json
+  Content-Type: application/json
 
-{
-  "password": "password123",
-  "email": "first@testuser.com"
-}
+  {
+    "password": "password123",
+    "email": "first@testuser.com"
+  }
 
 ### Sign out User
 POST http://localhost:7000/authUser
