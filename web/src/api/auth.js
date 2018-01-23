@@ -2,11 +2,11 @@ import api, { setToken } from './init'
 import { getDecodedToken } from './token'
 
 export function signIn({ email, password }) {
-  console.log('hello')
   return api.post('/auth', { password, email })
-    .then((res) => {
-      const token = res.data.token
-      setToken(token)
+  .then((res) => {
+    const token = res.data.token
+    console.log('hello', res)
+    setToken(token)
       return getDecodedToken()
     })
     .catch((error) => {

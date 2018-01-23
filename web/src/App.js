@@ -17,6 +17,7 @@ import { getDecodedToken } from './api/token'
 import { listContents, addContents, updateContent, deleteContent } from './api/contents'
 import { createSubscriber } from './api/subscribers'
 
+
 class App extends Component {
   constructor() {
     super();
@@ -321,6 +322,7 @@ class App extends Component {
     this.load()
     // initGA()
     // logPageView()
+    
   }
 
   // When state changes
