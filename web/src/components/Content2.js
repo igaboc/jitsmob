@@ -11,6 +11,7 @@ function Content2({
   contentInWorkout,
   onWishListAdd,
   userSignedIn
+
 }) {
 
   var youtubeLink = youtubeURL // Get copy of youtubeURL
@@ -42,6 +43,8 @@ function Content2({
     }
     return truncated;
 }
+
+  var videoDuration = `http://gdata.youtube.com/feeds/api/videos/${video}?v=2&alt=jsonc`
 
   return (
     <div className='card'>
