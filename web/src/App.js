@@ -280,7 +280,7 @@ class App extends Component {
                 </Fragment>
               )} />
 
-              <Route path='/showpage/:id' render={({ match }) => (
+              <Route path='/exercises/:id' render={({ match }) => (
                 <Fragment>
                   {contents &&
                     <ShowPage
