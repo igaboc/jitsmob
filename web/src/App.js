@@ -12,8 +12,9 @@ import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.css';
 import { signIn, signOutNow } from './api/auth'
 import { getDecodedToken } from './api/token'
-import { listContents, addContents, updateContent } from './api/contents'
+import { listContents, addContents, updateContent, deleteContent } from './api/contents'
 import { createSubscriber } from './api/subscribers'
+
 
 class App extends Component {
   constructor() {
@@ -151,6 +152,18 @@ class App extends Component {
       })
   }
 
+  onDeleteContent = (id) => {
+    if (window.confirm('Are you sure you want to delete?')) {
+      deleteContent(id)
+      .then(() => {
+        this.load()
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
+    }
+  }
+
   onBlogArticle = () => {
     console.log('BlogArticle button clicked')
   }
@@ -233,12 +246,11 @@ class App extends Component {
                       onViewEditContent={this.onViewEditContent}
                       onEmailSubscribers={this.onEmailSubscribers}
                       onBlogArticle={this.onBlogArticle}
-                      contents={contents && contents.contents}
-                      onEditToApp={this.onBeginEditContent}
-                      editedContentID={editedContentID}
-                      onEditSave={
-                        this.onUpdateEditedContent
-                      }
+                      contents={ contents && contents.contents }
+                      onEditToApp={ this.onBeginEditContent }
+                      editedContentID={ editedContentID }
+                      onEditSave={this.onUpdateEditedContent}
+                      onDeleteContent={this.onDeleteContent}
                     />
 
                   </Fragment>
@@ -282,7 +294,7 @@ class App extends Component {
                 </Fragment>
               )} />
 
-              <Route path='/showpage/:id' render={({ match }) => (
+              <Route path='/exercises/:id' render={({ match }) => (
                 <Fragment>
                   {contents &&
                     <ShowPage
@@ -326,6 +338,7 @@ class App extends Component {
     this.load()
     // initGA()
     // logPageView()
+    
   }
 
   // When state changes

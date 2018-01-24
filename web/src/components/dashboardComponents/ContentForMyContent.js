@@ -9,6 +9,7 @@ function Content({
   description,
   _id,
   onEdit,
+  onDelete
 }) {
 
   var youtubeLink = youtubeURL // Get copy of youtubeURL
@@ -45,9 +46,11 @@ function Content({
       </div>
 
       <div className="col-md-2 text-center py-auto">
-        <a className="btn-purple link-styling" href={`/showpage/${ _id }`}>View</a>
+        <a className="btn-purple link-styling" href={`/exercises/${ _id }`}>View</a>
         <br />
         <span className="btn-yellow link-styling" onClick={ onEdit }>Edit</span>
+        <br />
+        <span className="btn-delete link-styling" onClick={ onDelete }>Delete</span>        
       </div>
 
       

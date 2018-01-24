@@ -1,4 +1,6 @@
 import React from 'react'
+import './Content.css'
+import facebookLogo from '../images/240px-Facebook_new.svg'
 
 function Content({
   title,
@@ -24,18 +26,28 @@ function Content({
     modest
 
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className="content">
+      <div className="row">
+        <div className="col-12 col-md-12">
+          <h2 className="content_h2_bodypart">{bodyPart}</h2>
+        </div>
+      </div>
 
-      <div>Date added placeholder</div>
-      <div>{youtubeURL}</div>
+      <div className="row">
+        <div className="col-12 col-md-12">
+          <iframe title="MMA"  type="text/html" width="100%" height="300vw" src={videoSrc} frameBorder="0" className="content_iframe"/>
+        </div>
+      </div>
 
-      <h2>{category}</h2>
-      <h2>{bodyPart}</h2>
-      <div>{description}</div>
-
-      <div className="container">
-        <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameBorder="0" />
+      <div className="row under_iframe_top">
+        <div className="col-12 col-md-6">
+          <h2 className="content_h2_title">{title}</h2>
+          <div className="content_category"> Category: {category}</div>
+        </div>
+        
+        <div className="col-12 col-md-6">
+          <div className="content_div_description">{description}</div>
+        </div>
       </div>
     </div>
   )
