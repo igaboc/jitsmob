@@ -24,6 +24,11 @@ export function setToken(token, key) {
 }
 
 // Validates the token, and if it’s invalid, remove from local storage
-setToken(getValidToken('userToken'))
+export function setTokenForUser () {
+  setToken(getValidToken('userToken'), 'userToken')
+}
+export function setTokenForAdmin () {
+  setToken(getValidToken('adminToken'), 'adminToken')
+}
 
 export default api

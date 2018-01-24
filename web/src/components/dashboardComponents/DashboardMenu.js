@@ -15,6 +15,7 @@ function DashboardMenu({
       </div>
       <div className="row py-4 background-purple text-center background-purple side-menu">
         <div className="">
+          <div className="row">
           <div className="overflow text-center mb-4">
             <img className="logo col-s-6 col-md-12 w-75" src={ purpleLogo } alt=""/>
           </div>
@@ -42,6 +43,7 @@ function DashboardMenu({
             <span onClick={ (event) => { signOut('adminToken') } } className="sidemenu-button">
               Logout
             </span>
+          </div>
           </div>
         </div>
         
