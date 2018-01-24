@@ -18,19 +18,19 @@ function NextUp({
           </tr>
         </thead>
         <tbody>
-          {console.log('Next Up Playlist - Contents', contents)}
-        {/* {
+          {/* {console.log('Next Up Playlist - Contents', contents)} */}
+        {
           contents.map((content) => (
             <tr>
               <th scope="row">1</th>
               <td>{content.title}</td>
-              <td>Otto</td>
+              <td>{content.category} {content.bodyPart} </td>
               <td>@mdo</td>
               <td>@mdo</td>
             </tr>
             
           ))
-        } */}
+        }
           </tbody>
         </table>
 

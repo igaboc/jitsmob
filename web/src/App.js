@@ -366,7 +366,7 @@ class App extends Component {
       .catch(saveError)
 
     const { userDecodedToken } = this.state
-    const userSignedIn = !!decodedToken
+    const userSignedIn = !!userDecodedToken
 
     if (userSignedIn) {
       // Load only for signed in users
