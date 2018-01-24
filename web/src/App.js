@@ -39,12 +39,13 @@ class App extends Component {
   //Event handlers for signing in and out
   onSignIn = ({ email, password }) => {
     signIn({ email, password })
-      .then((decodedToken) => {
-        this.setState({ decodedToken })
-        console.log('Decoded token: ', decodedToken)
-      })
-      .catch((error) => {
-        this.setState({ error })
+    .then((decodedToken) => {
+      this.setState({ decodedToken })
+      console.log('Decoded token: ', decodedToken)
+    })
+    .catch((error) => {
+      this.setState({ error })
+      alert(error)
       })
   }
 
@@ -116,16 +117,27 @@ class App extends Component {
   // Event handlers for Dashboard
   onAddContent = (contentData) => {
     addContents(contentData)
-      .then((contentData) => {
-        console.log('Successfully added new content to database', contentData)
+      .then((newContent) => {
+        this.setState((prevState) => {
+          // Append to end of existing contents
+          const updatedContent = prevState.contents.contents.concat(newContent)
+          return {
+            contents: { contents: updatedContent }
+          }
+        })
+        console.log('Successfully added new content to database', newContent)
       })
       .catch((error) => {
+        this.setState({ error })
         console.log('Error received when adding content', error)
       })
   }
   onBeginEditContent = (id) => {
     console.log(id)
-    this.setState({ editedContentID: id })
+    // Have popup window ask admin for confirmation to edit content
+    if(window.confirm('Are you sure you want to edit contents?')) {
+      this.setState({ editedContentID: id }) // If yes, run code to edit content
+    }
   }
   onUpdateEditedContent = (contentData) => {
     const { editedContentID } = this.state
@@ -153,8 +165,9 @@ class App extends Component {
   }
 
   onDeleteContent = (id) => {
+    // Have popup window ask admin for confirmation to delete
     if (window.confirm('Are you sure you want to delete?')) {
-      deleteContent(id)
+      deleteContent(id) // If yes, run code to delete content
       .then(() => {
         this.load()
       })
