@@ -20,11 +20,7 @@ function Dashboard({
   onEditToApp,
   editedContentID,
   onEditSave,
-<<<<<<< HEAD
   onDeleteContent
-=======
-  onEnterPage
->>>>>>> css-admin
 }) {
   return (
     <div className="row main-background">
@@ -66,7 +62,7 @@ function Dashboard({
                     onDeleteContent(id)
                   }
                 }
-                renderEditForm={ (content) => (
+                renderEditForm={(content) => (
                   <ContentForm
                     initialContent={content}
                     screenName={'Edit Content'}
