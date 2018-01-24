@@ -15,9 +15,13 @@ function ContentLibrary({
   currentPage,
   contentPerPage,
   onHandleClick,
-  userSignedIn,
-  onWishListAdd
+  userworkout,
+  onWishListAdd,
+  userSignedIn
 }) {
+  // 
+  
+  //
   // Filter code start
     let videos = []
     let catFilteredArray = []
@@ -107,9 +111,19 @@ function ContentLibrary({
       />
       <h2 className='heading'>EXERCISES</h2>
       <div className='video-container'>
-      {console.log('current videos', currentVideos)}
+      
       {
+        
         currentVideos.map((content) => {
+          let inMyExercises = false
+          userworkout && ( inMyExercises = userworkout.some((contentInWorkout) => {
+            // Found a matching product
+            // i.e. this `product` is in the wishlist
+
+            return contentInWorkout._id === content._id
+
+            })
+          )
           return (
             <Fragment key={content._id}>
               <Content2
@@ -120,8 +134,9 @@ function ContentLibrary({
                 youtubeURL={content.youtubeURL}
                 description={content.description}
                 id={content._id}
-                userSignedIn={ userSignedIn }
+                contentInWorkout={ inMyExercises }
                 onWishListAdd={ (id) => onWishListAdd(id) }
+                userSignedIn={ userSignedIn }
               />
             </Fragment>
           )

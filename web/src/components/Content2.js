@@ -8,8 +8,9 @@ function Content2({
   youtubeURL,
   description,
   id,
-  userSignedIn,
-  onWishListAdd
+  contentInWorkout,
+  onWishListAdd,
+  userSignedIn
 }) {
 
   var youtubeLink = youtubeURL // Get copy of youtubeURL
@@ -61,10 +62,15 @@ function Content2({
           <div className={ userSignedIn ? ('col-8') : ('col-12') }>
             <p className='card-text'>{ truncateText(description, 100) }</p>
           </div>
-          { userSignedIn && 
+          { !contentInWorkout ? ( 
             <div className="col-4 pr-4">
-              <button className="btn-yellow" onClick={ (event) => onWishListAdd(id) }>Add to workout</button>
+              <button className="btn-yellow" onClick={ (event) => onWishListAdd(id) }>Add to Workout</button>
             </div>
+          ) : (
+            <div className="col-4 pr-4">
+              <button className="btn-yellow">Already in Workout</button>
+            </div>
+          )
           }
         </div>
       </div>

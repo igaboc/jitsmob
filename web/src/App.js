@@ -196,7 +196,8 @@ class App extends Component {
   onWishListAdd = (id) => {
     addToWorkout(id)
       .then((userworkout) =>
-        this.setState({ userworkout })
+        // this.setState({ userworkout })
+        this.load()
     )
       .catch((error) => {
         console.log('Error received when adding content', error)
@@ -287,7 +288,7 @@ class App extends Component {
                   <h1>Hello Word</h1>
                 ) : (
                   <SignInForm
-                  onUserSignIn={this.onUserSignIn}
+                  userworkout={this.onUserSignIn}
                   onSignIn={this.onSignIn}
                   admin={ false }
                 />
@@ -314,7 +315,7 @@ class App extends Component {
                       currentPage={currentPage}
                       contentPerPage={contentPerPage}
                       onHandleClick={this.handleClick}
-                      userSignedIn={ userSignedIn }
+                      userworkout={ userworkout && userworkout}
                       onWishListAdd={this.onWishListAdd}
                     />
                   }
