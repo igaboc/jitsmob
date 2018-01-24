@@ -4,6 +4,7 @@ import DashboardMenu from './dashboardComponents/DashboardMenu'
 import ContentForm from './dashboardComponents/ContentForm'
 import MyContent from './dashboardComponents/MyContent'
 import { Route } from 'react-router-dom'
+import './Dashboard.css';
 
 
 function Dashboard({
@@ -22,7 +23,7 @@ function Dashboard({
   onDeleteContent
 }) {
   return (
-    <div className="row">
+    <div className="row main-background">
 
       <div className="col-md-3 col-lg-3 col-12">
         <DashboardMenu
@@ -50,7 +51,7 @@ function Dashboard({
             {contents &&
               <MyContent
                 contents={contents}
-                editedContentID = {editedContentID}
+                editedContentID={editedContentID}
                 onEditContent={
                   (id) => {
                     onEditToApp(id)
@@ -61,17 +62,17 @@ function Dashboard({
                     onDeleteContent(id)
                   }
                 }
-                renderEditForm={ (content) => (
+                renderEditForm={(content) => (
                   <ContentForm
-                    initialContent={ content }
-                    screenName={ 'Edit Content' }
+                    initialContent={content}
+                    screenName={'Edit Content'}
                     onSubmit={
                       (info) => {
                         onEditSave(info)
                       }
                     }
                   />
-                ) }
+                )}
               />
             }
           </Fragment>

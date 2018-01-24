@@ -4,9 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import SignInForm from './components/SignInForm'
 import Dashboard from './components/Dashboard'
 import LandingPage from './components/LandingPage';
-import Subscribe from './components/Subscribe';
 import SubscribePopUp from './components/SubscribePopUp';
-import FindOutMoreButton from './components/FindOutMoreButton';
 import PrimaryNav from './components/PrimaryNav'
 import ContentLibrary from './components/ContentLibrary'
 import MyWorkout from './components/MyWorkout'
@@ -19,6 +17,7 @@ import { listContents, addContents, updateContent, deleteContent } from './api/c
 import { createSubscriber } from './api/subscribers'
 import { listWorkout, addToWorkout, removeFromWorkout } from './api/userworkout'
 import { viewBearer, setTokenForAdmin, setTokenForUser } from'./api/init'
+
 
 class App extends Component {
   constructor() {
@@ -48,12 +47,13 @@ class App extends Component {
   //Event handlers for signing in and out
   onSignIn = ({ email, password }) => {
     signIn({ email, password })
-      .then((decodedToken) => {
-        this.setState({ decodedToken })
-        console.log('Decoded token: ', decodedToken)
-      })
-      .catch((error) => {
-        this.setState({ error })
+    .then((decodedToken) => {
+      this.setState({ decodedToken })
+      console.log('Decoded token: ', decodedToken)
+    })
+    .catch((error) => {
+      this.setState({ error })
+      alert(error)
       })
   }
 
@@ -139,16 +139,27 @@ class App extends Component {
   // Event handlers for Dashboard
   onAddContent = (contentData) => {
     addContents(contentData)
-      .then((contentData) => {
-        console.log('Successfully added new content to database', contentData)
+      .then((newContent) => {
+        this.setState((prevState) => {
+          // Append to end of existing contents
+          const updatedContent = prevState.contents.contents.concat(newContent)
+          return {
+            contents: { contents: updatedContent }
+          }
+        })
+        console.log('Successfully added new content to database', newContent)
       })
       .catch((error) => {
+        this.setState({ error })
         console.log('Error received when adding content', error)
       })
   }
   onBeginEditContent = (id) => {
     console.log(id)
-    this.setState({ editedContentID: id })
+    // Have popup window ask admin for confirmation to edit content
+    if(window.confirm('Are you sure you want to edit contents?')) {
+      this.setState({ editedContentID: id }) // If yes, run code to edit content
+    }
   }
   onUpdateEditedContent = (contentData) => {
     const { editedContentID } = this.state
@@ -176,13 +187,16 @@ class App extends Component {
   }
 
   onDeleteContent = (id) => {
-    deleteContent(id)
+    // Have popup window ask admin for confirmation to delete
+    if (window.confirm('Are you sure you want to delete?')) {
+      deleteContent(id) // If yes, run code to delete content
       .then(() => {
         this.load()
       })
       .catch((error) => {
         this.setState({ error })
       })
+    }
   }
 
   onCreateSubscriber = (email) => {
@@ -233,6 +247,11 @@ class App extends Component {
     console.log('selected to play:', id)
   }
 
+
+  // const { showSubscribeBox } = this.state
+  // this.setState({ showSubscribeBox: !showSubscribeBox })
+
+
   render() {
     const { selectedContent, userworkout, showMenu, showSubscribeBox, decodedToken, userDecodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
     const adminSignedIn = !!decodedToken
@@ -250,18 +269,27 @@ class App extends Component {
 
         <Router>
           <Fragment>
-            <PrimaryNav
-              className=""
-              menuClassWidth={showMenu ? 'w-100' : 'null'}
-              onMenuClick={this.onMenuToggle}
-              onClickSubscribe={this.onSubscribeToggle}
-              userSignIn={userSignedIn}
-              onSignOut={(key) => this.onSignOut(key)}
-            />
+            <Switch>
+              <Route path='/admin' />
+              <Route path='/signup' />
+              <Route render={() => (
+                <PrimaryNav
+                  menuClassWidth={showMenu ? 'w-100' : 'null'}
+                  onMenuClick={this.onMenuToggle}
+                  onClickSubscribe={this.onSubscribeToggle}
+                />
+              )} />
+            </Switch>
             <Switch>
               <Route path='/' exact render={() => (
                 <LandingPage
                   onClickSubscribe={this.onSubscribeToggle}
+                  onClickMobilityVideos={(filterWord) => { this.onCatFilterEvent('Mobility') }}
+                  onClickStrengthVideos={(filterWord) => { this.onCatFilterEvent('Strength') }}
+                  onClickInjuryPreventionVideos={(filterWord) => {
+                    console.log('clicked')
+                    this.onCatFilterEvent('Injury Prevention')
+                  }}
                 />
               )} />
 
@@ -352,7 +380,7 @@ class App extends Component {
                 </Fragment>
               )} />
 
-              <Route path='/showpage/:id' render={({ match }) => (
+              <Route path='/exercises/:id' render={({ match }) => (
                 <Fragment>
                   {contents &&
                     <ShowPage
@@ -365,16 +393,26 @@ class App extends Component {
               )} />
 
             </Switch>
+
+            <Switch>
+              <Route path='/admin' />
+              <Route path='/signup' />
+              <Route render={() => (
+                <Footer
+                  onClickSubscribe={this.onSubscribeToggle}
+                />
+              )} />
+            </Switch>
+
           </Fragment>
+
         </Router>
         <SubscribePopUp
           popupClassWidth={showSubscribeBox ? ('w-100') : null}
           onClickSubscribe={this.onSubscribeToggle}
           onSubmitEmail={this.onCreateSubscriber}
         />
-        <Footer
-          onClickSubscribe={this.onSubscribeToggle}
-        />
+
       </div>
     );
   }

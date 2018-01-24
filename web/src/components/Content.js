@@ -1,5 +1,7 @@
 import React from 'react'
 import './Content2.css'
+import './Content.css'
+import facebookLogo from '../images/240px-Facebook_new.svg'
 
 function Content({
   title,
@@ -25,19 +27,31 @@ function Content({
     modest
 
   return (
+    <div className="content">
       <div className="row">
-        <div className="col-12 text-center mb-0">
-          <iframe title="MMA" className="w-75 iframe-player" type="text/html" src={videoSrc} frameBorder="0" />
-        </div>
-        <div className="col-12 mt-0">
-          <div className="w-75 mx-auto background-purple mt-0">
-            <h2 className="text-white">{title}</h2>
-            <p>{category}, {bodyPart}</p>
-            <p><strong>Description:</strong>{description}</p>
-          </div>
+        <div className="col-12 col-md-12">
+          <h2 className="content_h2_bodypart">{bodyPart}</h2>
         </div>
       </div>
 
+      <div className="row">
+        <div className="col-12 col-md-12">
+          <iframe title="MMA"  type="text/html" width="100%" height="300vw" src={videoSrc} frameBorder="0" className="content_iframe"/>
+        </div>
+      </div>
+
+      <div className="row under_iframe_top">
+        <div className="col-12 col-md-6">
+          <h2 className="content_h2_title">{title}</h2>
+          <div className="content_category"> Category: {category}</div>
+        </div>
+        
+        <div className="col-12 col-md-6">
+          <div className="content_div_description">{description}</div>
+        </div>
+      </div>
+
+    </div>
   )
 }
 

@@ -2,8 +2,7 @@ import React, { Fragment } from "react";
 // import { Link } from "react-router-dom";
 import jitsmobLogo from '../Grouplogo.svg';
 import './PrimaryNav.css';
-import Subscribe from './Subscribe'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function PrimaryNav({
   menuClassWidth,
@@ -22,7 +21,7 @@ function PrimaryNav({
           </a>
         </div>
         <div className="col-10 col-lg-9 pr-5">
-        {/* <div>
+          {/* <div>
           <Subscribe
           onClickSubscribe={(event) => onClickSubscribe()}
           buttonType='btn-purple'
@@ -70,7 +69,7 @@ function PrimaryNav({
           <a href="/#about">About JitsMob</a>
           <a href="/exercises">Workouts</a>
           <a href="mailto:jitsmob@jitsmob.com">Contact Us</a>
-          <span onClick={ (event) => {onClickSubscribe() }}>Subscribe</span>
+          <span onClick={(event) => { onClickSubscribe() }}>Subscribe</span>
 
         </div>
       </div>

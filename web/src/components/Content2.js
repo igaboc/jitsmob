@@ -51,13 +51,13 @@ function Content2({
       
       <div className="card-img-top">
         {/* <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameBorder="0"/> */}
-        <a href={`/showpage/${id}`}>
+        <a href={`/exercises/${id}`}>
           <img className="card-img-top" src={videoSrc} alt="Card image cap" />
         </a>
       </div>
       
       <div className='card-block'>
-        <a href={`/showpage/${id}`}>
+        <a href={`/exercises/${id}`}>
           <h4 className='card-title'>{ truncateText(title, 50) }</h4>
         </a>
         <p className='card-text'><small class="text-muted">{ category }, { bodyPart }</small></p>

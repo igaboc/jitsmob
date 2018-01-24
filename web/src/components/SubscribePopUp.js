@@ -11,8 +11,8 @@ function SubscribePopUp({
       <div className="popup-box">
         <div className="popup-text">
           <a onClick={(event) => { onClickSubscribe() }} className="exit-cursor">&times;</a>
-          <h2>Subscribe</h2>
-          <p>Receive updates when new content is added</p>
+          <h2 className='subscribe-text-head'>SUBSCRIBE</h2>
+          <p className='subscribe-text-body'>Receive updates when new content is added</p>
 
           <form
             action="https://netlify.us17.list-manage.com/subscribe/post"

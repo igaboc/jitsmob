@@ -1,3 +1,7 @@
+/* ================================== */
+/* Global (but 'mobile first' rules) */
+/* ================================== */
+
 /* Subscribe Button */
 .subscribe-landing {
   font-family: 'Fjalla One', sans-serif;
@@ -5,7 +9,19 @@
   font-size: 1.3em;
   display: block;
   cursor: pointer;
-  width: 300px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Video Buttons */
+.watch-videos {
+  font-family: 'Fjalla One', sans-serif;
+  color: #F2EEE9;
+  font-size: 1.2em;
+  display: block;
+  cursor: pointer;
+  width: 220px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -74,6 +90,32 @@
 .wrapper1-text-spacing{
   padding-bottom: 10px;
 }
+.mobility-image{
+  height: 100px;
+  width: 100px;
+}
+.strength-image{
+  height: 100px;
+  width: 100px;
+}
+.injury-prevention-image{
+  height: 100px;
+  width: 100px;
+}
+    /* Responsive Inline Blocks */
+.responsive-button1{
+  color: white !important;
+  text-decoration: none !important;
+}
+.responsive-button2{
+  color: white !important;
+  text-decoration: none !important;
+}
+.responsive-button3{
+  color: white !important;
+  text-decoration: none !important;
+}
+
     /* Wrapper 2 */
 .landing-section-wrapper2{
   padding: 70px 0px 70px 0px;
@@ -92,11 +134,21 @@
   background-color: #C4C4C4;
 }
 .wrapper3-laptop-image{
-  width: 55%;
-  min-width: 400px;
+  width: 35%;
+  min-width: 275px;
+}
+.icon-credits{
+  font-size:8px;
+  color: #4D4A5E !important;
+  text-decoration: none !important;
 }
 
-/* Desktop/ipad media rule */
+
+
+
+
+/* =========================== */
+/* Desktop/ipad media rules */
 /* =========================== */
 
 @media screen and (min-width:768px){
@@ -129,6 +181,25 @@
     padding: 70px 0px 70px 0px;
     background-color: #F2EEE9;
   }
+      /* Responsive Description Buttons */
+  .responsive-button1{
+    position: relative;
+    top: 48px;
+    color: white !important;
+    text-decoration: none !important;
+  }
+  .responsive-button2{
+    position: relative;
+    top: 75px;
+    color: white !important;
+    text-decoration: none !important;
+  }
+  .responsive-button3{
+    position: relative;
+    top: 102px;
+    color: white !important;
+    text-decoration: none !important;
+  }
       /* Wrapper 2 */
   .landing-section-wrapper2{
     padding: 70px 0px 70px 0px;
@@ -139,6 +210,11 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 70%;
+  }
+      /* Wrapper 3 */
+  .wrapper3-laptop-image{
+    width: 55%;
+    min-width: 400px;
   }
       /* Responsive Inline Blocks */
   .responsive-group{
@@ -165,17 +241,5 @@
     padding: 0px 30px 0px 30px;
     vertical-align:middle;
   }
-      /* Responsive Description Buttons */
-  .responsive-button1{
-    position: relative;
-    top: 100px;
-  }
-  .responsive-button2{
-    position: relative;
-    top: 47px;
-  }
-  .responsive-button3{
-    position: relative;
-    top: 128px;
-  }
+      
 }
