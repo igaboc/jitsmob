@@ -29,6 +29,10 @@ h4.card-title:hover {
   color: #4D4A5E;
 }
 
+.iframe-player {
+  min-height: 50vh;
+}
+
 @media (min-width: 768px) {
   .card {
     width: 30%;

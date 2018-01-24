@@ -1,4 +1,5 @@
 import React from 'react'
+import './Content2.css'
 
 function Content({
   title,
@@ -24,20 +25,19 @@ function Content({
     modest
 
   return (
-    <div>
-      <h2>{title}</h2>
-
-      <div>Date added placeholder</div>
-      <div>{youtubeURL}</div>
-
-      <h2>{category}</h2>
-      <h2>{bodyPart}</h2>
-      <div>{description}</div>
-
-      <div className="container">
-        <iframe title="MMA" className="player" type="text/html" width="100%" height="100%" src={videoSrc} frameBorder="0" />
+      <div className="row">
+        <div className="col-12 text-center mb-0">
+          <iframe title="MMA" className="w-75 iframe-player" type="text/html" src={videoSrc} frameBorder="0" />
+        </div>
+        <div className="col-12 mt-0">
+          <div className="w-75 mx-auto background-purple mt-0">
+            <h2 className="text-white">{title}</h2>
+            <p>{category}, {bodyPart}</p>
+            <p><strong>Description:</strong>{description}</p>
+          </div>
+        </div>
       </div>
-    </div>
+
   )
 }
 

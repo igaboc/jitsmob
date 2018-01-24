@@ -39,7 +39,8 @@ class App extends Component {
       currentPage: 1,
       contentPerPage: 9,
       // State for my (logged in users') workouts
-      myWorkout: null
+      myWorkout: null,
+      selectedContent: null,
     };
     this.handleClick = this.handleClick.bind(this)
   }
@@ -215,18 +216,25 @@ class App extends Component {
 
   //Event handler for adding contents to users workouts
 
-  removeFromWorkout = (id) => {
+  removefromWorkout = (id) => {
+    console.log('Im in app.js', id)
     removeFromWorkout(id)
       .then((myWorkout) => {
-        this.setState({ myWorkout })
+        this.load()
       })
       .catch((error) => {
         this.setState({ error })
       })
   }
 
+  onSelectedContent = (id) => {
+    
+    this.setState({ selectedContent: id })
+    console.log('selected to play:', id)
+  }
+
   render() {
-    const { userworkout, showMenu, showSubscribeBox, decodedToken, userDecodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
+    const { selectedContent, userworkout, showMenu, showSubscribeBox, decodedToken, userDecodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
     const adminSignedIn = !!decodedToken
     const userSignedIn = !!userDecodedToken
     
@@ -303,7 +311,9 @@ class App extends Component {
                   <MyWorkout 
                     userworkout= {userworkout}
                     contents= {contents} 
-                    removetoApp={this.removefromWorkout}
+                    removeFromMyWorkout ={this.removefromWorkout}
+                    selectedExercise={this.onSelectedContent}
+                    selectedContent= { selectedContent } 
                   />
                 ) : (
                   <SignInForm

@@ -1,23 +1,46 @@
 import React from "react";
 import './MyWorkout.css';
 import NextUp from './NextUp'
+import Content from'./Content'
 
 function MyWorkout({
+  removeFromMyWorkout,
   userworkout,
   contents,
   onRemoveContentFromMyWorkout,
-  removetoApp,
+  selectedExercise,
+  selectedContent
 }) { 
+
+
+
   return (
     <div className='mb-3'>
-      <h2>MY WORKOUT</h2>
+      <div className="row">
 
-      <h2>Next Up</h2>
+        <div className="col-12 text-center">
+          <h2>MY WORKOUTS</h2>
+        </div>
+      </div>
+        { selectedContent ? (
+          <Content 
+            {...selectedContent}
+          />
+        ) : (
+          <h1>Choose a video to play</h1>
+        ) 
+        }
+      
       <NextUp 
-        workoutsMinusSelected={userworkout}
-        removeFromMyWorkout={ (id) => {
-          removeToApp(id)
-        } }
+      userworkout={ userworkout }
+
+        removeFromMyWorkout= {(id) => {
+          removeFromMyWorkout(id)
+        }}
+        selectedExercise= {(id) => {
+          selectedExercise(id)
+        }}
+        selectedContent={selectedContent}
       />
     </div>
   )
