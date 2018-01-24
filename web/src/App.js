@@ -288,7 +288,7 @@ class App extends Component {
                   <h1>Hello Word</h1>
                 ) : (
                   <SignInForm
-                  userworkout={this.onUserSignIn}
+                  onUserSignIn={this.onUserSignIn}
                   onSignIn={this.onSignIn}
                   admin={ false }
                 />
@@ -317,6 +317,7 @@ class App extends Component {
                       onHandleClick={this.handleClick}
                       userworkout={ userworkout && userworkout}
                       onWishListAdd={this.onWishListAdd}
+                      userSignedIn={ userSignedIn }
                     />
                   }
                 </Fragment>
