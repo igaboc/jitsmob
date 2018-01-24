@@ -38,14 +38,14 @@ class App extends Component {
 
   //Event handlers for signing in and out
   onSignIn = ({ email, password }) => {
-    alert("Signing into admin dashboard")
     signIn({ email, password })
-      .then((decodedToken) => {
-        this.setState({ decodedToken })
-        console.log('Decoded token: ', decodedToken)
-      })
-      .catch((error) => {
-        this.setState({ error })
+    .then((decodedToken) => {
+      this.setState({ decodedToken })
+      console.log('Decoded token: ', decodedToken)
+    })
+    .catch((error) => {
+      this.setState({ error })
+      alert(error)
       })
   }
 
