@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import SignInForm from './components/SignInForm'
+import SignUpForm from './components/SignUpForm'
 import Dashboard from './components/Dashboard'
 import LandingPage from './components/LandingPage';
 import SubscribePopUp from './components/SubscribePopUp';
@@ -11,7 +12,7 @@ import MyWorkout from './components/MyWorkout'
 import ShowPage from './components/ShowPage'
 import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.css';
-import { signIn, signOutNow, userSignIn } from './api/auth'
+import { signIn, signOutNow, userSignIn, userSignUp } from './api/auth'
 import { getDecodedToken } from './api/token'
 import { listContents, addContents, updateContent, deleteContent } from './api/contents'
 import { createSubscriber } from './api/subscribers'
@@ -58,11 +59,13 @@ class App extends Component {
   }
 
   onSignOut = (key) => {
-    console.log(key)
+    
     signOutNow(key)
     this.setState({
       decodedToken: null,
-      userDecodedToken: null
+      userDecodedToken: null,
+      myWorkout: null,
+      selectedContent: null
     })
   }
 
@@ -78,6 +81,18 @@ class App extends Component {
       })
   }
 
+  onSignUp = ({ email, password, firstName, lastName }) => {
+    userSignUp({ email, password, firstName, lastName })
+      .then((userDecodedToken) => {
+        this.setState({ userDecodedToken })
+        alert('Thankyou for Signing Up')
+      })
+
+      .catch((error) => {
+        this.setState({ error })
+        alert(error)
+      })
+  }
 
   // Event handler for menu toggle
   onMenuToggle = () => {
@@ -272,7 +287,6 @@ class App extends Component {
           <Fragment>
             <Switch>
               <Route path='/admin' />
-              <Route path='/signup' />
               <Route render={() => (
                 <PrimaryNav
                   menuClassWidth={showMenu ? 'w-100' : 'null'}
@@ -292,7 +306,6 @@ class App extends Component {
                   onClickMobilityVideos={(filterWord) => { this.onCatFilterEvent('Mobility') }}
                   onClickStrengthVideos={(filterWord) => { this.onCatFilterEvent('Strength') }}
                   onClickInjuryPreventionVideos={(filterWord) => {
-                    console.log('clicked')
                     this.onCatFilterEvent('Injury Prevention')
                   }}
                 />
@@ -339,6 +352,13 @@ class App extends Component {
                 )
                 
               )} />
+              <Route path='/signup' exact render={() => (
+                userSignedIn ? (<Redirect to="/" />
+                ) : <SignUpForm 
+                  onSignUp={this.onSignUp}
+                />
+              ) }
+              />
               <Route path='/myworkout' render={() => (
                 userSignedIn ? (
                   <MyWorkout 
@@ -401,7 +421,7 @@ class App extends Component {
 
             <Switch>
               <Route path='/admin' />
-              <Route path='/signup' />
+              
               <Route render={() => (
                 <Footer
                   onClickSubscribe={this.onSubscribeToggle}

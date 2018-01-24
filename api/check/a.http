@@ -70,7 +70,7 @@ POST http://localhost:7000/authUser/register
 Content-Type: application/json
 
 {
-  "email": "second@testuser.com",
+  "email": "fourth@testuser.com",
   "firstName": "TestUserFN",
   "lastName": "TestUserLN",
   "password": "password123"
@@ -96,11 +96,11 @@ Content-Type: application/json
 
 ### Read users' workout
 GET http://localhost:7000/userworkout
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjY2OTY3MiwiZXhwIjoxNTE3Mjc0NDcyLCJzdWIiOiI1YTY2OGFlNzhjZjg4NDQ1YTA5MzcxMDgifQ.d2ZnauNZgnf_R4ZX94iYoTKj81Cr1LoQovC9TkN0B34
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoaXJkQHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjc5NTY2NywiZXhwIjoxNTE3NDAwNDY3LCJzdWIiOiI1YTY4NzcxMmE5NGU3ZjRkY2NlNGZmNGQifQ.5Hwm6rzLzsD_zr5nqyQYKUpkxFrGjzlvShiJ3GZG_So
 
 ### Add to userworkout
 POST http://localhost:7000/userworkout/contents/5a6687b4ba9ac1487c2bf163
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpcnN0QHRlc3R1c2VyLmNvbSIsImlhdCI6MTUxNjY5MzQ1NiwiZXhwIjoxNTE3Mjk4MjU2LCJzdWIiOiI1YTY2OGFlNzhjZjg4NDQ1YTA5MzcxMDgifQ.QYwJVe0Y4SzNFR4eBsQcRUCVLn-ycuKFyEAtXA_vXU4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZvdXJ0aEB0ZXN0dXNlci5jb20iLCJpYXQiOjE1MTY3OTU3MTYsImV4cCI6MTUxNzQwMDUxNiwic3ViIjoiNWE2ODc3NDRhOTRlN2Y0ZGNjZTRmZjRlIn0.N328XVFw6yBAuJxl5oV6XaYmW8840h6MEdM5OnoooDY
 
 ### Remove from userworkout
 DELETE http://localhost:7000/userworkout/contents/5a6687b4ba9ac1487c2bf163

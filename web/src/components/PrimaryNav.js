@@ -44,7 +44,7 @@ function PrimaryNav({
             ) : (
             <Fragment>
               <Link to="/signin" className="navlink mx-4 pt-3 pb-2" >Sign In</Link>
-              <span className="navlink mx-4 pt-3 pb-2" >Sign Up</span>
+              <NavLink to="/signup" activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" >Sign Up</NavLink>
             </Fragment>
           )}
           <a activeClassName="active-navlink" className="navlink mx-4 pt-3 pb-2" exact href="mailto:jitsmob@jitsmob.com">Contact</a>
