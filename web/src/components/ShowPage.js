@@ -36,6 +36,7 @@ function ShowPage({
     }
   }
 
+
   return (
     <div class="show_page_div">
       <Fragment>
@@ -60,7 +61,7 @@ function ShowPage({
         }
         {
         <div className="share_on_facebook_div">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank" rel="noopener noreferrer" className="share_on_facebook_link">
+          <a href={`https://www.facebook.com/sharer/sharer.php?u=http://jitsmob.netlify.com/showpage/${x._id}`} target="_blank" rel="noopener noreferrer" className="share_on_facebook_link">
             <button className="share_on_facebook_button">
               <img src={ facebookLogo } alt="Share on Facebook" className="facebook_logo"></img>
               <span className="share_on_facebook_words">Share</span>  

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import purpleLogo from '../../images/purplelogo.svg';
 import './DashboardMenu.css';
 import { NavLink } from 'react-router-dom'
@@ -10,13 +10,13 @@ function DashboardMenu({
 }) {
   return (
     <Fragment>
-      <div className=" background-purple text-center pt-4 row">
+      <div className="background-purple text-center pt-4 row">
         <h3 className="col-s-6 col-md-12 white-heading">Admin Dashboard</h3>
       </div>
       <div className="row py-4 background-purple text-center background-purple side-menu">
         <div className="">
           <div className="overflow text-center mb-4">
-            <img className="logo col-s-6 col-md-12 w-75" src={ purpleLogo } alt=""/>
+            <img className="logo col-s-6 col-md-12 w-75" src={purpleLogo} alt="" />
           </div>
           <div className="col-6 col-md-12 p-0 mb-2">
             <NavLink exact to="/admin" className="sidemenu-button" activeClassName="admin-active" >
@@ -39,12 +39,12 @@ function DashboardMenu({
             </NavLink>
           </div>
           <div className="col-6 col-md-12 p-0 mb-2">
-            <span onClick={ (event) => { signOut() } } className="sidemenu-button">
+            <span onClick={(event) => { signOut() }} className="sidemenu-button">
               Logout
             </span>
           </div>
         </div>
-        
+
       </div>
     </Fragment>
   )
