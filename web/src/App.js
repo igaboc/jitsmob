@@ -22,6 +22,7 @@ class App extends Component {
       showMenu: false,
       showFilter: true,
       showSubscribeBox: false,
+      showNav: true,
       error: null,
       decodedToken: getDecodedToken(), // Restore the previous signed in data
       contents: null,
@@ -188,13 +189,18 @@ class App extends Component {
     console.log('this worked')
   }
 
+  // Show Top and Bottom Navbars
+  onNavToggle = () => {
+    const showNav = this.state.showNav
+    this.setState({ showNav: !showNav })
+  }
 
   // const { showSubscribeBox } = this.state
   // this.setState({ showSubscribeBox: !showSubscribeBox })
 
 
   render() {
-    const { showMenu, showSubscribeBox, decodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
+    const { showMenu, showNav, showSubscribeBox, decodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
     const adminSignedIn = !!decodedToken
 
     return (
@@ -203,6 +209,7 @@ class App extends Component {
         <Router>
           <Fragment>
             <PrimaryNav
+
               menuClassWidth={showMenu ? 'w-100' : 'null'}
               onMenuClick={this.onMenuToggle}
               onClickSubscribe={this.onSubscribeToggle}
@@ -239,6 +246,7 @@ class App extends Component {
                       onEditSave={
                         this.onUpdateEditedContent
                       }
+                      onEnterPage={this.showNav}
                     />
 
                   </Fragment>

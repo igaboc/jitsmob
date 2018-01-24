@@ -19,7 +19,8 @@ function Dashboard({
   contents,
   onEditToApp,
   editedContentID,
-  onEditSave
+  onEditSave,
+  onEnterPage
 }) {
   return (
     <div className="row main-background">
