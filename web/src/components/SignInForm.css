@@ -1,11 +1,38 @@
+/* Background colours */
 .background-grey {
   background-color: #727D7E;
 }
-
 .background-white{
   background-color: #ffffff;
 }
-
 .background-purple{
   background-color: #4D4A5E;
+}
+
+/* Text and spacing */
+.spacing{
+  padding: 60px 0px 60px 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login-type{
+  color: #E4BD5D;
+  font-family: 'Fjalla One', sans-serif;
+}
+.inner-forms{
+  padding: 20px;
+}
+.back-arrow-formatting{
+  position: relative;
+  color: #E4BD5D;
+  font-size:70px;
+  top: -360px;
+  right: 90px;
+  margin: auto;
+}
+.back-arrow-formatting:hover{
+  color:#4D4A5E;
+  cursor: pointer;
+  margin: auto;
+  text-decoration: none !important;
 }

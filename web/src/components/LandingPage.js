@@ -48,17 +48,17 @@ function LandingPage({
                 <br />
               </div>
               <div className='responsive-row-description wrapper1-text-spacing'>
-                <img className='strength-image' src={Strength} alt="Strength Icon" />
-                <h3 className='landing-page-para'>Improve Strength</h3>
-                <p>Increased range of motion can generate power and promote efficiency of functional movements through improved position and posture.</p>
-                <Link to='/exercises' className='responsive-button2 btn-purple watch-videos' onClick={(event) => { onClickStrengthVideos() }}>Watch Strength Videos Now</Link>
-                <br />
-              </div>
-              <div className='responsive-row-description wrapper1-text-spacing'>
                 <img className='injury-prevention-image' src={InjuryPrevention} alt="Injury Prevention Icon" />
                 <h3 className='landing-page-para'>Injury Prevention</h3>
                 <p>Recovery is increased through the natural release of hyaluronic acid while simultaneously resetting the central nervous system.</p>
                 <span> <Link to='/exercises' className='responsive-button3 btn-purple watch-videos' onClick={(event) => { onClickInjuryPreventionVideos() }}>Watch Injury Prevention Videos Now</Link></span>
+                <br />
+              </div>
+              <div className='responsive-row-description wrapper1-text-spacing'>
+                <img className='strength-image' src={Strength} alt="Strength Icon" />
+                <h3 className='landing-page-para'>Improve Strength</h3>
+                <p>Increased range of motion can generate power and promote efficiency of functional movements through improved position and posture.</p>
+                <Link to='/exercises' className='responsive-button2 btn-purple watch-videos' onClick={(event) => { onClickStrengthVideos() }}>Watch Strength Videos Now</Link>
                 <br />
               </div>
               <br />

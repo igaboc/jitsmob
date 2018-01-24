@@ -20,7 +20,11 @@ function Dashboard({
   onEditToApp,
   editedContentID,
   onEditSave,
+<<<<<<< HEAD
   onDeleteContent
+=======
+  onEnterPage
+>>>>>>> css-admin
 }) {
   return (
     <div className="row main-background">

@@ -214,7 +214,6 @@ class App extends Component {
     console.log('this worked')
   }
 
-
   // const { showSubscribeBox } = this.state
   // this.setState({ showSubscribeBox: !showSubscribeBox })
 
@@ -228,11 +227,17 @@ class App extends Component {
 
         <Router>
           <Fragment>
-            <PrimaryNav
-              menuClassWidth={showMenu ? 'w-100' : 'null'}
-              onMenuClick={this.onMenuToggle}
-              onClickSubscribe={this.onSubscribeToggle}
-            />
+            <Switch>
+              <Route path='/admin' />
+              <Route path='/signup' />
+              <Route render={() => (
+                <PrimaryNav
+                  menuClassWidth={showMenu ? 'w-100' : 'null'}
+                  onMenuClick={this.onMenuToggle}
+                  onClickSubscribe={this.onSubscribeToggle}
+                />
+              )} />
+            </Switch>
             <Switch>
               <Route path='/' exact render={() => (
                 <LandingPage
@@ -320,16 +325,26 @@ class App extends Component {
               )} />
 
             </Switch>
+
+            <Switch>
+              <Route path='/admin' />
+              <Route path='/signup' />
+              <Route render={() => (
+                <Footer
+                  onClickSubscribe={this.onSubscribeToggle}
+                />
+              )} />
+            </Switch>
+
           </Fragment>
+
         </Router>
         <SubscribePopUp
           popupClassWidth={showSubscribeBox ? ('w-100') : null}
           onClickSubscribe={this.onSubscribeToggle}
           onSubmitEmail={this.onCreateSubscriber}
         />
-        <Footer
-          onClickSubscribe={this.onSubscribeToggle}
-        />
+
       </div>
     );
   }

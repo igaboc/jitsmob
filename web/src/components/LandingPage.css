@@ -102,6 +102,20 @@
   height: 100px;
   width: 100px;
 }
+    /* Responsive Inline Blocks */
+.responsive-button1{
+  color: white !important;
+  text-decoration: none !important;
+}
+.responsive-button2{
+  color: white !important;
+  text-decoration: none !important;
+}
+.responsive-button3{
+  color: white !important;
+  text-decoration: none !important;
+}
+
     /* Wrapper 2 */
 .landing-section-wrapper2{
   padding: 70px 0px 70px 0px;
@@ -129,19 +143,7 @@
   text-decoration: none !important;
 }
 
-/* Responsive Inline Blocks */
-.responsive-button1{
-  color: white !important;
-  text-decoration: none !important;
-}
-.responsive-button2{
-  color: white !important;
-  text-decoration: none !important;
-}
-.responsive-button3{
-  color: white !important;
-  text-decoration: none !important;
-}
+
 
 
 
@@ -178,6 +180,25 @@
   .landing-section-wrapper1{
     padding: 70px 0px 70px 0px;
     background-color: #F2EEE9;
+  }
+      /* Responsive Description Buttons */
+  .responsive-button1{
+    position: relative;
+    top: 48px;
+    color: white !important;
+    text-decoration: none !important;
+  }
+  .responsive-button2{
+    position: relative;
+    top: 75px;
+    color: white !important;
+    text-decoration: none !important;
+  }
+  .responsive-button3{
+    position: relative;
+    top: 102px;
+    color: white !important;
+    text-decoration: none !important;
   }
       /* Wrapper 2 */
   .landing-section-wrapper2{
@@ -220,23 +241,5 @@
     padding: 0px 30px 0px 30px;
     vertical-align:middle;
   }
-      /* Responsive Description Buttons */
-  .responsive-button1{
-    position: relative;
-    top: 48px;
-    color: white !important;
-    text-decoration: none !important;
-  }
-  .responsive-button2{
-    position: relative;
-    top: 75px;
-    color: white !important;
-    text-decoration: none !important;
-  }
-  .responsive-button3{
-    position: relative;
-    top: 102px;
-    color: white !important;
-    text-decoration: none !important;
-  }
+      
 }
