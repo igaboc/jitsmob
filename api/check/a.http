@@ -24,14 +24,16 @@ Content-Type: application/json
 }
 ### Create Content
 POST http://localhost:7000/contents
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVlZTFAbWFpbC5jb20iLCJpYXQiOjE1MTY3NDkxNDksImV4cCI6MTUxNzM1Mzk0OSwic3ViIjoiNWE2Njk5ODA4YjE2ODU0ODQwMzkxZmE1In0.gke7gLBbWsAs4Sifo2thzw54Ir1Pq0jOPJfxuB47fqk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVlZTFAbWFpbC5jb20iLCJpYXQiOjE1MTY3NTAyMTMsImV4cCI6MTUxNzM1NTAxMywic3ViIjoiNWE2Njk5ODA4YjE2ODU0ODQwMzkxZmE1In0.Tk9T4-qRc0Hx1o9_UF30K2xlSGKFdW-tWyMkR8U7pRk
+Content-Type: application/json
 
 {
-  "title": "testTitle",
-  "subtitle": "testSubtitle",
-  "youtubeURL": "pornhub.com",
-  "description": "navy top secret questions" 
-}
+    "title": "BJJ Injury Prevention Mobility & Body Maintenance",
+    "category": "Injury Prevention",
+    "bodyPart": "Legs",
+    "youtubeURL": "https://www.youtube.com/watch?v=JxdMj7ZeFTY",
+    "description": "Common postural issues & problem areas in BJJ/MMA. At JitsMob we want you to understand what to look for when it comes to your body maintenance and how to fix certain issues that may be increasing your chance of injuries on the mats. The aim should be to stay safe and injury free every time you step on the mat. This is going to let you optimize your learning time on the mats in the long run. Oss"
+  }
 
 ### Update Content
 

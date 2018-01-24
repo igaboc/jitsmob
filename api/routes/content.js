@@ -29,7 +29,7 @@ router.get('/contents/:id', (req, res) => {
 })
 
 // Create
-router.post('/contents', authMiddleware.requireJWT, (req, res) => {
+router.post('/contents', (req, res, next) => { console.log('before! jwt check'); next() }, authMiddleware.requireJWT, (req, res, next) => { console.log('after jwt check'); next() }, (req, res) => {
   Content.create(req.body)
     .then((content) => {
       res.status(201).json(content)

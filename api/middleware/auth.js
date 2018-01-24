@@ -32,7 +32,7 @@ function register(req, res, next) {
   })
 }
 
-passport.use(new PassportJwt.Strategy(
+passport.use('admin-jwt', new PassportJwt.Strategy(
   // Options
   {
     // Where will the JWT be passed in the HTTP request?
@@ -45,6 +45,7 @@ passport.use(new PassportJwt.Strategy(
   },
   // When we have a verified token
   (payload, done) => {
+    console.log(payload)
     // Find the real user from our database using the `id` in the JWT
     Admin.findById(payload.sub)
       .then((admin) => {
@@ -90,6 +91,6 @@ module.exports = {
   initialize: passport.initialize(),
   register,
   signIn: passport.authenticate('admin-local', { session: false }),
-  requireJWT: passport.authenticate('jwt', { session: false }),
+  requireJWT: passport.authenticate('admin-jwt', { session: false }),
   signJWTForAdmin
 }

@@ -7,6 +7,10 @@ const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL
 })
 
+export function viewBearer() {
+  console.log(api.defaults.headers.common['Authorization'])
+}
+
 export function setToken(token, key) {
   rememberToken(token, key)
 
@@ -20,6 +24,6 @@ export function setToken(token, key) {
 }
 
 // Validates the token, and if it’s invalid, remove from local storage
-setToken(getValidToken())
+setToken(getValidToken('userToken'))
 
 export default api

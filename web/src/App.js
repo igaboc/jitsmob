@@ -17,6 +17,7 @@ import { getDecodedToken } from './api/token'
 import { listContents, addContents, updateContent, deleteContent } from './api/contents'
 import { createSubscriber } from './api/subscribers'
 import { listWorkout, addToWorkout, removeFromWorkout } from './api/userworkout'
+import { viewBearer } from'./api/init'
 
 class App extends Component {
   constructor() {
@@ -212,7 +213,9 @@ class App extends Component {
     const { userworkout, showMenu, showSubscribeBox, decodedToken, userDecodedToken, contents, catFilter, bodyFilter, showFilter, editedContentID, currentPage, contentPerPage } = this.state
     const adminSignedIn = !!decodedToken
     const userSignedIn = !!userDecodedToken
+    console.log('user token', userDecodedToken)
     console.log('my workout', userworkout)
+    viewBearer()
     return (
       <div className="App">
 
