@@ -74,6 +74,7 @@ class App extends Component {
       })
       .catch((error) => {
         this.setState({ error })
+        alert(error)
       })
   }
 
@@ -277,6 +278,10 @@ class App extends Component {
                   menuClassWidth={showMenu ? 'w-100' : 'null'}
                   onMenuClick={this.onMenuToggle}
                   onClickSubscribe={this.onSubscribeToggle}
+                  userSignIn={userSignedIn}
+                  onSignOut={() => {
+                    this.onSignOut('userToken')
+                  }}
                 />
               )} />
             </Switch>

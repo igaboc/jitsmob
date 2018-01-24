@@ -91,7 +91,7 @@ Content-Type: application/json
 
 {
   "password": "password123",
-  "email": "first@testuser.com"
+  "email": "second@testuser.com"
 }
 
 ### Read users' workout
