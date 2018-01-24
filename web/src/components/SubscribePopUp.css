@@ -12,11 +12,16 @@
   z-index: 2;
   color: #ffffff;
 }
-
 .popup-text{
   margin: 10px 0px 0px 0px;
 }
-
+.subscribe-text-head{
+  font-family: 'Fjalla One', sans-serif;
+  color:#e4bd5d;
+}
+.subscribe-text-body{
+  font-family: 'Roboto', serif;
+}
 .exit-cursor{
   position: relative;
   height: 50px;
@@ -25,6 +30,7 @@
   left: 340px;
   font-size: 20px;
   cursor: pointer;
+  color:red;
 }
 
 .exit-cursor:hover{
