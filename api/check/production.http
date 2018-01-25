@@ -1,4 +1,4 @@
-@host = https://jitsmob-api-dwbvwvaflb.now.sh
+@host = https://jitsmob-api-ffzpnqjwrw.now.sh
 
 ###
 GET {{host}}/contents
@@ -8,10 +8,10 @@ POST {{host}}/auth/register
 Content-Type: application/json
 
 {
-  "email": "ccc@mail.com",
+  "email": "daniel@abc.com",
   "firstName": "TestFN",
   "lastName": "TestFN",
-  "password": "password123"
+  "password": "aaaaaa"
 }
 ### Sign in
 POST {{host}}/auth
@@ -23,16 +23,16 @@ Content-Type: application/json
 }
 ### Create Content
 POST {{host}}/contents
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFhYUBtYWlsLmNvbSIsImlhdCI6MTUxNjY3MDY4OSwiZXhwIjoxNTE3Mjc1NDg5LCJzdWIiOiI1YTY2OGVlMGViMzViYTAwOWNlNTdlNTcifQ.0u1f5D3xmJHO4ODwWrZn1vSqGfQrTyMrunPVirskwLQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNjY0BtYWlsLmNvbSIsImlhdCI6MTUxNjc5OTM4MSwiZXhwIjoxNTE3NDA0MTgxLCJzdWIiOiI1YTY2OGY5YWViMzViYTAwOWNlNTdlNWIifQ.taNTWJuaZ9oa8KeiDj5GD9YnXlxh9Cw3hHwty8vjpbw
 Content-Type: application/json
 
 {
-  "title": "HIPS - Part 3B - HAMSTRINGS (BJJ/MMA INJURY PREVENTION)",
-  "category": "Strength",  
-  "bodyPart": "Legs",
-  "youtubeURL": "https://www.youtube.com/watch?v=tAt-A8d4AM4",
-  "description": "Here is part 3B of this new series aimed at keeping you injury free, more mobile, more flexible and all round moving better."
-}
+    "title": "BJJ / MMA INJURY PREVENTION SERIES",
+    "category": "Strength",
+    "bodyPart": "Spine",
+    "youtubeURL": "https://www.youtube.com/watch?v=oSzW_Dv3kS8",
+    "description": "ALL ABOUT INJURY PREVENTION, BODY MAINTENANCE, MOBILITY & FLEXIBILITY SPECIFICALLY FOR BRAZILIAN JIU-JITSU & MMA. "
+  }
 
 ### Update Content
 
@@ -45,8 +45,8 @@ Content-Type: application/json
 }
 
 ### Delete Content
-DELETE {{host}}/contents/5a6556f2c275d1006b4c083d
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJiYkBtYWlsLmNvbSIsImlhdCI6MTUxNjU5MjI0NCwiZXhwIjoxNTE3MTk3MDQ0LCJzdWIiOiI1YTU4MDk4YTM3Njk2ZjAwOWY3ZTc0MWQifQ.9_65yTabAVAFCAguv2MTEBG38ypEe2qYAV8_xqSsLSc
+DELETE {{host}}/contents/5a668efdeb35ba009ce57e58
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNjY0BtYWlsLmNvbSIsImlhdCI6MTUxNjc5OTM4MSwiZXhwIjoxNTE3NDA0MTgxLCJzdWIiOiI1YTY2OGY5YWViMzViYTAwOWNlNTdlNWIifQ.taNTWJuaZ9oa8KeiDj5GD9YnXlxh9Cw3hHwty8vjpbw
 
 
 ### Create New User
